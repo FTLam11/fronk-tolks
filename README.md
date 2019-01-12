@@ -10,3 +10,11 @@ These series of talks may contain coarse or crude language. This program
 is specifically designed to be viewed by adults, and therefore may be
 unsuitable for children under 17.
 
+## Whom does testing involve?
+
+Potentially anyone but the user! Users gives precisely zero
+fucks. Why would a user care about how well tested the application is?
+
+> As a user of an application, I care that things work like they are
+> supposed to.
+
