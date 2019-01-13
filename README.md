@@ -51,3 +51,22 @@ We **DO NOT** test for the sake of testing.
 * Document behavior of our code base
 * Validate application works as intended for users
 * Author easy to use and maintainable public API
+
+## Test driven design
+
+Design is hard. Write an application with shit design/no design and
+eventually the cancer will become too widespread and we will no longer
+be able to endure the foul smells.
+
+> The code smells have become 2 dank.
+
+* List some real foul code smells here
+
+Similarly, write shit tests and feel double the pain. Yum, diarrhea.
+There are different kinds of tests, and different philosophies for how
+to go about it.
+
+* Why did this test start failing?
+* What the fuck does this example test?
+* SWEET OUR TEST SUITE TAKES 30 MINUTES TO RUN, TIME TO WATCH SOME TV
+* How did it turn out like this?
