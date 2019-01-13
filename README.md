@@ -32,3 +32,22 @@ with as less resources. In an ideal world, we could ignore tests
 by writing perfect code. This is impossible! If it was possible
 we'd all be living off the phat of the land.
 
+## Why should we test?
+
+We **DO NOT** test for the sake of testing.
+
+> I get paid for code that works, not for tests...
+[Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
+
+### Confidence
+
+* Verify application conforms to specifications
+  [MITRE Systems Engineeing](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
+* Safeguard usage of third-party functionality
+* Safely change and refactor
+
+### Understanding
+
+* Document behavior of our code base
+* Validate application works as intended for users
+* Author easy to use and maintainable public API
