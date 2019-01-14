@@ -32,6 +32,22 @@ with as less resources. In an ideal world, we could ignore tests
 by writing perfect code. This is impossible! If it was possible
 we'd all be living off the phat of the land.
 
+> To err is human...
+[Alexander Pope](https://www.dictionary.com/browse/to-err-is-human--to-forgive-divine)
+
+## In the wild
+
+> How can I write less code? I'll skip tests! EZ MONEY.
+
+In the real world, we have limited time and energy. When we find ourselves in
+a pinch, the first thing we skip out on are tests. We absolutely cannot
+spend time writing code that will not ship! Wait...
+
+> I have a plan.
+> ALL WE HAVE TO DO IS WRITE MORE CODE!!!11111
+> Are you crazy?
+> Maybe.
+
 ## Why should we test?
 
 We **DO NOT** test for the sake of testing.
