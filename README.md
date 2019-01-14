@@ -6,6 +6,8 @@ Disclaimer: This talk is aimed towards the development of web/mobile
 applications used by external users. Thus, testing of frameworks and
 libraries is not a concern for these talks.
 
+![Rated Mature](https://vignette.wikia.nocookie.net/logopedia/images/c/cf/TV-MA_1997.jpg/revision/latest?cb=20130727022342)
+
 These series of talks may contain coarse or crude language. This program
 is specifically designed to be viewed by adults, and therefore may be
 unsuitable for children under 17.
@@ -15,10 +17,14 @@ unsuitable for children under 17.
 Potentially anyone but the user! Users gives precisely zero
 fucks. Why would a user care about how well tested the application is?
 
+![DON'T CARE](https://thumbs.gfycat.com/EdibleKaleidoscopicAsiaticlesserfreshwaterclam-size_restricted.gif)
+
 > As a user of an application, I care that things work like they are
 > supposed to.
 
 ## Elephant in the room
+
+![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
 
 1. As a software agency, we help customers solve their business
    problems. Our customers compensate us with money.
@@ -86,6 +92,8 @@ be able to endure the foul smells.
 
 > The code smells have become 2 dank.
 
+![Dead hamster smells](https://thumbs.gfycat.com/HandyDamagedEchidna-size_restricted.gif)
+
 * There is duplicated code all over the place
 * Classes and/or methods have become too long
 * No distinction between public and private methods
@@ -105,3 +113,5 @@ to go about it.
 * What the fuck does this example test?
 * SWEET OUR TEST SUITE TAKES 30 MINUTES TO RUN, TIME TO WATCH SOME TV
 * How did it turn out like this?
+
+![Cute keyboard cat](https://media.giphy.com/media/rld1hYOuC7QGs/giphy.gif)
