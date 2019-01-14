@@ -43,6 +43,16 @@ In the real world, we have limited time and energy. When we find ourselves in
 a pinch, the first thing we skip out on are tests. We absolutely cannot
 spend time writing code that will not ship! Wait...
 
+So we start shipping code with no tests. Things are progressing
+decently, there are various bugs here and there but things are more or
+less going according to plan. BUT THEN...
+
+Shit hits the fan, like:
+
+1. The customer wants to change some business behavior.
+2. We misunderstood the requirements.
+3. The customer wants to add a new feature.
+
 > I have a plan.
 > ALL WE HAVE TO DO IS WRITE MORE CODE!!!11111
 > Are you crazy?
