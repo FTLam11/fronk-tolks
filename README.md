@@ -92,7 +92,7 @@ be able to endure the foul smells.
 
 > The code smells have become 2 dank.
 
-![Dead hamster smells](https://thumbs.gfycat.com/HandyDamagedEchidna-size_restricted.gif)
+![The rock](https://media.giphy.com/media/TT7JW4Qm7uaNW/giphy.gif)
 
 * There is duplicated code all over the place
 * Classes and/or methods have become too long
