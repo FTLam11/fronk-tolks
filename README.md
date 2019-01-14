@@ -1,6 +1,6 @@
 # We talkin' bout ~~PRACTICE?~~ TESTING?
 
-[Allen Iverson](https://media.giphy.com/media/3oEjI105rmEC22CJFK/giphy.gif)
+![Allen Iverson Practice](https://media.giphy.com/media/3oEjI105rmEC22CJFK/giphy.gif)
 
 Disclaimer: This talk is aimed towards the development of web/mobile
 applications used by external users. Thus, testing of frameworks and
