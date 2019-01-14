@@ -86,7 +86,16 @@ be able to endure the foul smells.
 
 > The code smells have become 2 dank.
 
-* List some real foul code smells here
+* There is duplicated code all over the place
+* Classes and/or methods have become too long
+* No distinction between public and private methods
+* Poor naming of classes, methods, variables
+* The intent and usage is not obvious, impossible to reuse or extend
+* Shotgun surgery
+* Long and fragile method chains
+* Nil and null pop up unexpectedly
+* Comments become inaccurate
+* Deeply nested conditionals
 
 Similarly, write shit tests and feel double the pain. Yum, diarrhea.
 There are different kinds of tests, and different philosophies for how
