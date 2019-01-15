@@ -2,14 +2,14 @@
 
 ![Allen Iverson Practice](https://media.giphy.com/media/3oEjI105rmEC22CJFK/giphy.gif)
 
-Disclaimer: This talk is aimed towards the development of web/mobile
-applications used by external users. Thus, testing of frameworks and
-libraries is not a concern for these talks.
+Disclaimer: This talk concerns testing during the development of web/mobile
+applications for external users. Thus, frameworks/library testing, human factors,
+UX testing, etc... is out of scope.
 
-![Rated Mature](https://vignette.wikia.nocookie.net/logopedia/images/c/cf/TV-MA_1997.jpg/revision/latest?cb=20130727022342)
+![Rated Mature](https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0002/7231/brand.gif)
 
-These series of talks may contain coarse or crude language. This program
-is specifically designed to be viewed by adults, and therefore may be
+This talk may contain coarse language and crude humor. The
+intended audience is grown-ass adults and therefore content may be
 unsuitable for children under 17.
 
 ## Whom does testing involve?
@@ -22,7 +22,7 @@ fucks. Why would a user care about how well tested the application is?
 > As a user of an application, I care that things work like they are
 > supposed to.
 
-## Elephant in the room
+## What problems can testing help solve?
 
 ![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
 
@@ -33,27 +33,24 @@ fucks. Why would a user care about how well tested the application is?
 3. Business problems change. Thus, code must change. Change costs time
    and money. How quickly can we adapt and change our code?
 
-How does a business grow and develop? By delivering equal solutions
-with less resources. In an ideal world, we could ignore tests
-by writing perfect code. This is impossible! If it was possible
-we'd all be living off the phat of the land.
+In an ideal world, we would write perfect code and not care about
+testing. Unfortunately, there is no easy button.
 
-> To err is human...
-[Alexander Pope](https://www.dictionary.com/browse/to-err-is-human--to-forgive-divine)
+![Not so easy](http://granitegrok.com/wp-content/uploads/2013/05/not-so-easy-button.png)
 
 ## In the wild
 
 > How can I write less code? I'll skip tests! EZ MONEY.
 
 In the real world, we have limited time and energy. When we find ourselves in
-a pinch, the first thing we skip out on are tests. We absolutely cannot
-spend time writing code that will not ship! Wait...
+a pinch, the first thing we skip out on are tests. Why spend time
+writing tests when we can write more features?
 
 So we start shipping code with no tests. Things are progressing
 decently, there are various bugs here and there but things are more or
 less going according to plan. BUT THEN...
 
-Shit hits the fan, like:
+Shit hits the fan:
 
 1. The customer wants to change some business behavior.
 2. We misunderstood the requirements.
@@ -64,25 +61,51 @@ Shit hits the fan, like:
 > Are you crazy?
 > Maybe.
 
-## Why should we test?
+## To test or to not test?
 
 We **DO NOT** test for the sake of testing.
 
 > I get paid for code that works, not for tests...
 [Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
 
-### Confidence
+### Pros
 
-* Verify application conforms to specifications
-  [MITRE Systems Engineeing](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
-* Safeguard usage of third-party functionality
-* Safely change and refactor
+Tests can help us **understand our code better**, and allow us to
+**confidently change and refactor code**.
 
-### Understanding
+1. Gives us a quick feedback loop
 
-* Document behavior of our code base
-* Validate application works as intended for users
-* Author easy to use and maintainable public API
+> To err is human...
+[Alexander Pope](https://www.dictionary.com/browse/to-err-is-human--to-forgive-divine)
+
+2. Drive the design and foster cleaner architecture
+
+> If an object is very difficult to test, it will quickly become apparent
+> that the design may need to change.
+
+3. Define clear public interfaces
+
+> Confidently identify stable behavior
+
+4. Verify application conforms to specifications
+   [MITRE Systems Engineeing](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
+
+> Did we build the system right?
+
+> When shit goes down, we have proof of documentation
+
+5. Serve as a safety net to guard against breaking changes
+
+> Made a change, broke a test? Double check and fix.
+
+6. Automate complicated and long manual tests that validate application
+   works as intended for users
+
+> Did we build the right system?
+
+7. Aid in troubleshooting production issues
+
+> At times logging and dubugger might not suffice
 
 ## Test driven design
 
