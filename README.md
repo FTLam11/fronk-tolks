@@ -137,4 +137,8 @@ to go about it.
 * SWEET OUR TEST SUITE TAKES 30 MINUTES TO RUN, TIME TO WATCH SOME TV
 * How did it turn out like this?
 
+It's ok! Let's chill out and look at some cats.
+
 ![Cute keyboard cat](https://media.giphy.com/media/rld1hYOuC7QGs/giphy.gif)
+![Cat vs Shaq](https://media.giphy.com/media/nNxT5qXR02FOM/giphy.gif)
+![Cat face](https://media.giphy.com/media/Md4xQfuJeTtx6/giphy.gif)
