@@ -26,17 +26,27 @@ fucks. Why would a user care about how well tested the application is?
 
 ![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
 
-1. As a software agency, we help customers solve their business
-   problems. Our customers compensate us with money.
-2. We write code to solve business problems, BUT writing code costs
-   money and time. The more we write, the more money and time we spend.
-3. Business problems change. Thus, code must change. Change costs time
-   and money. How quickly can we adapt and change our code?
+* As a software agency, we help customers solve their business
+  problems. Our customers compensate us with money.
+* We write code to solve business problems, BUT writing code costs
+  money and time. The more we write, the more money and time we spend.
+* Business problems change. Thus, code must change. Change costs time
+  and money. How quickly can we adapt and change our code?
 
 In an ideal world, we would write perfect code and not care about
 testing. Unfortunately, there is no easy button.
 
 ![Not so easy](http://granitegrok.com/wp-content/uploads/2013/05/not-so-easy-button.png)
+
+There are some difficult questions to be answered!
+
+* How do we know when an issue is closed?
+* How do we know when a feature is complete?
+* How do we know when a project can be closed out?
+* How do we know we are building the system right?
+* How do we know we are building the right system?
+
+I think tests can be very helpful in answering these questions.
 
 ## In the wild
 
@@ -52,9 +62,9 @@ less going according to plan. BUT THEN...
 
 Shit hits the fan:
 
-1. The customer wants to change some business behavior.
-2. We misunderstood the requirements.
-3. The customer wants to add a new feature.
+* The customer wants to change some business behavior.
+* We misunderstood the requirements.
+* The customer wants to add a new feature.
 
 > I have a plan.
 > ALL WE HAVE TO DO IS WRITE MORE CODE!!!11111
