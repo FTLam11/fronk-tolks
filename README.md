@@ -33,8 +33,8 @@ fucks. Why would a user care about how well tested the application is?
 3. Business problems change. Thus, code must change. Change costs time
    and money. How quickly can we adapt and change our code?
 
-How does a business grow and develop? By delivering solutions
-with as less resources. In an ideal world, we could ignore tests
+How does a business grow and develop? By delivering equal solutions
+with less resources. In an ideal world, we could ignore tests
 by writing perfect code. This is impossible! If it was possible
 we'd all be living off the phat of the land.
 
