@@ -73,7 +73,7 @@ We **DO NOT** test for the sake of testing.
 Tests can help us **understand our code better**, and allow us to
 **confidently change and refactor code**.
 
-1. Gives us a quick feedback loop
+1. Give us a quick feedback loop
 
 > To err is human...
 [Alexander Pope](https://www.dictionary.com/browse/to-err-is-human--to-forgive-divine)
@@ -92,11 +92,11 @@ Tests can help us **understand our code better**, and allow us to
 
 > Did we build the system right?
 
-> When shit goes down, we have proof of documentation
+> When shit goes down, we have evidence.zip
 
 5. Serve as a safety net to guard against breaking changes
 
-> Made a change, broke a test? Double check and fix.
+> Made a change, broke a test? Double check and fix that mess!
 
 6. Automate complicated and long manual tests that validate application
    works as intended for users
