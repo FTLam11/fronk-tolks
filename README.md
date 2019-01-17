@@ -158,7 +158,7 @@ It's ok! Let's chill out and look at some cats.
 ![Cat vs Shaq](https://media.giphy.com/media/nNxT5qXR02FOM/giphy.gif)
 ![Cat face](https://media.giphy.com/media/Md4xQfuJeTtx6/giphy.gif)
 
-## Test writing philophy
+## Test writing philosophy
 
 Just like production code is bound to change, test code may also change.
 It's important to treat test code with the same respect as production
@@ -168,15 +168,28 @@ what we test and how we choose to do it.
 
 When writing tests, we must be able to quickly answer three questions:
 
-* What is the purpose of this test? It must provide some value, otherwise
-  it shouldn't be exist. No need to waste time on things that provide
-  zero or negative value. We should have a greater understanding and
-  confidence for having any given test.
-* What type of test is this? The test type dictates how granular the
-  details are, as well as different test approaches/tools we may use.
-* How should this test be written? There should be consistency across
-  the test codebase, with established structure and style. There should
-  be **no freestyling** here.
+1. **What is the purpose of this test?** It must provide some value, otherwise
+   it shouldn't be exist. No need to waste time on things that provide
+   zero or negative value. We should have a greater understanding and
+   confidence for having any given test.
+2. **What type of test is this?** The test type dictates how granular the
+   details are, as well as different test approaches/tools we may use.
+3. **How should this test be written?** There should be consistency across
+   the test codebase, with established structure and style. There should
+   be **no freestyling** here.
 
-If we can't quickly answer these, we have poorly written tests.
-We must waste time/money reading and debugging tests.
+If we can't quickly answer these, we have poorly written tests. This
+likely means we must waste time/money reading and debugging tests when
+things fail.
+
+## Conclusion (with a catchy acronym)
+
+![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
+
+We must accept that change is inevitable. Done well, testing can allow
+us to change, refine, understand, and design our code better.
+
+Change
+Refine
+Understand
+Design
