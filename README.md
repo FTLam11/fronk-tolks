@@ -40,11 +40,16 @@ testing. Unfortunately, there is no easy button.
 
 There are some difficult questions to be answered!
 
-* How do we know when an issue is closed?
-* How do we know when a feature is complete?
-* How do we know when a project can be closed out?
-* How do we know we are building the system right?
-* How do we know we are building the right system?
+From a **project management** perspective:
+
+* When can an issue be closed?
+* When is a feature considered complete?
+* When is a project finished?
+
+From an **engineering** perspective:
+
+* Are we building the system right?
+* Are we building the right system?
 
 I think tests can be very helpful in answering these questions.
 
