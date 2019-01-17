@@ -81,9 +81,38 @@ Shit hits the fan:
 We **DO NOT** test for the sake of testing.
 
 > I get paid for code that works, not for tests...
-[Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
+![Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
 
-### Pros
+### Fuck NO! Common testing misconceptions
+
+![Mythbusters](https://media.giphy.com/media/NLTrXfORPlcJ2/giphy.gif)
+
+1. The ninja programmer
+
+> I've written this feature before, I don't need to write tests for
+> this. It'll be easy-peasy lemon squeezy.
+
+No two problems are the same, there are always exceptions. When Apple
+releases a new phone or a civil engineer builds a bridge, is this logic
+rationale at all?
+
+2. The lazy programmer
+
+> Sigh, I have to write twice the amount of code!? This is not my job,
+> I'll let QA/QC do the testing.
+
+Lines of code is not a good metric at all. Pushing all testing responsibility
+is to a single person/team sounds like an awful idea.
+[The Twelve-factor App](https://12factor.net/)
+
+3. The stressed-out project manager
+
+> I can't afford any more schedule delays!
+
+Indeed there is an upfront cost with writing tests, however a good testing
+strategy pays off in the long run for many reasons that will be explained soon...
+
+### Fuck yeah! Let's test~
 
 Tests can help us **understand our code better**, and allow us to
 **confidently change and refactor code**.
