@@ -89,6 +89,8 @@ We **DO NOT** test for the sake of testing.
 
 1. The ninja programmer
 
+![TMNT](https://media.giphy.com/media/ZQdBX1H2ki3Cg/giphy.gif)
+
 > I've written this feature before, I don't need to write tests for
 > this. It'll be easy-peasy lemon squeezy.
 
@@ -97,6 +99,8 @@ releases a new phone or a civil engineer builds a bridge, is this logic
 rational at all?
 
 2. The lazy programmer
+
+![Homer Simpson](https://media.giphy.com/media/Zk9mW5OmXTz9e/giphy.gif)
 
 > Sigh, I have to write twice the amount of code!? This is not my job,
 > I'll let QA/QC do the testing.
@@ -107,12 +111,16 @@ to a single person/team sounds like an awful idea.
 
 3. The stressed-out project manager
 
+![Stressed out](https://media.giphy.com/media/l3dj0GFYLf0z7WSCQ/source.mp4)
+
 > I can't afford any more schedule delays!
 
 Indeed there is an upfront cost with writing tests, however a good testing
 strategy pays off in the long run for many reasons that will be explained soon...
 
 4. The testaholic
+
+![Test Dummies](https://media.giphy.com/media/5xrkJe3IJKSze/giphy.gif)
 
 > We MUST have 100% code coverage.
 
@@ -121,6 +129,8 @@ expense of all other things. End-to-end tests are very complex,
 expensive, and time-consuming.
 
 5. The overworked sad programmer
+
+![Bugs don't stop](https://media.giphy.com/media/11ZSwQNWba4YF2/source.gif)
 
 > I don't write tests, does that make me a bad programmer?
 
