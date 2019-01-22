@@ -94,7 +94,7 @@ We **DO NOT** test for the sake of testing.
 
 No two problems are the same, there are always exceptions. When Apple
 releases a new phone or a civil engineer builds a bridge, is this logic
-rationale at all?
+rational at all?
 
 2. The lazy programmer
 
@@ -102,7 +102,7 @@ rationale at all?
 > I'll let QA/QC do the testing.
 
 Lines of code is not a good metric at all. Pushing all testing responsibility
-is to a single person/team sounds like an awful idea.
+to a single person/team sounds like an awful idea.
 [The Twelve-factor App](https://12factor.net/)
 
 3. The stressed-out project manager
@@ -111,6 +111,24 @@ is to a single person/team sounds like an awful idea.
 
 Indeed there is an upfront cost with writing tests, however a good testing
 strategy pays off in the long run for many reasons that will be explained soon...
+
+4. The testaholic
+
+> We MUST have 100% code coverage.
+
+Some people may become obsessed with different test metrics at the
+expense of all other things. End-to-end tests are very complex,
+expensive, and time-consuming.
+
+5. The overworked sad programmer
+
+> I don't write tests, does that make me a bad programmer?
+
+Absolutely not. I'm guessing the majority of programmers don't spend
+anytime writing automated tests. Even if you aren't writing them, you
+are likely doing testing in some format (manual testing). Writing tests
+well is difficult, and is a legitimate sacrifice when schedule does not
+make it feasible.
 
 ### Fuck yeah! Let's test~
 
@@ -216,9 +234,9 @@ things fail.
 ![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
 
 We must accept that change is inevitable. Done well, testing can allow
-us to change, refine, understand, and design our code better.
+us to change, refactor, understand, and design our code better.
 
 Change
-Refine
+Refactor
 Understand
 Design
