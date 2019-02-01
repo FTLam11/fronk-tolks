@@ -149,15 +149,27 @@ and allow us to **confidently change and refactor code**.
 
 1. Give us a quick feedback loop
 
+Two heads are better than one, tests can serve as another set of eyes
+watching over our code (especially helpful for dynamically-typed
+languages).
+
 > To err is human...
 [Alexander Pope](https://www.dictionary.com/browse/to-err-is-human--to-forgive-divine)
 
 2. Drive the design and foster cleaner architecture
 
+Test Driven Development can help us find the necessary abstractions via
+programming by wishful thinking. We can breakdown large complex problems
+into smaller and more manageable chunks. When we experience excessive
+pain trying to test something, the tests will raise suspicion on
+questionable design.
+
 > If an object is very difficult to test, it will quickly become apparent
 > that the design may need to change.
 
 3. Define clear public interfaces
+
+It becomes much easier to see how objects interact with each other.
 
 > Confidently identify stable behavior
 
@@ -168,12 +180,16 @@ and allow us to **confidently change and refactor code**.
 
 > When shit goes down, we have evidence.zip
 
+Are we just spinning our wheels?
+
 5. Serve as a safety net to guard against breaking changes
 
 > Made a change, broke a test? Double check and fix that mess!
 
 6. Automate complicated and long manual tests that validate application
    works as intended for users
+
+If I have to fill out another goddamn form...
 
 > Did we build the right system?
 
