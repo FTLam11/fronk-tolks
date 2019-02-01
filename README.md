@@ -43,8 +43,8 @@ There are some difficult questions to be answered!
 From a **project management** perspective:
 
 * When can an issue be closed?
-* When is a feature considered complete?
-* When is a project finished?
+* How is a feature considered complete?
+* Will the project be delivered on time?
 
 From an **engineering** perspective:
 
@@ -67,7 +67,7 @@ less going according to plan. BUT THEN...
 
 Shit hits the fan:
 
-* The customer wants to change some business behavior.
+* The customer wants to change some business logic
 * We misunderstood the requirements.
 * The customer wants to add a new feature.
 
@@ -95,7 +95,7 @@ We **DO NOT** test for the sake of testing.
 > this. It'll be easy-peasy lemon squeezy.
 
 No two problems are the same, there are always exceptions. When Apple
-releases a new phone or a civil engineer builds a bridge, is this logic
+releases a new phone or a civil engineer develops a bridge, is this logic
 rational at all?
 
 2. The lazy programmer
@@ -125,25 +125,27 @@ strategy pays off in the long run for many reasons that will be explained soon..
 > We MUST have 100% code coverage.
 
 Some people may become obsessed with different test metrics at the
-expense of all other things. End-to-end tests are very complex,
-expensive, and time-consuming.
+expense of all other things. End-to-end tests (testing with real objects
+and scenarious) are very complex, expensive, and time-consuming.
 
-5. The overworked sad programmer
+5. The ~~overworked sad~~ programmer
 
 ![Bugs don't stop](https://media.giphy.com/media/11ZSwQNWba4YF2/source.gif)
 
 > I don't write tests, does that make me a bad programmer?
 
-Absolutely not. I'm guessing the majority of programmers don't spend
-anytime writing automated tests. Even if you aren't writing them, you
-are likely doing testing in some format (manual testing). Writing tests
+Probably not? I'm guessing the majority of programmers don't spend
+time writing automated tests. Even if you aren't writing them, you
+are likely doing testing in some manner (manual testing). Writing tests
 well is difficult, and is a legitimate sacrifice when schedule does not
 make it feasible.
 
+But let us consider the alternative!
+
 ### Fuck yeah! Let's test~
 
-Tests can help us **understand our code better**, and allow us to
-**confidently change and refactor code**.
+Tests help us **understand our code better**, inform of better design,
+and allow us to **confidently change and refactor code**.
 
 1. Give us a quick feedback loop
 
