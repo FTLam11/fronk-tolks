@@ -257,6 +257,36 @@ If we can't quickly answer these, we have poorly written tests. This
 likely means we must waste time/money reading and debugging tests when
 things fail.
 
+## Activity #1 Searls-Briggs Indicator
+
+Check out the [RailsConf 2017](https://youtu.be/V4fnzHxHXMI), it's a fun
+human-centric take on testing.
+
+* Sensitive VS Fearless
+  * I prefer hearing all requirements up front, even if I can't tackle
+    them all right away.
+  * Adding to a long function feels like more code won't "fit".
+  * I look forward to being assigned to new projects and teams.
+  * I often feel paralyzed while staring at a blank editor screen.
+* Inventive VS Aesthetic
+  * It's more important to build the right thing than to build the thing
+    right.
+  * I love experimenting with new tools, frameworks, and build systems.
+  * I strive to write visually appealing code, down to syntax &
+    symmetry.
+  * It's boring when all the code in a project is structured similarly.
+* Naive VS Leery
+  * Publishing metrics (e.g. code coverage) is always a good idea.
+  * Writing good commit messages today will pay off in the future.
+  * Software teams will make smarter use of time under pressure.
+  * Software is generally improving over time and we're not doomed.
+* Economical VS Thorough
+  * Better to ship code quickly than wait until everything's tested.
+  * Design principles are useful, but most teams waste too much time on
+    them.
+  * Most teams lack sufficient understanding of their dependencies.
+  * It's okay for everyone on a team to maintain separate coding styles.
+
 ## Conclusion (with a catchy acronym)
 
 ![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
