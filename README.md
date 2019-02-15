@@ -4,13 +4,31 @@
 
 Disclaimer: This talk concerns testing during the development of web/mobile
 applications for external users. Thus, frameworks/library testing, human factors,
-UX testing, etc... is out of scope.
+UX testing, subject testing, etc... is out of scope.
 
-![Rated Mature](https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0002/7231/brand.gif)
+# Agenda
 
-This talk may contain coarse language and crude humor. The
-intended audience is grown-ass adults and therefore content may be
-unsuitable for children under 17.
+## 1. Why should we care about testing?
+
+## 1. We should care about testing because...
+
+Testing comes in many different flavors and applications:
+
+* Developmental Testing vs Operational Testing ([Defense Acquisition
+  University](https://www.dau.mil/guidebooks/Shared%20Documents/Chapter%208%20Test%20and%20Evaluation.pdf))
+* Unit Tests/Integration Tests/Acceptance Tests ([Testing
+  Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html))
+* Classical (Detroit) vs Mockist (London) ([Test Double
+  Wiki](https://github.com/testdouble/contributing-tests/wiki/Test-Driven-Development))
+* TDD/BDD/RDD ([Ruby Conf 2013 REPL Driven
+  Development](https://www.youtube.com/watch?v=D9j_Mf91M0I))
+
+People often have very strong opinions about what they believe is right
+and how to go about testing. Regardless of how testing is performed,
+from a practical standpoint testing addresses **two very important questions for developing systems**.
+
+> Are we building the *right* system?
+> Are we building the system *right*?
 
 ## Whom does testing involve?
 
