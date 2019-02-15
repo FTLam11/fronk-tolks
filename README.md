@@ -31,7 +31,7 @@ Testing comes in many different flavors and applications:
 
 People often have very strong opinions about what they believe is right
 and how to go about testing. You might be surprised how sensitive and
-passionate people can get when discussing tessting. Much drama and many
+passionate people can get when discussing testing. Much drama and many
 pissing contests have occurred in the past and will continue to happen.
 Regardless of how testing is performed, from a practical standpoint
 testing addresses **two very important questions for developing systems**.
@@ -60,15 +60,15 @@ There are some difficult questions to be answered!
 From a **project management** perspective:
 
 * When can an issue be closed?
-* How is a feature considered complete?
+* How to determine if a feature is complete?
 * Will the project be delivered on time?
 * Will the project be delivered within budget?
 * Will the project perform as promised?
 
 From an **engineering** perspective:
 
-* Are we building the system right?
-* Are we building the right system?
+* Are we building the system *right*?
+* Are we building the *right* system?
 
 I think tests can be very helpful in answering these questions.
 
@@ -257,7 +257,7 @@ things fail.
 
 ### Test Hierarchy
 
-[Test Pyramid](https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
+![Test Pyramid](https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
 
 Tests should fall into one of three buckets (ordered by quantity from
 most to least):
