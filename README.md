@@ -9,8 +9,12 @@ UX testing, subject testing, etc... is out of scope.
 # Agenda
 
 ## 1. Why should we care about testing?
+## 2. Bruh, testing is for fools
+## 3. Aaaaaaaah shiiiiiiiet, I was just kidding, can you show me how to test pls?
 
-## 1. We should care about testing because...
+## 1. We should care about testing?
+
+### The quick and dirty
 
 Testing comes in many different flavors and applications:
 
@@ -24,21 +28,14 @@ Testing comes in many different flavors and applications:
   Development](https://www.youtube.com/watch?v=D9j_Mf91M0I))
 
 People often have very strong opinions about what they believe is right
-and how to go about testing. Regardless of how testing is performed,
-from a practical standpoint testing addresses **two very important questions for developing systems**.
+and how to go about testing. You might be surprised how sensitive and
+passionate people can get when discussing tessting. Much drama and many
+pissing contests have occurred in the past and will continue to happen.
+Regardless of how testing is performed, from a practical standpoint
+testing addresses **two very important questions for developing systems**.
 
 > Are we building the *right* system?
 > Are we building the system *right*?
-
-## Whom does testing involve?
-
-Potentially anyone but the user! Users gives precisely zero
-fucks. Why would a user care about how well tested the application is?
-
-![DON'T CARE](https://thumbs.gfycat.com/EdibleKaleidoscopicAsiaticlesserfreshwaterclam-size_restricted.gif)
-
-> As a user of an application, I care that things work like they are
-> supposed to.
 
 ## What problems can testing help solve?
 
@@ -63,6 +60,8 @@ From a **project management** perspective:
 * When can an issue be closed?
 * How is a feature considered complete?
 * Will the project be delivered on time?
+* Will the project be delivered within budget?
+* Will the project perform as promised?
 
 From an **engineering** perspective:
 
@@ -71,7 +70,11 @@ From an **engineering** perspective:
 
 I think tests can be very helpful in answering these questions.
 
-## In the wild
+### Interactive activity #1: We become role players and cosplayers
+
+## 2. Bruh, testing is for fools
+
+### But you just told me writing more code is expensive...
 
 > How can I write less code? I'll skip tests! EZ MONEY.
 
@@ -85,7 +88,7 @@ less going according to plan. BUT THEN...
 
 Shit hits the fan:
 
-* The customer wants to change some business logic
+* The customer wants to change some business logic.
 * We misunderstood the requirements.
 * The customer wants to add a new feature.
 
@@ -94,14 +97,7 @@ Shit hits the fan:
 > Are you crazy?
 > Maybe.
 
-## To test or to not test?
-
-We **DO NOT** test for the sake of testing.
-
-> I get paid for code that works, not for tests...
-![Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
-
-### Fuck NO! Common testing misconceptions
+### Common testing misconceptions
 
 ![Mythbusters](https://media.giphy.com/media/NLTrXfORPlcJ2/giphy.gif)
 
@@ -155,12 +151,27 @@ and scenarious) are very complex, expensive, and time-consuming.
 Probably not? I'm guessing the majority of programmers don't spend
 time writing automated tests. Even if you aren't writing them, you
 are likely doing testing in some manner (manual testing). Writing tests
-well is difficult, and is a legitimate sacrifice when schedule does not
+well is difficult, and is first sacrifice when schedule does not
 make it feasible.
 
-But let us consider the alternative!
+## Whom does testing involve?
 
-### Fuck yeah! Let's test~
+Potentially anyone but the user! Users gives precisely zero
+fucks. Why would a user care about how well tested the application is?
+
+![DON'T CARE](https://thumbs.gfycat.com/EdibleKaleidoscopicAsiaticlesserfreshwaterclam-size_restricted.gif)
+
+> As a user of an application, I care that things work like they are
+> supposed to.
+
+We **DO NOT** test for the sake of testing.
+
+> I get paid for code that works, not for tests...
+![Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
+
+## 3. Aaaaaaaah shiiiiiiiet, I was just kidding, can you show me how to test pls?
+
+### Show me the benefits!
 
 Tests help us **understand our code better**, inform of better design,
 and allow us to **confidently change and refactor code**.
@@ -213,7 +224,7 @@ If I have to fill out another goddamn form...
 
 7. Aid in troubleshooting production issues
 
-> At times logging and dubugger might not suffice
+> At times logging, dubugger, and exception notifications might not suffice
 
 ## Test driven design
 
