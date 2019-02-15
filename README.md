@@ -8,11 +8,13 @@ UX testing, subject testing, etc... is out of scope.
 
 # Agenda
 
-## 1. Why should we care about testing?
-## 2. Bruh, testing is for fools
-## 3. Aaaaaaaah shiiiiiiiet, I was just kidding, can you show me how to test pls?
+1. Yo, I care not about testing
+2. Bruh, testing is lame
+3. I wanna join the test party
+4. Show me your testing strats
+5. The end
 
-## 1. We should care about testing?
+# 1. We should care about testing(?)
 
 ### The quick and dirty
 
@@ -37,7 +39,7 @@ testing addresses **two very important questions for developing systems**.
 > Are we building the *right* system?
 > Are we building the system *right*?
 
-## What problems can testing help solve?
+### What problems can testing help solve?
 
 ![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
 
@@ -70,9 +72,9 @@ From an **engineering** perspective:
 
 I think tests can be very helpful in answering these questions.
 
-### Interactive activity #1: We become role players and cosplayers
+## Interactive activity #1: We become role players and cosplayers
 
-## 2. Bruh, testing is for fools
+# 2. Bruh, testing is for fools
 
 ### But you just told me writing more code is expensive...
 
@@ -125,7 +127,7 @@ to a single person/team sounds like an awful idea.
 
 3. The stressed-out project manager
 
-![Stressed out](https://media.giphy.com/media/l3dj0GFYLf0z7WSCQ/source.mp4)
+![Stressed out](https://media.giphy.com/media/PLHnMUOaOuuMblCelJ/giphy.gif)
 
 > I can't afford any more schedule delays!
 
@@ -154,10 +156,13 @@ are likely doing testing in some manner (manual testing). Writing tests
 well is difficult, and is first sacrifice when schedule does not
 make it feasible.
 
-## Whom does testing involve?
+# 3. You're invited to the test pow wow
+
+### Whom does testing involve?
 
 Potentially anyone but the user! Users gives precisely zero
 fucks. Why would a user care about how well tested the application is?
+When bugs are discovered, they only care about fixes.
 
 ![DON'T CARE](https://thumbs.gfycat.com/EdibleKaleidoscopicAsiaticlesserfreshwaterclam-size_restricted.gif)
 
@@ -168,8 +173,6 @@ We **DO NOT** test for the sake of testing.
 
 > I get paid for code that works, not for tests...
 ![Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
-
-## 3. Aaaaaaaah shiiiiiiiet, I was just kidding, can you show me how to test pls?
 
 ### Show me the benefits!
 
@@ -226,7 +229,44 @@ If I have to fill out another goddamn form...
 
 > At times logging, dubugger, and exception notifications might not suffice
 
-## Test driven design
+# 4. Super ~~secret~~ testing strats
+
+### Test writing philosophy
+
+Just like production code is bound to change, test code may also change.
+It's important to treat test code with the same respect as production
+code. Just like you would refactor production code, you would also
+refactor test code. The catch is that we must be very selective about
+what we test and how we choose to do it.
+
+When writing tests, we must be able to quickly answer three questions:
+
+1. **What is the purpose of this test?** It must provide some value, otherwise
+   it shouldn't be exist. No need to waste time on things that provide
+   zero or negative value. We should have a greater understanding and
+   confidence for having any given test.
+2. **What type of test is this?** The test type dictates how granular the
+   details are, as well as different test approaches/tools we may use.
+3. **How should this test be written?** There should be consistency across
+   the test codebase, with established structure and style. There should
+   be **no freestyling** here.
+
+If we can't quickly answer these, we have poorly written tests. This
+likely means we must waste time/money reading and debugging tests when
+things fail.
+
+### Test Hierarchy
+
+[Test Pyramid](https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
+
+Tests should fall into one of three buckets (ordered by quantity from
+most to least):
+
+1. Unit Tests
+2. Integration Tests
+3. Acceptance Tests
+
+### Test driven design
 
 Design is hard. Write an application with shit design/no design and
 eventually the cancer will become too widespread and we will no longer
@@ -262,34 +302,16 @@ It's ok! Let's chill out and look at some cats.
 ![Cat vs Shaq](https://media.giphy.com/media/nNxT5qXR02FOM/giphy.gif)
 ![Cat face](https://media.giphy.com/media/Md4xQfuJeTtx6/giphy.gif)
 
-## Test writing philosophy
+### Tradeoffs
 
-Just like production code is bound to change, test code may also change.
-It's important to treat test code with the same respect as production
-code. Just like you would refactor production code, you would also
-refactor test code. The catch is that we must be very selective about
-what we test and how we choose to do it.
+* Feedback speed
+* Build time
+* Fake vs real
 
-When writing tests, we must be able to quickly answer three questions:
+## Activity #2 Searls-Briggs Indicator
 
-1. **What is the purpose of this test?** It must provide some value, otherwise
-   it shouldn't be exist. No need to waste time on things that provide
-   zero or negative value. We should have a greater understanding and
-   confidence for having any given test.
-2. **What type of test is this?** The test type dictates how granular the
-   details are, as well as different test approaches/tools we may use.
-3. **How should this test be written?** There should be consistency across
-   the test codebase, with established structure and style. There should
-   be **no freestyling** here.
-
-If we can't quickly answer these, we have poorly written tests. This
-likely means we must waste time/money reading and debugging tests when
-things fail.
-
-## Activity #1 Searls-Briggs Indicator
-
-Check out the [RailsConf 2017](https://youtu.be/V4fnzHxHXMI), it's a fun
-human-centric take on testing.
+Check out the [RailsConf 2017 Keynote](https://youtu.be/V4fnzHxHXMI), it's a fun
+twist on the Myers Briggs Indicator Test.
 
 * Sensitive VS Fearless
   * I prefer hearing all requirements up front, even if I can't tackle
@@ -316,7 +338,7 @@ human-centric take on testing.
   * Most teams lack sufficient understanding of their dependencies.
   * It's okay for everyone on a team to maintain separate coding styles.
 
-## Conclusion (with a catchy acronym)
+# 5. Conclusion (with a catchy acronym)
 
 ![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
 
