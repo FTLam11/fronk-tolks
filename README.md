@@ -16,6 +16,8 @@ UX testing, subject testing, etc... is out of scope.
 
 # 1. We should care about testing(?)
 
+## Exercise 1: Why test?
+
 ### The quick and dirty
 
 Testing comes in many different flavors and applications:
@@ -72,7 +74,7 @@ From an **engineering** perspective:
 
 I think tests can be very helpful in answering these questions.
 
-## Interactive activity #1: We become role players and cosplayers
+## Exercise 2: We become role players and cosplayers
 
 # 2. Bruh, testing is for fools
 
@@ -123,7 +125,6 @@ rational at all?
 
 Lines of code is not a good metric at all. Pushing all testing responsibility
 to a single person/team sounds like an awful idea.
-[The Twelve-factor App](https://12factor.net/)
 
 3. The stressed-out project manager
 
@@ -308,7 +309,7 @@ It's ok! Let's chill out and look at some cats.
 * Build time
 * Fake vs real
 
-## Activity #2 Searls-Briggs Indicator
+## Exercise 3: Searls-Briggs Indicator
 
 Check out the [RailsConf 2017 Keynote](https://youtu.be/V4fnzHxHXMI), it's a fun
 twist on the Myers Briggs Indicator Test.
