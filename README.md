@@ -22,14 +22,10 @@ UX testing, subject testing, etc... is out of scope.
 
 Testing comes in many different flavors and applications:
 
-* Developmental Testing vs Operational Testing ([Defense Acquisition
-  University](https://www.dau.mil/guidebooks/Shared%20Documents/Chapter%208%20Test%20and%20Evaluation.pdf))
-* Unit Tests/Integration Tests/Acceptance Tests ([Testing
-  Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html))
-* Classical (Detroit) vs Mockist (London) ([Test Double
-  Wiki](https://github.com/testdouble/contributing-tests/wiki/Test-Driven-Development))
-* TDD/BDD/RDD ([Ruby Conf 2013 REPL Driven
-  Development](https://www.youtube.com/watch?v=D9j_Mf91M0I))
+* Developmental Testing vs Operational Testing ([Defense Acquisition University](https://www.dau.mil/guidebooks/Shared%20Documents/Chapter%208%20Test%20and%20Evaluation.pdf))
+* Unit Tests/Integration Tests/Acceptance Tests ([Testing Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html))
+* Classical (Detroit) vs Mockist (London) ([Test Double Wiki](https://github.com/testdouble/contributing-tests/wiki/Test-Driven-Development))
+* TDD/BDD/RDD ([Ruby Conf 2013 REPL Driven Development](https://www.youtube.com/watch?v=D9j_Mf91M0I))
 
 People often have very strong opinions about what they believe is right
 and how to go about testing. You might be surprised how sensitive and
@@ -38,8 +34,8 @@ pissing contests have occurred in the past and will continue to happen.
 Regardless of how testing is performed, from a practical standpoint
 testing addresses **two very important questions for developing systems**.
 
-> Are we building the *right* system?
-> Are we building the system *right*?
+> Are we building the *right* system? (Performance)
+> Are we building the system *right*? (Behavior/Implementation)
 
 ### What problems can testing help solve?
 
@@ -88,12 +84,11 @@ writing tests when we can write more features?
 
 So we start shipping code with no tests. Things are progressing
 decently, there are various bugs here and there but things are more or
-less going according to plan. However, *things will change*.
+less going according to plan. However, *requirements will change*.
 
 * The customer did not know what they wanted.
-* The customer did not correctly express what they wanted.
-
-* We misunderstood the requirements.
+* The customer did not correctly express what they wanted/we misunderstood the requirements.
+* The customer wants to change some business logic.
 * The customer wants to add a new feature.
 
 Which leads to thoughts such as:
@@ -102,14 +97,11 @@ Which leads to thoughts such as:
 
 > No, I can’t add that feature; it wasn’t designed to do that.
 
+> **crying sounds**
+
 ```
 rm -rf project_name
 ```
-
-> I have a plan.
-> ALL WE HAVE TO DO IS WRITE MORE CODE!!!11111
-> Are you crazy?
-> Maybe.
 
 ### Common testing misconceptions
 
@@ -169,26 +161,27 @@ make it feasible.
 
 # 3. You're invited to the test pow wow
 
-### Whom does testing involve?
-
-Potentially anyone but the user! Users gives precisely zero
-fucks. Why would a user care about how well tested the application is?
-When bugs are discovered, they only care about fixes.
-
-![DON'T CARE](https://thumbs.gfycat.com/EdibleKaleidoscopicAsiaticlesserfreshwaterclam-size_restricted.gif)
-
-> As a user of an application, I care that things work like they are
-> supposed to.
+### Deep thoughts
 
 We **DO NOT** test for the sake of testing.
 
 > I get paid for code that works, not for tests...
 ![Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
 
+Let us first revisit Exercise 1: Why test?
+
 ### Show me the benefits!
 
-Tests help us **understand our code better**, inform of better design,
-and allow us to **confidently change and refactor code**.
+> Are we building the *right* system? (Performance)
+
+Tests help us **understand and communicate requirements better**,
+**reduce the costs of change**, and **demonstrate how the system performs
+in real situations**.
+
+> Are we building the system *right*? (Behavior/Implementation)
+
+Tests help us **understand our code better**, **inform of better
+design**, and allow us to **confidently change and refactor code**.
 
 1. Give us a quick feedback loop
 
@@ -277,6 +270,18 @@ most to least):
 2. Integration Tests
 3. Acceptance Tests
 
+Each of these buckets have tradeoffs between:
+
+* Feedback speed
+* Build time
+* Fake vs real
+
+#### Unit Tests
+
+#### Integration Tests
+
+#### Acceptance Tests
+
 ### Test driven design
 
 Design is hard. Write an application with shit design/no design and
@@ -313,12 +318,6 @@ It's ok! Let's chill out and look at some cats.
 ![Cat vs Shaq](https://media.giphy.com/media/nNxT5qXR02FOM/giphy.gif)
 ![Cat face](https://media.giphy.com/media/Md4xQfuJeTtx6/giphy.gif)
 
-### Tradeoffs
-
-* Feedback speed
-* Build time
-* Fake vs real
-
 ## Exercise 3: Searls-Briggs Indicator
 
 Check out the [RailsConf 2017 Keynote](https://youtu.be/V4fnzHxHXMI), it's a fun
@@ -353,8 +352,8 @@ twist on the Myers Briggs Indicator Test.
 
 Today we were primarily concerned with answering two questions:
 
-> Are we building the *right* system? (Behavior)
-> Are we building the system *right*? (Implementation)
+> Are we building the *right* system? (Performance)
+> Are we building the system *right*? (Behavior/Implementation)
 
 ![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
 
