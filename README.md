@@ -172,7 +172,7 @@ curve, and is takes time to turn into a habit.
 
 Have faith! Believe in yourself, you can do it!
 
-![KG](https://tenor.com/view/anythingispossible-gif-5112037)
+![KG](https://media.giphy.com/media/iWeUG9ywcgB8Y/giphy-downsized.gif)
 
 # 3. You're invited to the test pow wow
 
@@ -181,7 +181,7 @@ Have faith! Believe in yourself, you can do it!
 We **DO NOT** test for the sake of testing.
 
 > I get paid for code that works, not for tests...
-![Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
+[Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
 
 Let us first revisit Exercise 1: Why test?
 
