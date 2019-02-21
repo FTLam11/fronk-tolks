@@ -18,6 +18,9 @@ UX testing, subject testing, etc... is out of scope.
 
 ## Exercise 1: Why test?
 
+* What are some things we hope to gain through testing?
+* Why should we bother to test?
+
 ### The quick and dirty
 
 Testing comes in many different flavors and applications:
@@ -72,8 +75,6 @@ From an **engineering** perspective:
 * Are we building the *right* system?
 
 I think tests can be very helpful in answering these questions.
-
-## Exercise 2: We become role players and cosplayers
 
 # 2. Bruh, testing is for fools
 
@@ -178,6 +179,36 @@ Have faith! Believe in yourself, you can do it!
 ![KG](https://media.giphy.com/media/iWeUG9ywcgB8Y/giphy-downsized.gif)
 
 # 3. You're invited to the test pow wow
+
+## Exercise 2: Searls-Briggs Indicator
+
+Check out the [RailsConf 2017 Keynote](https://youtu.be/V4fnzHxHXMI), it's a fun
+twist on the Myers Briggs Indicator Test.
+
+* Sensitive VS Fearless
+  * I prefer hearing all requirements up front, even if I can't tackle
+    them all right away.
+  * Adding to a long function feels like more code won't "fit".
+  * I look forward to being assigned to new projects and teams.
+  * I often feel paralyzed while staring at a blank editor screen.
+* Inventive VS Aesthetic
+  * It's more important to build the right thing than to build the thing
+    right.
+  * I love experimenting with new tools, frameworks, and build systems.
+  * I strive to write visually appealing code, down to syntax &
+    symmetry.
+  * It's boring when all the code in a project is structured similarly.
+* Naive VS Leery
+  * Publishing metrics (e.g. code coverage) is always a good idea.
+  * Writing good commit messages today will pay off in the future.
+  * Software teams will make smarter use of time under pressure.
+  * Software is generally improving over time and we're not doomed.
+* Economical VS Thorough
+  * Better to ship code quickly than wait until everything's tested.
+  * Design principles are useful, but most teams waste too much time on
+    them.
+  * Most teams lack sufficient understanding of their dependencies.
+  * It's okay for everyone on a team to maintain separate coding styles.
 
 ### Deep thoughts
 
@@ -331,35 +362,15 @@ It's ok! Let's chill out and look at some cats.
 ![Cat vs Shaq](https://media.giphy.com/media/nNxT5qXR02FOM/giphy.gif)
 ![Cat face](https://media.giphy.com/media/Md4xQfuJeTtx6/giphy.gif)
 
-## Exercise 3: Searls-Briggs Indicator
+## Exercise 3: We become role players and cosplayers
 
-Check out the [RailsConf 2017 Keynote](https://youtu.be/V4fnzHxHXMI), it's a fun
-twist on the Myers Briggs Indicator Test.
+Our goal for this exercise is to develop a drink ordering system.
 
-* Sensitive VS Fearless
-  * I prefer hearing all requirements up front, even if I can't tackle
-    them all right away.
-  * Adding to a long function feels like more code won't "fit".
-  * I look forward to being assigned to new projects and teams.
-  * I often feel paralyzed while staring at a blank editor screen.
-* Inventive VS Aesthetic
-  * It's more important to build the right thing than to build the thing
-    right.
-  * I love experimenting with new tools, frameworks, and build systems.
-  * I strive to write visually appealing code, down to syntax &
-    symmetry.
-  * It's boring when all the code in a project is structured similarly.
-* Naive VS Leery
-  * Publishing metrics (e.g. code coverage) is always a good idea.
-  * Writing good commit messages today will pay off in the future.
-  * Software teams will make smarter use of time under pressure.
-  * Software is generally improving over time and we're not doomed.
-* Economical VS Thorough
-  * Better to ship code quickly than wait until everything's tested.
-  * Design principles are useful, but most teams waste too much time on
-    them.
-  * Most teams lack sufficient understanding of their dependencies.
-  * It's okay for everyone on a team to maintain separate coding styles.
+1. Brainstorm features
+2. Split up into groups, with each group tackling one feature
+3. Break each feature into individual requirements
+4. Determine how each requirement will be validated.
+5. Determine how each feature will be validated.
 
 # 5. Wu-Tang Clan Ain't Nuthing ta F' Wit (wRAP up)
 
