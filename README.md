@@ -6,7 +6,7 @@ Disclaimer: This talk concerns testing during the development of web/mobile
 applications for external users. Thus, frameworks/library testing, human factors,
 UX testing, subject testing, etc... is out of scope.
 
-# Agenda
+# Agenda (How things will hopefully go)
 
 1. Yo, I care not about testing
 2. Bruh, testing is lame
@@ -31,7 +31,7 @@ People often have very strong opinions about what they believe is right
 and how to go about testing. You might be surprised how sensitive and
 passionate people can get when discussing testing. Much drama and many
 pissing contests have occurred in the past and will continue to happen.
-Regardless of how testing is performed, from a practical standpoint
+Regardless of how testing is executed, from a practical standpoint
 testing addresses **two very important questions for developing systems**.
 
 > Are we building the *right* system? (Performance)
@@ -50,7 +50,9 @@ testing addresses **two very important questions for developing systems**.
   and money. How quickly can we adapt and change our code?
 
 In an ideal world, we would write perfect code and not care about
-testing. Unfortunately, there is no easy button.
+testing. Business problems would also never change, so we would just
+write the code once and never change it again. Unfortunately, we live in
+the real world and there is no easy button.
 
 ![Not so easy](http://granitegrok.com/wp-content/uploads/2013/05/not-so-easy-button.png)
 
@@ -92,7 +94,7 @@ less going according to plan. However, *requirements will change*.
 * The customer wants to change some business logic.
 * The customer wants to add a new feature.
 
-Which leads to thoughts such as:
+Which leads to thoughts and reactions such as:
 
 > Yes, I can add that feature, but it will break everything.
 
@@ -101,7 +103,7 @@ Which leads to thoughts such as:
 > **crying sounds**
 
 ```
-rm -rf project_name
+rm -rf path_to_project_from_hell
 ```
 
 ### Common testing misconceptions
@@ -127,9 +129,10 @@ rational at all?
 > I'll let QA/QC do the testing.
 
 But **it is** your job. You are responsible for not only writing the
-code, more importantly you are responsible the code works correctly.
-Lines of code by itself is not a good metric at all. Pushing all testing
-responsibility to a single person/team sounds like an awful idea.
+code, more importantly you are responsible for the code working
+correctly. Lines of code by itself is not a good metric at all.
+Pushing all testing responsibility to a single person/team also sounds
+like an awful idea.
 
 3. The stressed-out project manager
 
@@ -166,9 +169,9 @@ are likely doing testing in some manner (manually verifying data and
 behavior).
 
 The truth is testing well is difficult, because it is not just
-about writing and running tests, testing is also about design. Design is
+about writing and running tests, testing is also about design. Design well is
 **really fucking** hard. Adopting a test driven workflow has a high learning
-curve, and is takes time to turn into a habit.
+curve, and takes time to turn into a habit. No one has time for that!?
 
 Have faith! Believe in yourself, you can do it!
 
@@ -185,7 +188,7 @@ We **DO NOT** test for the sake of testing.
 
 Let us first revisit Exercise 1: Why test?
 
-### Show me the benefits!
+### Please enlighten!
 
 > Are we building the *right* system? (Performance)
 
@@ -197,6 +200,7 @@ in real situations**.
 
 Tests help us **understand our code better**, **inform of better
 design**, and allow us to **confidently change and refactor code**.
+Tests will:
 
 1. Give us a quick feedback loop
 
@@ -227,11 +231,7 @@ It becomes much easier to see how objects interact with each other.
 4. Verify application conforms to specifications
    [MITRE Systems Engineeing](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
 
-> Did we build the system right?
-
 > When shit goes down, we have evidence.zip
-
-Are we just spinning our wheels?
 
 5. Serve as a safety net to guard against breaking changes
 
@@ -241,8 +241,6 @@ Are we just spinning our wheels?
    works as intended for users
 
 If I have to fill out another goddamn form...
-
-> Did we build the right system?
 
 7. Aid in troubleshooting production issues
 
@@ -262,8 +260,8 @@ When writing tests, we must be able to quickly answer three questions:
 
 1. **What is the purpose of this test?** It must provide some value, otherwise
    it shouldn't be exist. No need to waste time on things that provide
-   zero or negative value. We should have a greater understanding and
-   confidence for having any given test.
+   zero or negative value. Each test we keep must provide us greater
+   understanding and confidence.
 2. **What type of test is this?** The test type dictates how granular the
    details are, as well as different test approaches/tools we may use.
 3. **How should this test be written?** There should be consistency across
@@ -271,8 +269,8 @@ When writing tests, we must be able to quickly answer three questions:
    be **no freestyling** here.
 
 If we can't quickly answer these, we have poorly written tests. This
-likely means we must waste time/money reading and debugging tests when
-things fail.
+likely means we must waste time/money reading and debugging tests while
+developing and when things fail.
 
 ### Test Hierarchy
 
@@ -297,7 +295,7 @@ Each of these buckets have tradeoffs between:
 
 #### Acceptance Tests
 
-### Test driven design
+# We talkin' bout ~~PRACTICE?~~ ~~TESTING~~ DESIGN?
 
 Design is hard. Write an application with shit design/no design and
 eventually the cancer will become too widespread and we will no longer
@@ -324,7 +322,7 @@ to go about it.
 
 * Why did this test start failing?
 * What the fuck does this example test?
-* SWEET OUR TEST SUITE TAKES 30 MINUTES TO RUN, TIME TO WATCH SOME TV
+* SWEET OUR TEST SUITE TAKES 30 MINUTES TO RUN, TIME TO WATCH SOME TV.
 * How did it turn out like this?
 
 It's ok! Let's chill out and look at some cats.
