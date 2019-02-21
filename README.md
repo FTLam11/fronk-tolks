@@ -12,7 +12,7 @@ UX testing, subject testing, etc... is out of scope.
 2. Bruh, testing is lame
 3. I wanna join the test party
 4. Show me your testing strats
-5. The end
+5. Wrap it up
 
 # 1. We should care about testing(?)
 
@@ -88,13 +88,23 @@ writing tests when we can write more features?
 
 So we start shipping code with no tests. Things are progressing
 decently, there are various bugs here and there but things are more or
-less going according to plan. BUT THEN...
+less going according to plan. However, *things will change*.
 
-Shit hits the fan:
+* The customer did not know what they wanted.
+* The customer did not correctly express what they wanted.
 
-* The customer wants to change some business logic.
 * We misunderstood the requirements.
 * The customer wants to add a new feature.
+
+Which leads to thoughts such as:
+
+> Yes, I can add that feature, but it will break everything.
+
+> No, I can’t add that feature; it wasn’t designed to do that.
+
+```
+rm -rf project_name
+```
 
 > I have a plan.
 > ALL WE HAVE TO DO IS WRITE MORE CODE!!!11111
@@ -339,7 +349,12 @@ twist on the Myers Briggs Indicator Test.
   * Most teams lack sufficient understanding of their dependencies.
   * It's okay for everyone on a team to maintain separate coding styles.
 
-# 5. Conclusion (with a catchy acronym)
+# 5. Wu-Tang Clan Ain't Nuthing ta F' Wit (wRAP up)
+
+Today we were primarily concerned with answering two questions:
+
+> Are we building the *right* system? (Behavior)
+> Are we building the system *right*? (Implementation)
 
 ![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
 
