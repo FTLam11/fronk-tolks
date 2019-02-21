@@ -35,6 +35,7 @@ Regardless of how testing is performed, from a practical standpoint
 testing addresses **two very important questions for developing systems**.
 
 > Are we building the *right* system? (Performance)
+
 > Are we building the system *right*? (Behavior/Implementation)
 
 ### What problems can testing help solve?
@@ -125,8 +126,10 @@ rational at all?
 > Sigh, I have to write twice the amount of code!? This is not my job,
 > I'll let QA/QC do the testing.
 
-Lines of code is not a good metric at all. Pushing all testing responsibility
-to a single person/team sounds like an awful idea.
+But **it is** your job. You are responsible for not only writing the
+code, more importantly you are responsible the code works correctly.
+Lines of code by itself is not a good metric at all. Pushing all testing
+responsibility to a single person/team sounds like an awful idea.
 
 3. The stressed-out project manager
 
@@ -137,15 +140,19 @@ to a single person/team sounds like an awful idea.
 Indeed there is an upfront cost with writing tests, however a good testing
 strategy pays off in the long run for many reasons that will be explained soon...
 
+> Slow and steady wins the race.
+
 4. The testaholic
 
 ![Test Dummies](https://media.giphy.com/media/5xrkJe3IJKSze/giphy.gif)
 
-> We MUST have 100% code coverage.
+> We MUST have 100% code coverage. We MUST test real usage scenarios.
 
 Some people may become obsessed with different test metrics at the
 expense of all other things. End-to-end tests (testing with real objects
-and scenarious) are very complex, expensive, and time-consuming.
+and scenarios) are very complex, expensive, and time-consuming. There
+should be emphasis on gaining acceptable confidence and understanding to
+change code instead of some arbitrary test metric.
 
 5. The ~~overworked sad~~ programmer
 
@@ -155,9 +162,17 @@ and scenarious) are very complex, expensive, and time-consuming.
 
 Probably not? I'm guessing the majority of programmers don't spend
 time writing automated tests. Even if you aren't writing them, you
-are likely doing testing in some manner (manual testing). Writing tests
-well is difficult, and is first sacrifice when schedule does not
-make it feasible.
+are likely doing testing in some manner (manually verifying data and
+behavior).
+
+The truth is testing well is difficult, because it is not just
+about writing and running tests, testing is also about design. Design is
+**really fucking** hard. Adopting a test driven workflow has a high learning
+curve, and is takes time to turn into a habit.
+
+Have faith! Believe in yourself, you can do it!
+
+![KG](https://tenor.com/view/anythingispossible-gif-5112037)
 
 # 3. You're invited to the test pow wow
 
@@ -353,6 +368,7 @@ twist on the Myers Briggs Indicator Test.
 Today we were primarily concerned with answering two questions:
 
 > Are we building the *right* system? (Performance)
+
 > Are we building the system *right*? (Behavior/Implementation)
 
 ![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
