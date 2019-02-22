@@ -1,0 +1,15 @@
+{
+  "name": "testing-talks",
+  "version": "1.0.0",
+  "description": "we talkin bout practice?",
+  "main": "index.js",
+  "scripts": {
+    "build": "md2gslides README.md"
+  },
+  "repository": "git@github.com:FTLam11/testing-talks.git",
+  "author": "Frank Lam <ryzingsun11@yahoo.com>",
+  "license": "LGPL-3.0-or-later",
+  "devDependencies": {
+    "md2gslides": "^0.4.0"
+  }
+}
