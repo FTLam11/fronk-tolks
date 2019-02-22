@@ -1,10 +1,21 @@
+---
+
 # We talkin' bout ~~PRACTICE?~~ TESTING?
+## Frank Lam
 
 ![Allen Iverson Practice](https://media.giphy.com/media/3oEjI105rmEC22CJFK/giphy.gif)
+
+What up?
+
+---
+
+# Scope
 
 Disclaimer: This talk concerns testing during the development of web/mobile
 applications for external users. Thus, frameworks/library testing, human factors,
 UX testing, subject testing, etc... is out of scope.
+
+---
 
 # Agenda (How things will hopefully go)
 
@@ -14,6 +25,8 @@ UX testing, subject testing, etc... is out of scope.
 4. Show me your testing strats
 5. Wrap it up
 
+---
+
 # 1. We should care about testing(?)
 
 ## Exercise 1: Why test?
@@ -21,7 +34,15 @@ UX testing, subject testing, etc... is out of scope.
 * What are some things we hope to gain through testing?
 * Why should we bother to test?
 
-### The quick and dirty
+HINT: We **DO NOT** test for the sake of testing.
+
+> I get paid for code that works, not for tests...
+[Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
+
+---
+
+# The quick and dirty intro
+## Testing is like ice cream and pizza
 
 Testing comes in many different flavors and applications:
 
@@ -29,6 +50,10 @@ Testing comes in many different flavors and applications:
 * Unit Tests/Integration Tests/Acceptance Tests ([Testing Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html))
 * Classical (Detroit) vs Mockist (London) ([Test Double Wiki](https://github.com/testdouble/contributing-tests/wiki/Test-Driven-Development))
 * TDD/BDD/RDD ([Ruby Conf 2013 REPL Driven Development](https://www.youtube.com/watch?v=D9j_Mf91M0I))
+
+---
+
+# Testing answers two questions
 
 People often have very strong opinions about what they believe is right
 and how to go about testing. You might be surprised how sensitive and
@@ -41,9 +66,9 @@ testing addresses **two very important questions for developing systems**.
 
 > Are we building the system *right*? (Behavior/Implementation)
 
-### What problems can testing help solve?
+---
 
-![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
+# Running a business
 
 * As a software agency, we help customers solve their business
   problems. Our customers compensate us with money.
@@ -52,14 +77,11 @@ testing addresses **two very important questions for developing systems**.
 * Business problems change. Thus, code must change. Change costs time
   and money. How quickly can we adapt and change our code?
 
-In an ideal world, we would write perfect code and not care about
-testing. Business problems would also never change, so we would just
-write the code once and never change it again. Unfortunately, we live in
-the real world and there is no easy button.
+![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
 
-![Not so easy](http://granitegrok.com/wp-content/uploads/2013/05/not-so-easy-button.png)
+---
 
-There are some difficult questions to be answered!
+# In practice
 
 From a **project management** perspective:
 
@@ -69,33 +91,55 @@ From a **project management** perspective:
 * Will the project be delivered within budget?
 * Will the project perform as promised?
 
+{.column}
+
 From an **engineering** perspective:
 
 * Are we building the system *right*?
 * Are we building the *right* system?
 
-I think tests can be very helpful in answering these questions.
+---
 
 # 2. Bruh, testing is for fools
+## Since writing code is expensive... I'll skip tests!
 
-### But you just told me writing more code is expensive...
+![2EZ](http://granitegrok.com/wp-content/uploads/2013/05/not-so-easy-button.png)
 
-> How can I write less code? I'll skip tests! EZ MONEY.
+EZ
+
+---
+
+# I wanna live in imaginaryland
+
+In an ideal world, we would write perfect code and not care about
+testing. Business rules would also be static, so we would just
+write the code once and never change it again.
+
+![Drake meme](https://i.imgflip.com/2ubesp.jpg)
+
+---
+
+# Welcome to the real world kid
 
 In the real world, we have limited time and energy. When we find ourselves in
 a pinch, the first thing we skip out on are tests. Why spend time
 writing tests when we can write more features?
 
-So we start shipping code with no tests. Things are progressing
-decently, there are various bugs here and there but things are more or
-less going according to plan. However, *requirements will change*.
+![Think twice](https://i.imgflip.com/2ubfbg.jpg)
+
+---
+
+# The unthinkable happens
 
 * The customer did not know what they wanted.
 * The customer did not correctly express what they wanted/we misunderstood the requirements.
 * The customer wants to change some business logic.
 * The customer wants to add a new feature.
 
-Which leads to thoughts and reactions such as:
+---
+
+# We become emotional
+## Which leads to thoughts and reactions such as:
 
 > Yes, I can add that feature, but it will break everything.
 
@@ -107,11 +151,17 @@ Which leads to thoughts and reactions such as:
 rm -rf path_to_project_from_hell
 ```
 
-### Common testing misconceptions
+---
+
+# Common testing misconceptions
 
 ![Mythbusters](https://media.giphy.com/media/NLTrXfORPlcJ2/giphy.gif)
 
-1. The ninja programmer
+Myth busted!
+
+---
+
+# 1. The ninja programmer
 
 ![TMNT](https://media.giphy.com/media/ZQdBX1H2ki3Cg/giphy.gif)
 
@@ -122,7 +172,9 @@ No two problems are the same, there are always exceptions. When Apple
 releases a new phone or a civil engineer develops a bridge, is this logic
 rational at all?
 
-2. The lazy programmer
+---
+
+# 2. The lazy programmer
 
 ![Homer Simpson](https://media.giphy.com/media/Zk9mW5OmXTz9e/giphy.gif)
 
@@ -135,7 +187,9 @@ correctly. Lines of code by itself is not a good metric at all.
 Pushing all testing responsibility to a single person/team also sounds
 like an awful idea.
 
-3. The stressed-out project manager
+---
+
+# 3. The stressed-out project manager
 
 ![Stressed out](https://media.giphy.com/media/PLHnMUOaOuuMblCelJ/giphy.gif)
 
@@ -146,7 +200,9 @@ strategy pays off in the long run for many reasons that will be explained soon..
 
 > Slow and steady wins the race.
 
-4. The testaholic
+---
+
+# 4. The testaholic
 
 ![Test Dummies](https://media.giphy.com/media/5xrkJe3IJKSze/giphy.gif)
 
@@ -158,7 +214,9 @@ and scenarios) are very complex, expensive, and time-consuming. There
 should be emphasis on gaining acceptable confidence and understanding to
 change code instead of some arbitrary test metric.
 
-5. The ~~overworked sad~~ programmer
+---
+
+# 5. The ~~overworked sad~~ programmer
 
 ![Bugs don't stop](https://media.giphy.com/media/11ZSwQNWba4YF2/source.gif)
 
@@ -169,6 +227,10 @@ time writing automated tests. Even if you aren't writing them, you
 are likely doing testing in some manner (manually verifying data and
 behavior).
 
+---
+
+# The cold hard truth
+
 The truth is testing well is difficult, because it is not just
 about writing and running tests, testing is also about design. Design well is
 **really fucking** hard. Adopting a test driven workflow has a high learning
@@ -178,48 +240,64 @@ Have faith! Believe in yourself, you can do it!
 
 ![KG](https://media.giphy.com/media/iWeUG9ywcgB8Y/giphy-downsized.gif)
 
-# 3. You're invited to the test pow wow
+---
 
+# 3. You're invited to the test pow wow
 ## Exercise 2: Searls-Briggs Indicator
 
 Check out the [RailsConf 2017 Keynote](https://youtu.be/V4fnzHxHXMI), it's a fun
 twist on the Myers Briggs Indicator Test.
 
-* Sensitive VS Fearless
-  * I prefer hearing all requirements up front, even if I can't tackle
-    them all right away.
-  * Adding to a long function feels like more code won't "fit".
-  * I look forward to being assigned to new projects and teams.
-  * I often feel paralyzed while staring at a blank editor screen.
-* Inventive VS Aesthetic
-  * It's more important to build the right thing than to build the thing
-    right.
-  * I love experimenting with new tools, frameworks, and build systems.
-  * I strive to write visually appealing code, down to syntax &
-    symmetry.
-  * It's boring when all the code in a project is structured similarly.
-* Naive VS Leery
-  * Publishing metrics (e.g. code coverage) is always a good idea.
-  * Writing good commit messages today will pay off in the future.
-  * Software teams will make smarter use of time under pressure.
-  * Software is generally improving over time and we're not doomed.
-* Economical VS Thorough
+---
+
+# Sensitive VS Fearless
+
+* I prefer hearing all requirements up front, even if I can't tackle
+  them all right away.
+* Adding to a long function feels like more code won't "fit".
+* I look forward to being assigned to new projects and teams.
+* I often feel paralyzed while staring at a blank editor screen.
+
+---
+
+# Inventive VS Aesthetic
+
+* It's more important to build the right thing than to build the thing
+  right.
+* I love experimenting with new tools, frameworks, and build systems.
+* I strive to write visually appealing code, down to syntax &
+  symmetry.
+* It's boring when all the code in a project is structured similarly.
+
+---
+
+# Naive VS Leery
+
+* Publishing metrics (e.g. code coverage) is always a good idea.
+* Writing good commit messages today will pay off in the future.
+* Software teams will make smarter use of time under pressure.
+* Software is generally improving over time and we're not doomed.
+
+---
+
+# Economical VS Thorough
   * Better to ship code quickly than wait until everything's tested.
   * Design principles are useful, but most teams waste too much time on
     them.
   * Most teams lack sufficient understanding of their dependencies.
   * It's okay for everyone on a team to maintain separate coding styles.
 
-### Deep thoughts
+---
 
-We **DO NOT** test for the sake of testing.
-
-> I get paid for code that works, not for tests...
-[Kent Beck](https://stackoverflow.com/questions/153234/how-deep-are-your-unit-tests/153565#153565)
+# Reflect young grasshopper
 
 Let us first revisit Exercise 1: Why test?
 
-### Please enlighten!
+Insert yoda pic here
+
+---
+
+# Please enlighten!
 
 > Are we building the *right* system? (Performance)
 
@@ -231,20 +309,24 @@ in real situations**.
 
 Tests help us **understand our code better**, **inform of better
 design**, and allow us to **confidently change and refactor code**.
-Tests will:
+Tests will...
 
-1. Give us a quick feedback loop
+---
 
-Two heads are better than one, tests can serve as another set of eyes
+# 1. Give us a quick feedback loop
+
+* Two heads are better than one, tests can serve as another set of eyes
 watching over our code (especially helpful for dynamically-typed
 languages).
 
 > To err is human...
 [Alexander Pope](https://www.dictionary.com/browse/to-err-is-human--to-forgive-divine)
 
-2. Drive the design and foster cleaner architecture
+---
 
-Test Driven Development can help us find the necessary abstractions via
+# 2. Drive the design and foster cleaner architecture
+
+* Test Driven Development can help us find the necessary abstractions via
 programming by wishful thinking. We can breakdown large complex problems
 into smaller and more manageable chunks. When we experience excessive
 pain trying to test something, the tests will raise suspicion on
@@ -253,33 +335,42 @@ questionable design.
 > If an object is very difficult to test, it will quickly become apparent
 > that the design may need to change.
 
-3. Define clear public interfaces
+---
 
-It becomes much easier to see how objects interact with each other.
+# 3. Define clear public interfaces
 
-> Confidently identify stable behavior
+* It becomes much easier to see how objects interact with each other.
+* Confidently identify stable behavior
 
-4. Verify application conforms to specifications
+---
+
+# 4. Verify application conforms to specifications
    [MITRE Systems Engineeing](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
 
-> When shit goes down, we have evidence.zip
+* When shit goes down, we have evidence.zip
 
-5. Serve as a safety net to guard against breaking changes
+---
 
-> Made a change, broke a test? Double check and fix that mess!
+# 5. Serve as a safety net to guard against breaking changes
 
-6. Automate complicated and long manual tests that validate application
-   works as intended for users
+* Made a change, broke a test? Double check and fix that mess!
 
-If I have to fill out another goddamn form...
+---
 
-7. Aid in troubleshooting production issues
+# 6. Automate complicated and long manual tests that validate application works as intended for users
 
-> At times logging, dubugger, and exception notifications might not suffice
+* If I have to fill out another goddamn form...
+
+---
+
+# 7. Aid in troubleshooting production issues
+
+* At times logging, dubugger, and exception notifications might not suffice
+
+---
 
 # 4. Super ~~secret~~ testing strats
-
-### Test writing philosophy
+## Test writing philosophy
 
 Just like production code is bound to change, test code may also change.
 It's important to treat test code with the same respect as production
@@ -287,7 +378,10 @@ code. Just like you would refactor production code, you would also
 refactor test code. The catch is that we must be very selective about
 what we test and how we choose to do it.
 
-When writing tests, we must be able to quickly answer three questions:
+---
+
+# On test writing
+# We must be able to quickly answer three questions:
 
 1. **What is the purpose of this test?** It must provide some value, otherwise
    it shouldn't be exist. No need to waste time on things that provide
@@ -299,11 +393,15 @@ When writing tests, we must be able to quickly answer three questions:
    the test codebase, with established structure and style. There should
    be **no freestyling** here.
 
+{.column}
+
 If we can't quickly answer these, we have poorly written tests. This
 likely means we must waste time/money reading and debugging tests while
 developing and when things fail.
 
-### Test Hierarchy
+---
+
+# Test Hierarchy
 
 ![Test Pyramid](https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png)
 
@@ -320,21 +418,32 @@ Each of these buckets have tradeoffs between:
 * Build time
 * Fake vs real
 
-#### Unit Tests
+---
 
-#### Integration Tests
+# Unit Tests
 
-#### Acceptance Tests
+---
+
+# Integration Tests
+
+---
+
+# Acceptance Tests
+
+---
 
 # We talkin' bout ~~PRACTICE?~~ ~~TESTING~~ DESIGN?
 
-Design is hard. Write an application with shit design/no design and
-eventually the cancer will become too widespread and we will no longer
-be able to endure the foul smells.
+Design is hard. Write an application with bad design/no design and
+eventually the pain will become overwhelming.
 
 > The code smells have become 2 dank.
 
 ![The rock](https://media.giphy.com/media/TT7JW4Qm7uaNW/giphy.gif)
+
+---
+
+# Dank code smells
 
 * There is duplicated code all over the place
 * Classes and/or methods have become too long
@@ -347,22 +456,24 @@ be able to endure the foul smells.
 * Comments become inaccurate
 * Deeply nested conditionals
 
-Similarly, write shit tests and feel double the pain. Yum, diarrhea.
-There are different kinds of tests, and different philosophies for how
-to go about it.
+---
+
+# Dank test smells
+
+If we have poorly written tests, we will feel double the pain! For
+example:
 
 * Why did this test start failing?
 * What the fuck does this example test?
 * SWEET OUR TEST SUITE TAKES 30 MINUTES TO RUN, TIME TO WATCH SOME TV.
-* How did it turn out like this?
 
-It's ok! Let's chill out and look at some cats.
+```
+rm -rf path_to_project_from_hell/spec
+```
 
-![Cute keyboard cat](https://media.giphy.com/media/rld1hYOuC7QGs/giphy.gif)
-![Cat vs Shaq](https://media.giphy.com/media/nNxT5qXR02FOM/giphy.gif)
-![Cat face](https://media.giphy.com/media/Md4xQfuJeTtx6/giphy.gif)
+---
 
-## Exercise 3: We become role players and cosplayers
+# Exercise 3: We become role players and cosplayers
 
 Our goal for this exercise is to develop a drink ordering system.
 
@@ -372,6 +483,8 @@ Our goal for this exercise is to develop a drink ordering system.
 4. Determine how each requirement will be validated.
 5. Determine how each feature will be validated.
 
+---
+
 # 5. Wu-Tang Clan Ain't Nuthing ta F' Wit (wRAP up)
 
 Today we were primarily concerned with answering two questions:
@@ -380,12 +493,15 @@ Today we were primarily concerned with answering two questions:
 
 > Are we building the system *right*? (Behavior/Implementation)
 
+---
+
+# Closing words
+
 ![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
 
 We must accept that change is inevitable. Done well, testing can allow
 us to change, refactor, understand, and design our code better.
 
-Change
-Refactor
-Understand
-Design
+Change Refactor Understand Design
+
+---
