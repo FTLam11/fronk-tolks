@@ -232,7 +232,7 @@ behavior).
 # The cold hard truth
 
 The truth is testing well is difficult, because it is not just
-about writing and running tests, testing is also about design. Design well is
+about writing and running tests, testing is also about design. Designing well is
 **really fucking** hard. Adopting a test driven workflow has a high learning
 curve, and takes time to turn into a habit. No one has time for that!?
 
@@ -293,7 +293,7 @@ twist on the Myers Briggs Indicator Test.
 
 Let us first revisit Exercise 1: Why test?
 
-Insert yoda pic here
+![Master yoda](https://media.giphy.com/media/6fScAIQR0P0xW/giphy-downsized.gif)
 
 ---
 
