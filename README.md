@@ -5,7 +5,7 @@
 
 ![Allen Iverson Practice](https://media.giphy.com/media/3oEjI105rmEC22CJFK/giphy.gif)
 
-What up?
+What up AI?
 
 ---
 
@@ -13,11 +13,17 @@ What up?
 
 Disclaimer: This talk concerns testing during the development of web/mobile
 applications for external users. Thus, frameworks/library testing, human factors,
-UX testing, subject testing, etc... is out of scope.
+UX testing, subject testing, manual testing, etc... is out of scope.
+
+The topics for this talk are:
+
+1. Why we should care about testing
+2. How it can influence design
+3. Brief overview of what software testing is
 
 ---
 
-# Agenda (How things will hopefully go)
+# Agenda (Brainwashing)
 
 1. Yo, I care not about testing
 2. Bruh, testing is lame
@@ -57,10 +63,9 @@ Testing comes in many different flavors and applications:
 
 People often have very strong opinions about what they believe is right
 and how to go about testing. You might be surprised how sensitive and
-passionate people can get when discussing testing. Much drama and many
-pissing contests have occurred in the past and will continue to happen.
-Regardless of how testing is executed, from a practical standpoint
-testing addresses **two very important questions for developing systems**.
+passionate people can get about testing. Regardless of how testing is
+executed, from a practical standpoint testing addresses **two very
+important questions for developing systems**.
 
 > Are we building the *right* system? (Performance)
 
@@ -97,6 +102,8 @@ From an **engineering** perspective:
 
 * Are we building the system *right*?
 * Are we building the *right* system?
+
+Maybe tests can help answer these questions?
 
 ---
 
@@ -145,6 +152,8 @@ writing tests when we can write more features?
 
 > No, I can’t add that feature; it wasn’t designed to do that.
 
+> Trust me! This is not what you want!
+
 > **crying sounds**
 
 ```
@@ -154,6 +163,7 @@ rm -rf path_to_project_from_hell
 ---
 
 # Common testing misconceptions
+## Mythbuster time!
 
 ![Mythbusters](https://media.giphy.com/media/NLTrXfORPlcJ2/giphy.gif)
 
@@ -216,7 +226,7 @@ change code instead of some arbitrary test metric.
 
 ---
 
-# 5. The ~~overworked sad~~ programmer
+# 5. The ~~sad~~ programmer
 
 ![Bugs don't stop](https://media.giphy.com/media/11ZSwQNWba4YF2/source.gif)
 
