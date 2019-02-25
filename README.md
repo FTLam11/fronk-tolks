@@ -463,6 +463,14 @@ Each of these buckets have tradeoffs between:
 
 # Unit Tests
 
+* Should be the majority of tests
+* Test a single unit of code, e.g., a single class
+* Are super fast to run, provide developers quick feedback to iterate on
+design
+* Isolating test failures and finding them is easy
+* Most comfortable to write, because often can use same language as
+production to write them, may involve DSL
+
 ---
 
 # Integration Tests
