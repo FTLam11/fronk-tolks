@@ -463,21 +463,35 @@ Each of these buckets have tradeoffs between:
 
 # Unit Tests
 
-* Should be the majority of tests
 * Test a single unit of code, e.g., a single class
 * Are super fast to run, provide developers quick feedback to iterate on
 design
 * Isolating test failures and finding them is easy
 * Most comfortable to write, because often can use same language as
 production to write them, may involve DSL
+* Should be the majority of tests
 
 ---
 
 # Integration Tests
 
+* Test multiple units of code together, e.g., collaborator class or API
+tests
+* Can be a little more annoying to setup, e.g., might need access to a request
+object
+* Can substitute some acceptance level testing if resources are limited
+* Quantity should be in between unit and acceptance tests
+
 ---
 
 # Acceptance Tests
+
+* Exercise entire stack: UI, client-end, back-end, third-party APIs,
+database, network, etc...
+* Everything should be real as to simulate actual user experience
+* Most cumbersome to write, most brittle, expensive
+* Do as little as possible, YMMV
+([PRO](https://www.symphonious.net/2015/04/30/making-end-to-end-tests-work/)/[AGAINST](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html))
 
 ---
 
