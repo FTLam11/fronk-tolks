@@ -21,9 +21,12 @@ The topics for this talk are:
 2. How it can influence design
 3. Brief overview of what software testing is
 
+We won't be discussing how to actually do testing. That is talk for
+another day.
+
 ---
 
-# Agenda (Brainwashing)
+# Agenda (Let the brainwashing commence)
 
 1. Yo, I care not about testing
 2. Bruh, testing is lame
@@ -50,8 +53,6 @@ HINT: We **DO NOT** test for the sake of testing.
 # The quick and dirty intro
 ## Testing is like ice cream and pizza
 
-Testing comes in many different flavors and applications:
-
 * Developmental Testing vs Operational Testing ([Defense Acquisition University](https://www.dau.mil/guidebooks/Shared%20Documents/Chapter%208%20Test%20and%20Evaluation.pdf))
 * Unit Tests/Integration Tests/Acceptance Tests ([Testing Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html))
 * Classical (Detroit) vs Mockist (London) ([Test Double Wiki](https://github.com/testdouble/contributing-tests/wiki/Test-Driven-Development))
@@ -67,9 +68,8 @@ passionate people can get about testing. Regardless of how testing is
 executed, from a practical standpoint testing addresses **two very
 important questions for developing systems**.
 
-> Are we building the *right* system? (Performance)
-
-> Are we building the system *right*? (Behavior/Implementation)
+* Are we building the *right* system? (Performance)
+* Are we building the system *right*? (Behavior/Implementation)
 
 ---
 
@@ -81,6 +81,8 @@ important questions for developing systems**.
   money and time. The more we write, the more money and time we spend.
 * Business problems change. Thus, code must change. Change costs time
   and money. How quickly can we adapt and change our code?
+
+Can testing help us run our business better?
 
 ![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
 
@@ -116,7 +118,7 @@ EZ
 
 ---
 
-# I wanna live in imaginaryland
+# I wanna live in Imaginaryland
 
 In an ideal world, we would write perfect code and not care about
 testing. Business rules would also be static, so we would just
@@ -126,17 +128,19 @@ write the code once and never change it again.
 
 ---
 
-# Welcome to the real world kid
+# WELCOME TO THE REAL WORLD
 
 In the real world, we have limited time and energy. When we find ourselves in
 a pinch, the first thing we skip out on are tests. Why spend time
-writing tests when we can write more features?
+writing tests when we can write more features? Tests are getting in the
+way of us writing more features!
 
 ![Think twice](https://i.imgflip.com/2ubfbg.jpg)
 
 ---
 
-# The unthinkable happens
+# OH NO
+## The unthinkable happens
 
 * The customer did not know what they wanted.
 * The customer did not correctly express what they wanted/we misunderstood the requirements.
@@ -191,11 +195,9 @@ rational at all?
 > Sigh, I have to write twice the amount of code!? This is not my job,
 > I'll let QA/QC do the testing.
 
-But **it is** your job. You are responsible for not only writing the
-code, more importantly you are responsible for the code working
-correctly. Lines of code by itself is not a good metric at all.
-Pushing all testing responsibility to a single person/team also sounds
-like an awful idea.
+But **it is** your job. You are responsible for writing *working* code.
+Lines of code by itself is not a good metric at all. Pushing all testing
+responsibility to a single person/team also sounds like an awful idea.
 
 ---
 
@@ -232,7 +234,7 @@ change code instead of some arbitrary test metric.
 
 > I don't write tests, does that make me a bad programmer?
 
-Probably not? I'm guessing the majority of programmers don't spend
+Nah? I'm guessing the majority of programmers don't spend
 time writing automated tests. Even if you aren't writing them, you
 are likely doing testing in some manner (manually verifying data and
 behavior).
@@ -256,7 +258,11 @@ Have faith! Believe in yourself, you can do it!
 ## Exercise 2: Searls-Briggs Indicator
 
 Check out the [RailsConf 2017 Keynote](https://youtu.be/V4fnzHxHXMI), it's a fun
-twist on the Myers Briggs Indicator Test.
+twist on the [Myers-Briggs Indicator Test](https://en.wikipedia.org/wiki/Myers%E2%80%93Briggs_Type_Indicator).
+
+The Myers-Briggs Test categorizes people into different personality
+buckets. This exercise will do the same thing but with questions centered
+around software.
 
 ---
 
@@ -291,11 +297,12 @@ twist on the Myers Briggs Indicator Test.
 ---
 
 # Economical VS Thorough
-  * Better to ship code quickly than wait until everything's tested.
-  * Design principles are useful, but most teams waste too much time on
-    them.
-  * Most teams lack sufficient understanding of their dependencies.
-  * It's okay for everyone on a team to maintain separate coding styles.
+
+* Better to ship code quickly than wait until everything is tested.
+* Design principles are useful, but most teams waste too much time on
+  them.
+* Most teams lack sufficient understanding of their dependencies.
+* It's okay for everyone on a team to maintain separate coding styles.
 
 ---
 
@@ -307,13 +314,13 @@ Let us first revisit Exercise 1: Why test?
 
 ---
 
-# Please enlighten!
+# Back to the two main questions
 
 > Are we building the *right* system? (Performance)
 
 Tests help us **understand and communicate requirements better**,
-**reduce the costs of change**, and **demonstrate how the system performs
-in real situations**.
+**reduce the cost of change**, and **demonstrate how the system performs
+in near real situations**.
 
 > Are we building the system *right*? (Behavior/Implementation)
 
@@ -350,14 +357,16 @@ questionable design.
 # 3. Define clear public interfaces
 
 * It becomes much easier to see how objects interact with each other.
-* Confidently identify stable behavior
+* Confidently identify stable behavior that can be called and relied on
+  by other developers.
 
 ---
 
 # 4. Verify application conforms to specifications
    [MITRE Systems Engineeing](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
 
-* When shit goes down, we have evidence.zip
+* Test specs trace back to some feature, there is no redundant
+  test/production code.
 
 ---
 
@@ -370,6 +379,9 @@ questionable design.
 # 6. Automate complicated and long manual tests that validate application works as intended for users
 
 * If I have to fill out another goddamn form...
+* If I have to reset another database...
+* Shit, I just sent out a few hundred emails...
+* Oops, forgot to uncomment out production code...
 
 ---
 
@@ -391,23 +403,37 @@ what we test and how we choose to do it.
 ---
 
 # On test writing
-# We must be able to quickly answer three questions:
+# What is the purpose of this test?
 
-1. **What is the purpose of this test?** It must provide some value, otherwise
-   it shouldn't be exist. No need to waste time on things that provide
-   zero or negative value. Each test we keep must provide us greater
-   understanding and confidence.
-2. **What type of test is this?** The test type dictates how granular the
-   details are, as well as different test approaches/tools we may use.
-3. **How should this test be written?** There should be consistency across
-   the test codebase, with established structure and style. There should
-   be **no freestyling** here.
+* It must provide some value, otherwise it shouldn't be exist.
+* No need to waste time on things that provide zero or negative value.
+* Each test we keep must provide us greater understanding and confidence.
 
-{.column}
+---
+
+# On test writing
+## What type of test is this?
+
+* The test type dictates how granular the details are.
+* Different types will require different test approaches/tools.
+
+---
+
+# On test writing
+## How should this test be written?
+
+* There should be consistency across the test codebase.
+* There should be established structure and style.
+* There should be **no freestyling** here.
+
+---
+
+# On test writing
+## The dangers of writing tests poorly
 
 If we can't quickly answer these, we have poorly written tests. This
 likely means we must waste time/money reading and debugging tests while
-developing and when things fail.
+developing production code and when tests fail.
 
 ---
 
@@ -443,6 +469,7 @@ Each of these buckets have tradeoffs between:
 ---
 
 # We talkin' bout ~~PRACTICE?~~ ~~TESTING~~ DESIGN?
+## Bad tests, bad design; bad design, bad tests
 
 Design is hard. Write an application with bad design/no design and
 eventually the pain will become overwhelming.
@@ -462,7 +489,7 @@ eventually the pain will become overwhelming.
 * The intent and usage is not obvious, impossible to reuse or extend
 * Shotgun surgery
 * Long and fragile method chains
-* Nil and null pop up unexpectedly
+* Nil/null pop up unexpectedly
 * Comments become inaccurate
 * Deeply nested conditionals
 
@@ -474,8 +501,9 @@ If we have poorly written tests, we will feel double the pain! For
 example:
 
 * Why did this test start failing?
+* How is this test passing?
 * What the fuck does this example test?
-* SWEET OUR TEST SUITE TAKES 30 MINUTES TO RUN, TIME TO WATCH SOME TV.
+* Lord have mercy, our tests take 30 minutes to run...
 
 ```
 rm -rf path_to_project_from_hell/spec
@@ -499,9 +527,11 @@ Our goal for this exercise is to develop a drink ordering system.
 
 Today we were primarily concerned with answering two questions:
 
-> Are we building the *right* system? (Performance)
+* Are we building the *right* system? (Performance)
+* Are we building the system *right*? (Behavior/Implementation)
 
-> Are we building the system *right*? (Behavior/Implementation)
+We learned how testing can guide our application design, how testing can
+make changing our code easier, and how testing can impact our business.
 
 ---
 
