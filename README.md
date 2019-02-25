@@ -13,7 +13,7 @@ What up AI?
 
 Disclaimer: This talk concerns testing during the development of web/mobile
 applications for external users. Thus, frameworks/library testing, human factors,
-UX testing, subject testing, manual testing, etc... is out of scope.
+UX testing, subject testing, manual testing, etc... are out of scope.
 
 The topics for this talk are:
 
@@ -26,7 +26,7 @@ another day.
 
 ---
 
-# Agenda (Let the brainwashing commence)
+# Let the brainwashing commence
 
 1. Yo, I care not about testing
 2. Bruh, testing is lame
@@ -403,9 +403,9 @@ what we test and how we choose to do it.
 ---
 
 # On test writing
-# What is the purpose of this test?
+## What is the purpose of this test?
 
-* It must provide some value, otherwise it shouldn't be exist.
+* It must provide some value, otherwise it shouldn't exist.
 * No need to waste time on things that provide zero or negative value.
 * Each test we keep must provide us greater understanding and confidence.
 
@@ -415,7 +415,7 @@ what we test and how we choose to do it.
 ## What type of test is this?
 
 * The test type dictates how granular the details are.
-* Different types will require different test approaches/tools.
+* Different types require different test approaches/tools.
 
 ---
 
@@ -543,5 +543,3 @@ We must accept that change is inevitable. Done well, testing can allow
 us to change, refactor, understand, and design our code better.
 
 Change Refactor Understand Design
-
----
