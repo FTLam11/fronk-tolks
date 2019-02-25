@@ -388,6 +388,11 @@ questionable design.
 # 7. Aid in troubleshooting production issues
 
 * At times logging, dubugger, and exception notifications might not suffice
+  * Write a high-level failing test that reproduces the bug
+  * Step down further into code base to identify root cause, adding
+  tests where appropriate
+  * Fix the bug at the lowest level, and pop back up to see if
+  high-level test passes and bug is fixed
 
 ---
 
@@ -504,6 +509,9 @@ example:
 * How is this test passing?
 * What the fuck does this example test?
 * Lord have mercy, our tests take 30 minutes to run...
+
+When we lose confidence in our tests (the thing they were supposed to
+give us!), we are fuckkkkkkkkkkkkkkkkkkkkkkked.
 
 ```
 rm -rf path_to_project_from_hell/spec
