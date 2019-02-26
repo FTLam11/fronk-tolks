@@ -21,7 +21,7 @@ The topics for this talk are:
 2. How it can influence design
 3. Brief overview of what software testing is
 
-We won't be discussing how to actually do testing. That is talk for
+We won't be discussing how to actually do testing. That is a talk for
 another day.
 
 ---
@@ -36,7 +36,7 @@ another day.
 
 ![Personal RPG stats](rpg_stats.jpg)
 
-* Grapefruit lover
+* Grapefruit segmenter extraordinaire
 
 ---
 
@@ -87,7 +87,7 @@ important questions for developing systems**.
 
 ---
 
-# Running a business
+# Conundrum
 
 * As a software agency, we help customers solve their business
   problems. Our customers compensate us with money.
@@ -96,7 +96,7 @@ important questions for developing systems**.
 * Business problems change. Thus, code must change. Change costs time
   and money. How quickly can we adapt and change our code?
 
-Can testing help us run our business better?
+Does testing help or hinder our business?
 
 ![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
 
@@ -132,7 +132,7 @@ EZ
 
 ---
 
-# I wanna live in Imaginaryland
+# I wanna live in Imaginationland
 
 In an ideal world, we would write perfect code and not care about
 testing. Business rules would also be static, so we would just
@@ -235,7 +235,7 @@ strategy pays off in the long run for many reasons that will be explained soon..
 > We MUST have 100% code coverage. We MUST test real usage scenarios.
 
 Some people may become obsessed with different test metrics at the
-expense of all other things. End-to-end tests (testing with real objects
+expense of all other things. Acceptance tests (testing with real objects
 and scenarios) are very complex, expensive, and time-consuming. There
 should be emphasis on gaining acceptable confidence and understanding to
 change code instead of some arbitrary test metric.
@@ -494,7 +494,7 @@ tests
 * Can be a little more annoying to set up, e.g., might need access to a request
 object
 * Can substitute some acceptance level testing if resources are limited
-* Quantity should be in between unit and acceptance tests
+* Quantity should be in between unit and acceptance tests quantities
 
 ---
 
