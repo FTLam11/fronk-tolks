@@ -26,6 +26,20 @@ another day.
 
 ---
 
+# About me
+
+* B.S General Engineering 2010 U of I
+* Systems Engineer/Program Manager 2011-2014 DHS
+* Technical Writer 2014-2015 Synology
+* Chicago Fiery Skippers 2016 Dev Bootcamp
+* Ruby Developer 2017 Larvata
+
+![Personal RPG stats](rpg_stats.jpg)
+
+* Grapefruit lover
+
+---
+
 # Let the brainwashing commence
 
 1. Yo, I care not about testing
@@ -363,7 +377,7 @@ questionable design.
 ---
 
 # 4. Verify application conforms to specifications
-   [MITRE Systems Engineeing](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
+   [MITRE Systems Engineering](https://www.mitre.org/publications/systems-engineering-guide/se-lifecycle-building-blocks/test-and-evaluation/verification-and-validation)
 
 * Test specs trace back to some feature, there is no redundant
   test/production code.
@@ -381,13 +395,13 @@ questionable design.
 * If I have to fill out another goddamn form...
 * If I have to reset another database...
 * Shit, I just sent out a few hundred emails...
-* Oops, forgot to uncomment out production code...
+* Oops, forgot to uncomment production code...
 
 ---
 
 # 7. Aid in troubleshooting production issues
 
-* At times logging, dubugger, and exception notifications might not suffice
+* At times logging, debugger, and exception notifications might not suffice
   * Write a high-level failing test that reproduces the bug
   * Step down further into code base to identify root cause, adding
   tests where appropriate
@@ -477,7 +491,7 @@ production to write them, may involve DSL
 
 * Test multiple units of code together, e.g., collaborator class or API
 tests
-* Can be a little more annoying to setup, e.g., might need access to a request
+* Can be a little more annoying to set up, e.g., might need access to a request
 object
 * Can substitute some acceptance level testing if resources are limited
 * Quantity should be in between unit and acceptance tests
@@ -548,12 +562,14 @@ Our goal for this exercise is to develop a drink ordering system.
 1. Brainstorm features
 2. Split up into groups, with each group tackling one feature
 3. Break each feature into individual requirements
-4. Determine how each requirement will be validated.
-5. Determine how each feature will be validated.
+4. Determine how each requirement will be validated
+5. Determine how each feature will be validated
 
 ---
 
 # 5. Wu-Tang Clan Ain't Nuthing ta F' Wit (wRAP up)
+
+![Duh Wu](http://arc-anglerfish-arc2-prod-pmn.s3.amazonaws.com/public/N2A7CKLQ2NBFVM3JMEM6JJP54I.jpg)
 
 Today we were primarily concerned with answering two questions:
 
