@@ -43,6 +43,7 @@ describe Module do
   describe '#class_eval' do
     it 'evaluates a block in the context of an existing class' do
       # use class_eval here
+      # use class_eval or module_eval here
       expect({key: 'value'}.hello_world).to eq 'Hello World'
       expect('Earth'.hello_world).to eq 'Hello World'
       expect(1.hello_world).to eq 'Hello World'
