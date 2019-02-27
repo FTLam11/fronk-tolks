@@ -4,7 +4,7 @@
   "description": "we talkin bout practice?",
   "main": "index.js",
   "scripts": {
-    "build": "md2gslides README.md"
+    "build": "md2gslides"
   },
   "repository": "git@github.com:FTLam11/fronk-talks.git",
   "author": "Frank Lam <ryzingsun11@yahoo.com>",
