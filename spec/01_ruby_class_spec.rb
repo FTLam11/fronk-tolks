@@ -3,7 +3,7 @@ class RubyClass end;
 describe RubyClass do
   it 'keeps a reference to self' do
     block = lambda {
-      # write code here
+      # add code to RubyClass here
     }
 
     expect { block.call }.to output('RubyClass').to_stdout
@@ -36,5 +36,17 @@ describe 'Current Class' do
     end
 
     expect(RubyClass.new.a_method).to be RubyClass
+  end
+end
+
+describe Module do
+  describe '#class_eval' do
+    it 'evaluates a block in the context of an existing class' do
+      # use class_eval here
+      expect({key: 'value'}.hello_world).to eq 'Hello World'
+      expect('Earth'.hello_world).to eq 'Hello World'
+      expect(1.hello_world).to eq 'Hello World'
+      expect((1..10).hello_world).to eq 'Hello World'
+    end
   end
 end
