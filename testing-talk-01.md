@@ -34,7 +34,7 @@ another day.
 * Chicago Fiery Skippers 2016 Dev Bootcamp
 * Ruby Developer 2017 Larvata
 
-![Personal RPG stats](rpg_stats.jpg)
+![Personal RPG stats](https://raw.githubusercontent.com/FTLam11/fronk-talks/master/rpg_stats.jpg)
 
 * Grapefruit segmenter extraordinaire
 
