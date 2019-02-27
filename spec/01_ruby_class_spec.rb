@@ -16,3 +16,11 @@ describe RubyClass do
     expect(result).to eql RubyClass
   end
 end
+
+describe 'Current Class' do
+  it 'has a class at the top level' do
+    this = nil
+    # change the assignment of this
+    expect(this.class).to eql Object
+  end
+end
