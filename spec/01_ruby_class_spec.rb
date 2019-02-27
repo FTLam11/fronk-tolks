@@ -13,7 +13,7 @@ describe RubyClass do
     result = class RubyClass
                # write code here
              end
-    expect(result).to eql RubyClass
+    expect(result).to be RubyClass
   end
 end
 
@@ -21,6 +21,20 @@ describe 'Current Class' do
   it 'has a class at the top level' do
     this = nil
     # change the assignment of this
-    expect(this.class).to eql Object
+    expect(this.class).to be Object
+  end
+
+  it 'has a class inside a method' do
+    class RubyClass
+      def a_method
+        def b_method
+          # write code here
+        end
+
+        b_method
+      end
+    end
+
+    expect(RubyClass.new.a_method).to be RubyClass
   end
 end
