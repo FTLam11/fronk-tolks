@@ -103,5 +103,12 @@ describe 'Two kinds of class variables' do
       expect { String.hello_world }.to_not raise_error
       # why do these expectations pass?
     end
+
+    it 'is defined on an object' do
+      mj = 'Michael Jordan'
+      # write code here
+      expect(mj.is_goat?).to be true
+      expect { 'Lebron James'.is_goat? }.to raise_error NoMethodError
+    end
   end
 end
