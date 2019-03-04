@@ -10,7 +10,7 @@ Collection of talks given by `self`.
 
 ## Ruby Class Definitions
 
-Learn about Ruby classes via tests. A couple caveats:
+Learn about Ruby classes via tests. A couple matters to note:
 
 * Production code is all inlined for the sake of convenience and to
   encourage reading through it
