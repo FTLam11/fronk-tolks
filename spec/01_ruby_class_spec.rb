@@ -133,3 +133,41 @@ describe 'Singleton methods' do
     expect { 'Lebron James'.is_goat? }.to raise_error NoMethodError
   end
 end
+
+describe 'Ruby object' do
+  it 'has a Singleton class' do
+    object = 'Ruby string'
+    # write code here
+    expect(object.singleton_class).to be singleton_class
+  end
+end
+
+describe 'Ruby method lookup for instance object' do
+  let(:yo_block) { lambda do |klass|
+    klass.define_method(:yo) do
+      "#{klass}#yo"
+    end
+  end }
+
+  describe 'with basic lookup' do
+    it 'goes straight into the class of the object' do
+      class Person; end
+      yo_block.call(Person)
+
+      expect(Person.new.yo).to eq 'Person#yo'
+    end
+  end
+
+  describe 'with method defined on singleton class of the object' do
+    it 'goes straight into the singleton class of the object' do
+      class Person; end
+      yo_block.call(Person)
+      falcon = Person.new
+      yo_block.call(falcon.singleton_class)
+      result = "#{falcon.singleton_class}#yo"
+
+      expect(falcon.yo).to_not eq 'Person#yo'
+      expect(falcon.yo).to eq result
+    end
+  end
+end
