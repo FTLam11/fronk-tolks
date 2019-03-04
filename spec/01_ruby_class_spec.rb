@@ -93,4 +93,15 @@ describe 'Two kinds of class variables' do
       expect(Red.pokemon).to_not eq PokemonTrainer.pokemon
     end
   end
+
+  describe 'Singleton methods' do
+    it 'is a class method' do
+      # write code here
+
+      expect(String.singleton_methods).to include(:hello_world)
+      expect { 'LOL'.hello_world }.to_not raise_error
+      expect { String.hello_world }.to_not raise_error
+      # why do these expectations pass?
+    end
+  end
 end
