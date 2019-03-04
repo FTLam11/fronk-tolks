@@ -76,4 +76,21 @@ describe 'Two kinds of class variables' do
       expect(PokemonTrainer.new.pokemon).to eq PokemonTrainer.pokemon
     end
   end
+
+  describe 'Class Variables' do
+    it 'belongs to a class hierarchy' do
+      class PokemonTrainer
+        @@pokemon = %w(Squirtle Ivysaur Charizard)
+
+        def self.pokemon
+          @@pokemon
+        end
+      end
+
+      class Red < PokemonTrainer; end
+
+      # fix expectation below
+      expect(Red.pokemon).to_not eq PokemonTrainer.pokemon
+    end
+  end
 end
