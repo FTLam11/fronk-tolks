@@ -93,26 +93,27 @@ describe 'Two kinds of class variables' do
       expect(Red.pokemon).to_not eq PokemonTrainer.pokemon
     end
   end
+end
 
-  describe 'Singleton methods' do
-    it 'can be defined on self' do
-      # write code here
+describe 'Singleton methods' do
+  it 'can be defined on self' do
+    # write code here
 
       expect(String.singleton_methods).to include(:hello_world)
       expect { 'LOL'.hello_world }.to_not raise_error
       expect { String.hello_world }.to_not raise_error
       # why do these expectations pass?
     end
+    expect(String.singleton_methods).to include(:hello_world)
+    expect { 'LOL'.hello_world }.to_not raise_error
+    expect { String.hello_world }.to_not raise_error
+    # why do these expectations pass?
+  end
 
-    it 'can be defined on a constant class name' do
-      anonymous_class = Class.new {}
-      Homie = anonymous_class
-      # write code here
-      mj = 'Michael Jordan'
-      # write code here
-      expect(mj.is_goat?).to be true
-      expect { 'Lebron James'.is_goat? }.to raise_error NoMethodError
-      expect(Homie.holla_back).to eql 'Yo!'
+  it 'can be defined on a constant class name' do
+    anonymous_class = Class.new {}
+    Homie = anonymous_class
+    # write code here
     end
 
     it 'can be defined on an object' do
@@ -121,5 +122,14 @@ describe 'Two kinds of class variables' do
       expect(mj.is_goat?).to be true
       expect { 'Lebron James'.is_goat? }.to raise_error NoMethodError
     end
+
+    expect(Homie.holla_back).to eql 'Yo!'
+  end
+
+  it 'can be defined on an object' do
+    mj = 'Michael Jordan'
+    # write code here
+    expect(mj.is_goat?).to be true
+    expect { 'Lebron James'.is_goat? }.to raise_error NoMethodError
   end
 end
