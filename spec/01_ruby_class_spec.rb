@@ -42,12 +42,38 @@ end
 describe Module do
   describe '#class_eval' do
     it 'evaluates a block in the context of an existing class' do
-      # use class_eval here
       # use class_eval or module_eval here
       expect({key: 'value'}.hello_world).to eq 'Hello World'
       expect('Earth'.hello_world).to eq 'Hello World'
       expect(1.hello_world).to eq 'Hello World'
       expect((1..10).hello_world).to eq 'Hello World'
+      expect(true.hello_world).to eq 'Hello World'
+    end
+  end
+end
+
+describe 'Two kinds of class variables' do
+  describe 'Class Instance Variables' do
+    it 'belongs to the class' do
+      class PokemonTrainer
+        @pokemon = %w(Squirtle Ivysaur Charizard)
+
+        class << self
+          attr_reader :pokemon
+        end
+
+        attr_reader :pokemon
+
+        def initialize
+          @pokemon = nil
+        end
+      end
+
+      class Red < PokemonTrainer; end
+
+      # fix expectations below
+      expect(Red.pokemon).to eq PokemonTrainer.pokemon
+      expect(PokemonTrainer.new.pokemon).to eq PokemonTrainer.pokemon
     end
   end
 end
