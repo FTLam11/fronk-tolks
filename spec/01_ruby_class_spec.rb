@@ -1,4 +1,10 @@
 class RubyClass end;
+main = self
+yo_block = lambda do |klass|
+             klass.define_method(:yo) do
+               "#{klass}#yo"
+             end
+           end
 
 describe RubyClass do
   it 'keeps a reference to self' do
@@ -143,30 +149,44 @@ describe 'Ruby object' do
 end
 
 describe 'Ruby method lookup for instance object' do
-  let(:yo_block) { lambda do |klass|
-    klass.define_method(:yo) do
-      "#{klass}#yo"
-    end
-  end }
+  before(:each) do
+    class Person; end
+    yo_block.call(Person)
+  end
 
-  describe 'with basic lookup' do
+  context 'with basic lookup' do
     it 'goes straight into the class of the object' do
-      class Person; end
-      yo_block.call(Person)
-
       expect(Person.new.yo).to eq 'Person#yo'
     end
   end
 
-  describe 'with method defined on singleton class of the object' do
+  context 'with method defined on singleton class of the object' do
     it 'goes straight into the singleton class of the object' do
-      class Person; end
-      yo_block.call(Person)
       falcon = Person.new
       yo_block.call(falcon.singleton_class)
       result = "#{falcon.singleton_class}#yo"
 
       expect(falcon.yo).to_not eq 'Person#yo'
+      expect(falcon.yo).to eq result
+    end
+  end
+
+  context 'with method defined on included module' do
+    it 'goes straight into the singleton class of the object' do
+      module Greetable
+        def yo
+          'Greetable#yo'
+        end
+      end
+
+      class Person include Greetable; end
+
+      falcon = Person.new
+      yo_block.call(falcon.singleton_class)
+      result = "#{falcon.singleton_class}#yo"
+
+      expect(falcon.yo).to_not eq 'Person#yo'
+      expect(falcon.yo).to_not eq 'Greetable#yo'
       expect(falcon.yo).to eq result
     end
   end
