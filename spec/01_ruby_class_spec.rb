@@ -155,13 +155,13 @@ describe 'Ruby method lookup for instance object' do
   end
 
   context 'with basic lookup' do
-    it 'goes straight into the class of the object' do
+    it 'looks in the class of the object' do
       expect(Person.new.yo).to eq 'Person#yo'
     end
   end
 
   context 'with method defined on singleton class of the object' do
-    it 'goes straight into the singleton class of the object' do
+    it 'looks in the singleton class of the object' do
       falcon = Person.new
       yo_block.call(falcon.singleton_class)
       result = "#{falcon.singleton_class}#yo"
@@ -171,23 +171,33 @@ describe 'Ruby method lookup for instance object' do
     end
   end
 
-  context 'with method defined on included module' do
-    it 'goes straight into the singleton class of the object' do
-      module Greetable
-        def yo
-          'Greetable#yo'
-        end
+  context 'with method defined on module' do
+    IncludeGreetable = Module.new do
+      define_singleton_method(:included) do |other_module|
+        yo_block.call(self)
       end
+    end
 
-      class Person include Greetable; end
+    PrependGreetable = Module.new do
+      define_singleton_method(:prepended) do |other_module|
+        yo_block.call(self)
+      end
+    end
 
+    it 'looks in the class of the object before looking in included modules' do
+      class Person include IncludeGreetable; end
       falcon = Person.new
-      yo_block.call(falcon.singleton_class)
-      result = "#{falcon.singleton_class}#yo"
 
-      expect(falcon.yo).to_not eq 'Person#yo'
       expect(falcon.yo).to_not eq 'Greetable#yo'
-      expect(falcon.yo).to eq result
+      expect(falcon.yo).to eq 'Person#yo'
+    end
+
+    it 'looks in prepended modules before looking in the class of the object' do
+      class Person prepend PrependGreetable; end
+      falcon = Person.new
+
+      expect(falcon.yo).to eq 'PrependGreetable#yo'
+      expect(falcon.yo).to_not eq 'Person#yo'
     end
   end
 end
