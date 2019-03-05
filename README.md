@@ -16,3 +16,10 @@ Learn about Ruby classes via tests. A couple matters to note:
   encourage reading through it
 * Specs are intentionally not being run in random order, there are some
   interesting things at play with scope and monkey patching
+
+### Method lookup
+
+object's singleton class -> prepended modules of object's class -> object's class
+-> included modules of object's class -> singleton class of object's
+superclass -> prepended modules of object's superclass -> object's
+superclass -> included modules of object's superclass -> etc...
