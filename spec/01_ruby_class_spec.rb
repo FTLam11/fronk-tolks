@@ -127,3 +127,12 @@ describe 'Ruby object' do
     expect(object.singleton_class).to be singleton_class
   end
 end
+
+describe 'Class methods' do
+  it 'are all singleton methods in the singleton class of the class' do
+    Dawg = Class.new
+    # write code here
+    expect(Dawg.singleton_methods).to include(:bark, :run, :give_bone)
+    expect(Dawg.singleton_class.singleton_methods).to include(:cat_lover)
+  end
+end
