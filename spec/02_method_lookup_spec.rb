@@ -18,12 +18,12 @@ describe 'Ruby method lookup for instance object' do
 
   context 'with method defined on singleton class of the object' do
     it 'looks in the singleton class of the object' do
-      falcon = Person.new
-      yo_block.call(falcon.singleton_class)
-      result = "#{falcon.singleton_class}#yo"
+      momo = Person.new
+      yo_block.call(momo.singleton_class)
+      result = "#{momo.singleton_class}#yo"
 
-      expect(falcon.yo).to_not eq 'Person#yo'
-      expect(falcon.yo).to eq result
+      expect(momo.yo).to_not eq 'Person#yo'
+      expect(momo.yo).to eq result
     end
   end
 
@@ -42,39 +42,39 @@ describe 'Ruby method lookup for instance object' do
 
     it 'looks in the class of the object before looking in included modules' do
       class Person include IncludeGreetable; end
-      falcon = Person.new
+      momo = Person.new
 
-      expect(falcon.yo).to_not eq 'Greetable#yo'
-      expect(falcon.yo).to eq 'Person#yo'
+      expect(momo.yo).to_not eq 'Greetable#yo'
+      expect(momo.yo).to eq 'Person#yo'
     end
 
     it 'looks in prepended modules before looking in the class of the object' do
       class Person prepend PrependGreetable; end
-      falcon = Person.new
+      momo = Person.new
 
-      expect(falcon.yo).to_not eq 'Person#yo'
-      expect(falcon.yo).to eq 'PrependGreetable#yo'
+      expect(momo.yo).to_not eq 'Person#yo'
+      expect(momo.yo).to eq 'PrependGreetable#yo'
     end
 
     it 'looks in the singleton class of the object before looking in prepended modules' do
       class Person prepend PrependGreetable; end
-      falcon = Person.new
-      yo_block.call(falcon.singleton_class)
-      result = "#{falcon.singleton_class}#yo"
+      momo = Person.new
+      yo_block.call(momo.singleton_class)
+      result = "#{momo.singleton_class}#yo"
 
-      expect(falcon.yo).to_not eq 'PrependGreetable#yo'
-      expect(falcon.yo).to eq result
+      expect(momo.yo).to_not eq 'PrependGreetable#yo'
+      expect(momo.yo).to eq result
     end
 
     it 'looks in the singleton class of the object before looking in singleton class of the singleton class' do
-      falcon = Person.new
-      yo_block.call(falcon.singleton_class)
-      yo_block.call(falcon.singleton_class.singleton_class)
-      result = "#{falcon.singleton_class}#yo"
-      double_singleton = "#{falcon.singleton_class.singleton_class}#yo"
+      momo = Person.new
+      yo_block.call(momo.singleton_class)
+      yo_block.call(momo.singleton_class.singleton_class)
+      result = "#{momo.singleton_class}#yo"
+      double_singleton = "#{momo.singleton_class.singleton_class}#yo"
 
-      expect(falcon.yo).to_not eq double_singleton
-      expect(falcon.yo).to eq result
+      expect(momo.yo).to_not eq double_singleton
+      expect(momo.yo).to eq result
     end
   end
 end
