@@ -6,4 +6,20 @@ describe Module do
       expect('lol'.to_string).to eq 'lol'
     end
   end
+
+  describe '#refine' do
+    it 'calls the original method with super' do
+      module Kekeable
+        refine String do
+          def to_s
+            super + '科科'
+          end
+        end
+      end
+
+      function = lambda {}
+
+      expect(function.call).to eq 'lol科科'
+    end
+  end
 end
