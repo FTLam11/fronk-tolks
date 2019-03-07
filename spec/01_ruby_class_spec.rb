@@ -107,9 +107,9 @@ describe 'Singleton methods' do
 
   it 'can be defined on a constant class name' do
     anonymous_class = Class.new {}
-    Homie = anonymous_class
+    Momo = anonymous_class
     # write code here
-    expect(Homie.holla_back).to eql 'Yo!'
+    expect(Momo.has_knife).to be true
   end
 
   it 'can be defined on an object' do
