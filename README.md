@@ -3,6 +3,7 @@
 Collection of talks given by `self`.
 
 ## We talkin' bout ~~PRACTICE?~~ TESTING?
+[README link](we-talkin-bout-testing.md)
 
 1. Why we should care about testing
 2. How testing can influence design
