@@ -28,7 +28,20 @@ describe Module do
       expect{ another_object.b_method }.to raise_error NoMethodError
     end
   end
+end
 
+describe Object do
   describe '#extend' do
+    it 'extends the receiver' do
+      module CModule
+        def c_method; 'Yo'; end
+      end
+
+      object = Object.new
+
+      # fix production code
+      expect(object.c_method).to eq 'Yo'
+      expect(Object.c_method).to eq 'Yo'
+    end
   end
 end
