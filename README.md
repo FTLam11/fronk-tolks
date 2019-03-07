@@ -17,9 +17,22 @@ Learn about Ruby classes via tests. A couple matters to note:
 * Specs are intentionally not being run in random order, there are some
   interesting things at play with scope and monkey patching
 
+### Setup
+
+1. `bundle`
+2. `rspec`
+
 ### Method lookup
 
 object's singleton class -> prepended modules of object's class -> object's class
 -> included modules of object's class -> singleton class of object's
 superclass -> prepended modules of object's superclass -> object's
 superclass -> included modules of object's superclass -> etc...
+
+### Shocking truths
+
+* The superclass of the singleton class of an object is the object’s
+  class. The superclass of the singleton class of a class is the
+  singleton class of the class’s superclass.
+* Class methods are singleton methods that reside in a class's singleton
+  class
