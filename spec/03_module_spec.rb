@@ -12,7 +12,7 @@ describe Module do
       end
 
       # fix production code
-      expect{ Subject.klass_method }.to_not raise_error
+      expect { Subject.klass_method }.to_not raise_error
     end
 
     it 'extends an object with instance methods' do
@@ -25,7 +25,7 @@ describe Module do
 
       # fix production code
       expect(object.b_method).to eq 'Yo'
-      expect{ another_object.b_method }.to raise_error NoMethodError
+      expect { another_object.b_method }.to raise_error NoMethodError
     end
   end
 end
