@@ -10,6 +10,7 @@ Collection of talks given by `self`.
 3. Brief overview of what software testing is
 
 ## Ruby Class Definitions
+[Specs link](https://github.com/FTLam11/fronk-talks/tree/master/spec)
 
 Learn about Ruby classes via tests. A couple matters to note:
 
