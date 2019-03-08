@@ -18,14 +18,14 @@ describe RubyClass do
   end
 end
 
-describe 'Current Class' do
-  it 'has a class at the top level' do
+describe 'Current class' do
+  it 'has a class at the top level scope' do
     this = nil
     # change the assignment of this
     expect(this.class).to be Object
   end
 
-  it 'has a class inside a method' do
+  it 'has a class inside nested methods' do
     class RubyClass
       def a_method
         def b_method
@@ -54,8 +54,8 @@ describe Module do
 end
 
 describe 'Two kinds of class variables' do
-  describe 'Class Instance Variables' do
-    it 'belongs to the class' do
+  describe 'Class instance variable' do
+    it 'belongs solely to the class' do
       class PokemonTrainer
         @pokemon = %w(Squirtle Ivysaur Charizard)
 
@@ -78,7 +78,7 @@ describe 'Two kinds of class variables' do
     end
   end
 
-  describe 'Class Variables' do
+  describe 'Class variable' do
     it 'belongs to a class hierarchy' do
       class PokemonTrainer
         @@pokemon = %w(Squirtle Ivysaur Charizard)
@@ -96,7 +96,7 @@ describe 'Two kinds of class variables' do
   end
 end
 
-describe 'Singleton methods' do
+describe 'Singleton method' do
   it 'can be defined on self' do
     # write code here
     expect(String.singleton_methods).to include(:hello_world)
@@ -128,8 +128,8 @@ describe 'Ruby object' do
   end
 end
 
-describe 'Class methods' do
-  it 'are all singleton methods in the singleton class of the class' do
+describe 'Class method' do
+  it 'is a singleton method in the singleton class of the class' do
     Dawg = Class.new
     # write code here
     expect(Dawg.singleton_methods).to include(:bark, :run, :give_bone)
