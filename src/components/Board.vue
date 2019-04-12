@@ -5,7 +5,7 @@
         v-for="(tile, idx) in board"
         :key="idx"
         class="box"
-        :class="{ selected: tile.selected }"
+        :class="{ selected: idx === activeTileIdx }"
         @click="selectMove(tile, idx)"
       >
         {{ tile.value }}
@@ -19,10 +19,7 @@ const BoardFactory = tileCount => {
   let board = [];
 
   for (let i = 0; i < tileCount; i++) {
-    board.push({
-      value: "",
-      selected: false
-    });
+    board.push("");
   }
 
   return board;
@@ -32,13 +29,13 @@ export default {
   name: "Board",
   data: function() {
     return {
-      board: BoardFactory(9)
+      board: BoardFactory(9),
+      activeTileIdx: null
     };
   },
   methods: {
-    selectMove(tile) {
-      tile.selected = !tile.selected;
-      this.$emit("toggle-panel");
+    selectMove(tile, tile_idx) {
+      this.activeTileIdx = tile_idx;
     }
   }
 };
