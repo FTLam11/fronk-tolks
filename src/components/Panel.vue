@@ -1,6 +1,13 @@
 <template>
   <div class="control-panel">
-    <div v-for="(move, index) in moves" :key="index" class="move">{{ move }}</div>
+    <div
+      v-for="(move, index) in moves"
+      :key="index"
+      @click="markTile(move)"
+      class="move"
+    >
+      {{ move }}
+    </div>
   </div>
 </template>
 
@@ -11,6 +18,11 @@ export default {
     return {
       moves: ["X", "O"]
     };
+  },
+  methods: {
+    markTile: function(move) {
+      this.$root.$emit("mark-tile", move);
+    }
   }
 };
 </script>

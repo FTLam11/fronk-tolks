@@ -8,7 +8,7 @@
         :class="{ selected: idx === activeTileIdx }"
         @click="selectMove(tile, idx)"
       >
-        {{ tile.value }}
+        {{ tile }}
       </div>
     </div>
   </div>
@@ -37,6 +37,11 @@ export default {
     selectMove(tile, tile_idx) {
       this.activeTileIdx = tile_idx;
     }
+  },
+  mounted() {
+    this.$root.$on("mark-tile", move => {
+      this.board.splice(this.activeTileIdx, 1, move);
+    });
   }
 };
 </script>
