@@ -14,12 +14,24 @@
 </template>
 
 <script>
+const BoardFactory = (tileCount) => {
+  let board = [];
+
+  for (let i = 0; i < tileCount; i++) {
+    board.push({
+      value: "",
+      selected: false
+    });
+  }
+
+  return board;
+};
 // arbitrary size, set colors, undo
 export default {
   name: "Board",
   data: function() {
     return {
-      board: ["", "", "", "", "", "", "", "", ""]
+      board: BoardFactory(9)
     };
   },
   methods: {
