@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <h3>Tic Tac Toe</h3>
-    <Panel :isActive="activePanel"/>
-    <Board @toggle-panel="togglePanel"/>
+    <Panel />
+    <Board />
   </div>
 </template>
 
@@ -18,13 +18,9 @@ export default {
   },
   data: function() {
     return {
-      activePanel: false
     };
   },
   methods: {
-    togglePanel() {
-      this.activePanel = !this.activePanel;
-    }
   }
 };
 </script>

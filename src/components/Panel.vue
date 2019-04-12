@@ -1,15 +1,12 @@
 <template>
-  <div :class="{ inactive: !isActive }">
-    <div class="control-panel">
-      <div v-for="(move, index) in moves" :key="index" class="move">{{ move }}</div>
-    </div>
+  <div class="control-panel">
+    <div v-for="(move, index) in moves" :key="index" class="move">{{ move }}</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Panel",
-  props: ["isActive"],
   data: function() {
     return {
       moves: ["X", "O"]
@@ -18,10 +15,6 @@ export default {
 };
 </script>
 <style scoped>
-.inactive {
-  visibility: hidden;
-}
-
 .control-panel {
   display: flex;
   justify-content: center;

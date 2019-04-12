@@ -6,7 +6,7 @@
         :key="idx"
         class="box"
         :class="{ selected: tile.selected }"
-        @click="selectMove(tile)"
+        @click="selectMove(tile, idx)"
       >
         {{ tile.value }}
       </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-const BoardFactory = (tileCount) => {
+const BoardFactory = tileCount => {
   let board = [];
 
   for (let i = 0; i < tileCount; i++) {
