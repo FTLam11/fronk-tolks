@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <h3>Tic Tac Toe</h3>
     <Panel :isActive="activePanel"/>
     <Board @toggle-panel="togglePanel"/>
   </div>
@@ -38,5 +38,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+h3 {
+  margin: 0 0 10px 0;
 }
 </style>

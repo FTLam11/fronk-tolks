@@ -19,14 +19,14 @@ export default {
 </script>
 <style scoped>
 .inactive {
-  display: none;
+  visibility: hidden;
 }
 
 .control-panel {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1em;
+  margin-bottom: 10px;
 }
 
 .move {

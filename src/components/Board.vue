@@ -44,8 +44,8 @@ export default {
 
 <style scoped>
 .game-board {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   margin: 0 auto;
   background-color: #52aea0;
   color: #fff;
