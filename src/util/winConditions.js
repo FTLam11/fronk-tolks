@@ -31,19 +31,19 @@ for (let i = 0; i < 9; i++) {
 
 const row = (board, move) => {
   return rows.some(row => {
-    board.filter((item, idx) => row.includes(idx)).every(tile => tile === move);
+    return board.filter((item, idx) => row.includes(idx)).every(tile => tile === move);
   });
 };
 
 const column = (board, move) => {
   return columns.some(col => {
-    board.filter((item, idx) => col.includes(idx)).every(tile => tile === move);
+    return board.filter((item, idx) => col.includes(idx)).every(tile => tile === move);
   });
 };
 
 const diagonal = (board, move) => {
   return diagonals.some(diag => {
-    board.filter((item, idx) => diag.includes(idx)).every(tile => tile === move);
+    return board.filter((item, idx) => diag.includes(idx)).every(tile => tile === move);
   });
 };
 
