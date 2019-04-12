@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="resetBoard" type="reset">Reset</button>
     <div class="game-board">
       <div
         v-for="(tile, idx) in board"
@@ -36,11 +37,17 @@ export default {
   methods: {
     selectMove(tile, tile_idx) {
       this.activeTileIdx = tile_idx;
+    },
+    resetBoard: function() {
+      this.board = BoardFactory(9);
+      this.activeTileIdx = null;
     }
   },
   mounted() {
     this.$root.$on("mark-tile", move => {
-      this.board.splice(this.activeTileIdx, 1, move);
+      if (this.activeTileIdx != null) {
+        this.board.splice(this.activeTileIdx, 1, move);
+      }
     });
   }
 };
