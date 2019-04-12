@@ -2,12 +2,13 @@
   <div>
     <div class="game-board">
       <div
-        v-for="(square, idx) in board"
+        v-for="(tile, idx) in board"
         :key="idx"
         class="box"
-        @click="selectMove"
+        :class="{ selected: tile.selected }"
+        @click="selectMove(tile)"
       >
-        {{ board[idx] }}
+        {{ tile.value }}
       </div>
     </div>
   </div>
@@ -35,7 +36,8 @@ export default {
     };
   },
   methods: {
-    selectMove() {
+    selectMove(tile) {
+      tile.selected = !tile.selected;
       this.$emit("toggle-panel");
     }
   }
@@ -61,5 +63,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.selected {
+  background-color: #cae8e4d9;
 }
 </style>
