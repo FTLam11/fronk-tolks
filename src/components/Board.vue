@@ -1,15 +1,14 @@
 <template>
-  <div class="hello">
+  <div>
     <div class="game-board">
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
-      <div class="box"></div>
+      <div
+        v-for="(square, idx) in board"
+        :key="idx"
+        class="box"
+        @click="selectMove"
+      >
+        {{ board[idx] }}
+      </div>
     </div>
   </div>
 </template>
@@ -17,10 +16,15 @@
 <script>
 // arbitrary size, set colors, undo
 export default {
-  name: "HelloWorld",
+  name: "Board",
   data: function() {
     return {
       board: ["", "", "", "", "", "", "", "", ""]
+    };
+  },
+  methods: {
+    selectMove() {
+      this.$emit("toggle-panel");
     }
   }
 };
