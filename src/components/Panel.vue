@@ -30,9 +30,6 @@ export default {
 }
 
 .move {
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 4em;
   background-color: #5295ae;
   color: #fff;
   border: 6px solid #2c3e50;
