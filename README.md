@@ -38,3 +38,11 @@ superclass -> included modules of object's superclass -> etc...
   singleton class of the class’s superclass.
 * Class methods are singleton methods that reside in a class's singleton
   class
+
+## Simple Vue JS Workshop: Building Tic-tac-toe
+
+Short and sour intro to one of those JS framework thangs. Lot of room to
+extend functionality like keeping score, automatically managing turns,
+creating arbitrarily sized boards, move history, etc...
+
+[README link](vue-workshop.md)
