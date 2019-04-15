@@ -8,7 +8,7 @@
         :key="idx"
         class="box"
         :class="{ selected: idx === activeTileIdx }"
-        @click="selectMove(tile, idx)"
+        @click="selectMove(idx)"
       >
         {{ tile }}
       </div>
@@ -28,7 +28,7 @@ const BoardFactory = tileCount => {
 
   return board;
 };
-// arbitrary size, set colors, undo
+
 export default {
   name: "Board",
   data: function() {
@@ -39,7 +39,7 @@ export default {
     };
   },
   methods: {
-    selectMove(tile, tile_idx) {
+    selectMove(tile_idx) {
       this.activeTileIdx = tile_idx;
     },
     resetBoard() {
@@ -57,9 +57,8 @@ export default {
     this.$root.$on("mark-tile", move => {
       if (this.activeTileIdx != null) {
         this.board.splice(this.activeTileIdx, 1, move);
-        if (this.gameOver(move)) {
-          this.message = "GG!";
-        }
+
+        if (this.gameOver(move)) { this.message = "GG!"; }
       }
     });
   }
