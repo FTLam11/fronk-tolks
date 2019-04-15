@@ -58,7 +58,9 @@ export default {
       if (this.activeTileIdx != null) {
         this.board.splice(this.activeTileIdx, 1, move);
 
-        if (this.gameOver(move)) { this.message = "GG!"; }
+        if (this.gameOver(move)) {
+          this.message = "GG!";
+        }
       }
     });
   }

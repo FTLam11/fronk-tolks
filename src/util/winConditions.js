@@ -31,22 +31,28 @@ for (let i = 0; i < 9; i++) {
 
 const row = (board, move) => {
   return rows.some(row => {
-    return board.filter((item, idx) => row.includes(idx)).every(tile => tile === move);
+    return board
+      .filter((item, idx) => row.includes(idx))
+      .every(tile => tile === move);
   });
 };
 
 const column = (board, move) => {
   return columns.some(col => {
-    return board.filter((item, idx) => col.includes(idx)).every(tile => tile === move);
+    return board
+      .filter((item, idx) => col.includes(idx))
+      .every(tile => tile === move);
   });
 };
 
 const diagonal = (board, move) => {
   return diagonals.some(diag => {
-    return board.filter((item, idx) => diag.includes(idx)).every(tile => tile === move);
+    return board
+      .filter((item, idx) => diag.includes(idx))
+      .every(tile => tile === move);
   });
 };
 
 const winConditions = [row, column, diagonal];
 
-export default winConditions
+export default winConditions;
