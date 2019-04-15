@@ -15,12 +15,6 @@ export default {
   components: {
     Board,
     Panel
-  },
-  data: function() {
-    return {
-    };
-  },
-  methods: {
   }
 };
 </script>
