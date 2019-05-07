@@ -2,7 +2,8 @@
 
 This project was generated using [Vue CLI](https://cli.vuejs.org/). Here
 is a [description](https://en.wikipedia.org/wiki/Tic-tac-toe) of how
-Tic-tac-toe works.
+Tic-tac-toe works. Source code can be found
+[here](https://github.com/FTLam11/fronk-tolks/tree/master/src).
 
 ## Setup
 
