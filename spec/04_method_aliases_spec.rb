@@ -1,3 +1,5 @@
+main = self
+
 describe Module do
   describe '#alias_method' do
     it 'wraps methods' do
@@ -17,7 +19,13 @@ describe Module do
         end
       end
 
-      function = lambda {}
+      function = lambda do
+        main.class.class_eval do
+          using Kekeable
+
+          'lol'.to_s
+        end
+      end
 
       expect(function.call).to eq 'lol科科'
     end
