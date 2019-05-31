@@ -40,9 +40,18 @@ superclass -> included modules of object's superclass -> etc...
   class
 
 ## Simple Vue JS Workshop: Building Tic-tac-toe
+[README link](vue-workshop.md)
 
 Short and sour intro to one of those JS framework thangs. Lot of room to
 extend functionality like keeping score, automatically managing turns,
 creating arbitrarily sized boards, move history, etc...
 
-[README link](vue-workshop.md)
+
+## We embark on the path towards enlightnment by way of test
+[README link](we-talkin-bout-testing.md)
+
+1. Review of Test Hierarchy, test writing overview
+2. Introduce variety of test libraries + tools
+3. Describe an ideal development workflow w/ testing
+4. Show examples of different test types
+5. Reimplement a class purely based on tests
