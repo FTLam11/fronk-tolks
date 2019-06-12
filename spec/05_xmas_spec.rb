@@ -48,10 +48,10 @@ module XmasSongs
       end
 
       def verse(number)
-        case number
-        when 1
-          "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
-            "A Partridge in a Pear Tree"
+        "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
+          gifts_for_day(number)
+      end
+
       private
 
       def gifts_for_day(number)
