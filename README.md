@@ -46,7 +46,7 @@ Short and sour intro to one of those JS framework thangs. Lot of room to
 extend functionality like keeping score, automatically managing turns,
 creating arbitrarily sized boards, move history, etc...
 
-## Live TDD Demo #1: Twelve Days of Chritmas
+## Live TDD Demo #1: Twelve Days of Christmas
 
 Inspired by [99 Bottles of OOP](https://www.sandimetz.com/99bottles),
 working through outputting the lyrics of a Christmas song classic.
