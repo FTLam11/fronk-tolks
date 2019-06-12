@@ -27,6 +27,21 @@ module XmasSongs
   class TwelveDays
     using Ordinalable
 
+    DAY_TO_GIFTS = {
+      1 => "A Partridge in a Pear Tree",
+      2 => "2 Turtle Doves",
+      3 => "3 French Hens",
+      4 => "4 Calling Birds",
+      5 => "5 Golden Rings",
+      6 => "6 Geese a Laying",
+      7 => "7 Swans a Swimming",
+      8 => "8 Maids a Milking",
+      9 => "9 Ladies Dancing",
+      10 => "10 Lords a Leaping",
+      11 => "11 Pipers Piping",
+      12 => "12 Drummers Drumming"
+    }
+
     class << self
       def lyrics
         1.upto(12).map { |num| verse(num) }.join("\n")
@@ -37,15 +52,19 @@ module XmasSongs
         when 1
           "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
             "A Partridge in a Pear Tree"
-        when 2
-          "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
-            "2 Turtle Doves\n" +
-            "and a Partridge in a Pear Tree"
+      private
+
+      def gifts_for_day(number)
+        if number == 1
+          DAY_TO_GIFTS[number]
         else
-          "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
-            "3 French Hens\n" +
-            "2 Turtle Doves\n" +
-            "and a Partridge in a Pear Tree"
+          number.downto(1).map do |day_number|
+            if day_number == 1
+              "and #{DAY_TO_GIFTS[day_number].tap { |str| str[0] = str[0].downcase }}"
+            else
+              DAY_TO_GIFTS[day_number]
+            end
+          end.join("\n")
         end
       end
     end
