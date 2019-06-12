@@ -3,8 +3,17 @@ require 'spec_helper'
 module XmasSongs
   class TwelveDays
     def self.lyrics
-      "On the first day of Christmas my true love sent to me:\n" +
-        "A Partridge in a Pear Tree"
+    end
+
+    def self.verse(number)
+      if number == 1
+        "On the first day of Christmas my true love sent to me:\n" +
+          "A Partridge in a Pear Tree"
+      else
+        "On the second day of Christmas my true love sent to me:\n" +
+          "2 Turtle Doves\n" +
+          "and a Partridge in a Pear Tree"
+      end
     end
   end
 end
@@ -16,19 +25,19 @@ describe XmasSongs::TwelveDays do
       A Partridge in a Pear Tree
     LYRICS
 
-    song = XmasSongs::TwelveDays.lyrics
+    song = XmasSongs::TwelveDays.verse(1)
 
     expect(song).to eq(verse)
   end
 
-  xit "has a verse for the second day of Xmas" do
+  it "has a verse for the second day of Xmas" do
     verse = <<~LYRICS.chomp
       On the second day of Christmas my true love sent to me:
       2 Turtle Doves
       and a Partridge in a Pear Tree
     LYRICS
 
-    song = XmasSongs::TwelveDays.lyrics
+    song = XmasSongs::TwelveDays.verse(2)
 
     expect(song).to eq(verse)
   end
