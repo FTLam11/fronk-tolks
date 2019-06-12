@@ -3,6 +3,7 @@ require 'spec_helper'
 module XmasSongs
   class TwelveDays
     def self.lyrics
+      1.upto(12).map { |num| verse(num) }.join("\n")
     end
 
     def self.verse(number)
@@ -61,8 +62,8 @@ describe XmasSongs::TwelveDays do
     expect(song).to eq(verse)
   end
 
-  xit "has lyrics" do
-    <<~COMPLETE_SONG
+  it "has lyrics" do
+    full_lyrics = <<~COMPLETE_SONG
       On the first day of Christmas my true love sent to me:
       A Partridge in a Pear Tree
 
@@ -165,6 +166,9 @@ describe XmasSongs::TwelveDays do
       2 Turtle Doves
       and a Partridge in a Pear Tree
     COMPLETE_SONG
+
+    song = XmasSongs::TwelveDays.lyrics
+
+    expect(song).to eq(full_lyrics)
   end
 end
-
