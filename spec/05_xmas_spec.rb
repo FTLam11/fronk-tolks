@@ -57,7 +57,7 @@ module XmasSongs
       def gifts_for_day(number)
         number.downto(1).map do |day_number|
           if number != 1 && day_number == 1
-            "and #{DAY_TO_GIFTS[day_number].tap { |str| str[0] = str[0].downcase }}"
+            "and #{DAY_TO_GIFTS[day_number].dup.tap { |str| str[0] = str[0].downcase }}"
           else
             DAY_TO_GIFTS[day_number]
           end
