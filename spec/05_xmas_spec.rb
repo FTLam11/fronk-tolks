@@ -9,8 +9,13 @@ module XmasSongs
       if number == 1
         "On the first day of Christmas my true love sent to me:\n" +
           "A Partridge in a Pear Tree"
-      else
+      elsif number == 2
         "On the second day of Christmas my true love sent to me:\n" +
+          "2 Turtle Doves\n" +
+          "and a Partridge in a Pear Tree"
+      else
+        "On the third day of Christmas my true love sent to me:\n" +
+          "3 French Hens\n" +
           "2 Turtle Doves\n" +
           "and a Partridge in a Pear Tree"
       end
@@ -38,6 +43,19 @@ describe XmasSongs::TwelveDays do
     LYRICS
 
     song = XmasSongs::TwelveDays.verse(2)
+
+    expect(song).to eq(verse)
+  end
+
+  it "has a verse for the third day of Xmas" do
+    verse = <<~LYRICS.chomp
+      On the third day of Christmas my true love sent to me:
+      3 French Hens
+      2 Turtle Doves
+      and a Partridge in a Pear Tree
+    LYRICS
+
+    song = XmasSongs::TwelveDays.verse(3)
 
     expect(song).to eq(verse)
   end
