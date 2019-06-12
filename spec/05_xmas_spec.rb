@@ -30,7 +30,6 @@ end
   2 Turtle Doves
   and a Partridge in a Pear Tree
 
-
   On the third day of Christmas my true love sent to me:
   3 French Hens
   2 Turtle Doves
@@ -56,7 +55,6 @@ end
   3 French Hens
   2 Turtle Doves
   and a Partridge in a Pear Tree
-
 
   On the seventh day of Christmas my true love sent to me:
   7 Swans a Swimming
