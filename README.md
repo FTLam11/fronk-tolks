@@ -51,6 +51,9 @@ creating arbitrarily sized boards, move history, etc...
 Inspired by [99 Bottles of OOP](https://www.sandimetz.com/99bottles),
 working through outputing the lyrics of a Christmas song classic.
 
+[SPEC
+link](https://github.com/FTLam11/fronk-tolks/blob/master/spec/05_xmas_spec.rb)
+
 ## We embark on the path towards enlightnment by way of test
 [README link](we-talkin-bout-testing.md)
 
