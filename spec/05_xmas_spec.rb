@@ -1,25 +1,28 @@
 require 'spec_helper'
 
-class Xmas
-  def self.song
-    "On the first day of Christmas my true love sent to me:\n" +
-    "A Partridge in a Pear Tree"
+module Xmas
+  class TwelveDays
+    def self.song
+      "On the first day of Christmas my true love sent to me:\n" +
+        "A Partridge in a Pear Tree"
+    end
   end
 end
 
-describe "The Twelve Days of Christmas" do
+describe Xmas::TwelveDays do
   it "has a first verse" do
     first_verse = <<~FIRST_VERSE.chomp
       On the first day of Christmas my true love sent to me:
       A Partridge in a Pear Tree
     FIRST_VERSE
 
-    song = Xmas.song
+    song = Xmas::TwelveDays.song
 
     expect(song).to eq(first_verse)
   end
+end
 
-  <<~COMPLETE_SONG
+<<~COMPLETE_SONG
   On the first day of Christmas my true love sent to me:
   A Partridge in a Pear Tree
 
@@ -123,5 +126,4 @@ describe "The Twelve Days of Christmas" do
   3 French Hens
   2 Turtle Doves
   and a Partridge in a Pear Tree
-  COMPLETE_SONG
-end
+COMPLETE_SONG
