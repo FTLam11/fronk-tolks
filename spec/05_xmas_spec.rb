@@ -55,17 +55,13 @@ module XmasSongs
       private
 
       def gifts_for_day(number)
-        if number == 1
-          DAY_TO_GIFTS[number]
-        else
-          number.downto(1).map do |day_number|
-            if day_number == 1
-              "and #{DAY_TO_GIFTS[day_number].tap { |str| str[0] = str[0].downcase }}"
-            else
-              DAY_TO_GIFTS[day_number]
-            end
-          end.join("\n")
-        end
+        number.downto(1).map do |day_number|
+          if number != 1 && day_number == 1
+            "and #{DAY_TO_GIFTS[day_number].tap { |str| str[0] = str[0].downcase }}"
+          else
+            DAY_TO_GIFTS[day_number]
+          end
+        end.join("\n")
       end
     end
   end
