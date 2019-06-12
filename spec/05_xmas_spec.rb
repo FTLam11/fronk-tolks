@@ -6,10 +6,11 @@ module XmasSongs
     end
 
     def self.verse(number)
-      if number == 1
+      case number
+      when 1
         "On the first day of Christmas my true love sent to me:\n" +
           "A Partridge in a Pear Tree"
-      elsif number == 2
+      when 2
         "On the second day of Christmas my true love sent to me:\n" +
           "2 Turtle Doves\n" +
           "and a Partridge in a Pear Tree"
