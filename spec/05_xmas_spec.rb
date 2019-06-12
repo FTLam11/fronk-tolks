@@ -9,7 +9,7 @@ module Ordinalable
     5 => :fifth,
     6 => :sixth,
     7 => :seventh,
-    8 => :eighh,
+    8 => :eighth,
     9 => :ninth,
     10 => :tenth,
     11 => :eleventh,
