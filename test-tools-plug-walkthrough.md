@@ -33,6 +33,7 @@ The topics for this talk are:
 1. [Test
    Hierarchy](https://github.com/FTLam11/fronk-tolks/blob/master/we-talkin-bout-testing.md#test-hierarchy)
 2. [Slides](https://docs.google.com/presentation/d/12SjaioLqcF3ycD3V9jXfax5OucdB-IMaJcDWYO4gGgg/edit?usp=sharing)
+3. [Test Double Wiki](https://github.com/testdouble/contributing-tests/wiki)
 
 ---
 
@@ -42,12 +43,12 @@ The topics for this talk are:
 * Core libraries (test structure, runner, formatting, DSL)
 * Expectation/assertion libraries
 * Mocking libraries
-* BDD Frameworks
-* Coverage tools
+* BDD frameworks
+* Test coverage
 * Factories
-* Web Drivers
-* IDE/Editor Plugins (!)
-* Utility/Miscellaneous
+* Web drivers
+* IDE/Editor Plugins
+* Utility/miscellaneous
 
 ---
 
@@ -56,29 +57,38 @@ The topics for this talk are:
 
 * IDE/text editor
 * Programming language
-* Framework
+* Right tools for different tests
+
+{.column}
+
+* Think about what ideal production code should look like (Design)
+* Write a failing test
+* Write **minimal** code required to pass test
+* Refactor
 
 ---
 
 # 4-1. Unit Tests
 ## Grinding levels + experience
 
+![OHKO](https://media.giphy.com/media/xT9IgBn4UAxjDcM3hS/source.gif)
+
 Unit tests are the easiest tests to write, quick n EZ. They test a
 single unit in isolation.
 
-* Test the public API
-* Are we building the system *right*? (Behavior/Implementation)
+* Test only the public API
+* Demo!
 
 ---
 
 # 4-2 Integration Tests
 ## Miniboss fight time
 
-*
+![Bosses](https://media.giphy.com/media/mZQBUN7vKBXFe/giphy.gif)
 
-Does testing help or hinder our business?
-
-![Elephant in the room](https://thumbs.gfycat.com/SameAnnualFallowdeer-size_restricted.gif)
+* Test units together
+* Often involves interacting with framework
+* Demo!
 
 ---
 
@@ -87,18 +97,17 @@ Does testing help or hinder our business?
 
 Yeah I don't wanna talk about this.
 
-{.column}
-
-Still don't wanna talk about this.
+![On second though, nah](https://media.giphy.com/media/d1PvAirswFXWg/giphy.gif)
 
 ---
 
 # 5. Deep dive
 ## Let's break something and reimplement it
 
-![2EZ](http://granitegrok.com/wp-content/uploads/2013/05/not-so-easy-button.png)
+![Hope this dive goes ok](https://media.giphy.com/media/3oEduNYqBMGd7c4wes/200w_d.gif)
 
-EZ
+* Let us observe how tests function also as documentation
+* Demo!
 
 ---
 
