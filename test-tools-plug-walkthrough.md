@@ -104,7 +104,7 @@ Yeah I don't wanna talk about this.
 # 5. Deep dive
 ## Let's break something and reimplement it
 
-![Hope this dive goes ok](https://media.giphy.com/media/3oEduNYqBMGd7c4wes/source.gif)
+![Hope this dive goes ok](https://media.giphy.com/media/26tP3KaWsDnT47VMk/source.gif)
 
 * Let us observe how tests function also as documentation
 * Demo!
