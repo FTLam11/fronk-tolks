@@ -55,7 +55,7 @@ working through outputting the lyrics of a Christmas song classic.
 link](https://github.com/FTLam11/fronk-tolks/blob/master/spec/05_xmas_spec.rb)
 
 ## We embark on the path towards enlightenment by way of test
-[README link](test-tools-plus-walkthrough.md)
+[README link](test-tools-plug-walkthrough.md)
 
 1. Review of Test Hierarchy, test writing conventions
 2. Introduce variety of test libraries + tools
