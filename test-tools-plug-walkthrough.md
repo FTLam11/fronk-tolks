@@ -104,18 +104,7 @@ Yeah I don't wanna talk about this.
 # 5. Deep dive
 ## Let's break something and reimplement it
 
-![Hope this dive goes ok](https://media.giphy.com/media/3oEduNYqBMGd7c4wes/200w_d.gif)
+![Hope this dive goes ok](https://media.giphy.com/media/3oEduNYqBMGd7c4wes/source.gif)
 
 * Let us observe how tests function also as documentation
 * Demo!
-
----
-
-# Closing words
-
-![CRUD](http://docs.railsbridge.org/job-board/img/crud_grid.jpg)
-
-We must accept that change is inevitable. Done well, testing can allow
-us to change, refactor, understand, and design our code better.
-
-Change Refactor Understand Design
