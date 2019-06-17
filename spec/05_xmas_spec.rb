@@ -27,7 +27,7 @@ module XmasSongs
   class TwelveDays
     using Ordinalable
 
-    DAY_TO_GIFTS = {
+    VERSE_TO_GIFTS = {
       1 => "A Partridge in a Pear Tree",
       2 => "2 Turtle Doves",
       3 => "3 French Hens",
@@ -49,17 +49,17 @@ module XmasSongs
 
       def verse(number)
         "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
-          gifts_for_day(number)
+          gifts_for_verse(number)
       end
 
       private
 
-      def gifts_for_day(number)
-        number.downto(1).map do |day_number|
-          if number != 1 && day_number == 1
-            "and #{DAY_TO_GIFTS[day_number].dup.tap { |str| str[0] = str[0].downcase }}"
+      def gifts_for_verse(starting_verse_num)
+        starting_verse_num.downto(1).map do |verse_num|
+          if starting_verse_num != 1 && verse_num == 1
+            "and #{VERSE_TO_GIFTS[verse_num].dup.tap { |str| str[0] = str[0].downcase }}"
           else
-            DAY_TO_GIFTS[day_number]
+            VERSE_TO_GIFTS[verse_num]
           end
         end.join("\n")
       end
