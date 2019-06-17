@@ -24,39 +24,42 @@ module Ordinalable
 end
 
 module XmasSongs
-  class TwelveDays
+  module TwelveDays
     using Ordinalable
+    extend self
 
-    VERSE_TO_GIFTS = {
-      1 => "A Partridge in a Pear Tree",
-      2 => "2 Turtle Doves",
-      3 => "3 French Hens",
-      4 => "4 Calling Birds",
-      5 => "5 Golden Rings",
-      6 => "6 Geese a Laying",
-      7 => "7 Swans a Swimming",
-      8 => "8 Maids a Milking",
-      9 => "9 Ladies Dancing",
-      10 => "10 Lords a Leaping",
-      11 => "11 Pipers Piping",
-      12 => "12 Drummers Drumming"
-    }
+    def lyrics
+      1.upto(12).map { |num| verse(num) }.join("\n\n")
+    end
 
-    class << self
-      def lyrics
-        1.upto(12).map { |num| verse(num) }.join("\n\n")
+    def verse(number)
+      "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
+        TwelveDaysVerse.new(number).gifts
+    end
+
+    class TwelveDaysVerse
+      VERSE_TO_GIFTS = {
+        1 => "A Partridge in a Pear Tree",
+        2 => "2 Turtle Doves",
+        3 => "3 French Hens",
+        4 => "4 Calling Birds",
+        5 => "5 Golden Rings",
+        6 => "6 Geese a Laying",
+        7 => "7 Swans a Swimming",
+        8 => "8 Maids a Milking",
+        9 => "9 Ladies Dancing",
+        10 => "10 Lords a Leaping",
+        11 => "11 Pipers Piping",
+        12 => "12 Drummers Drumming"
+      }
+
+      def initialize(num)
+        @starting_verse_num = num
       end
 
-      def verse(number)
-        "On the #{number.to_o} day of Christmas my true love sent to me:\n" +
-          gifts_for_verse(number)
-      end
-
-      private
-
-      def gifts_for_verse(starting_verse_num)
-        starting_verse_num.downto(1).map do |verse_num|
-          if starting_verse_num != 1 && verse_num == 1
+      def gifts
+        @starting_verse_num.downto(1).map do |verse_num|
+          if @starting_verse_num != 1 && verse_num == 1
             "and #{VERSE_TO_GIFTS[verse_num].dup.tap { |str| str[0] = str[0].downcase }}"
           else
             VERSE_TO_GIFTS[verse_num]
