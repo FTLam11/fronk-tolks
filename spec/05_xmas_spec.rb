@@ -52,8 +52,7 @@ module XmasSongs
         11 => "11 Pipers Piping",
         12 => "12 Drummers Drumming"
       }.tap do |hash|
-        hash.freeze
-        hash.each { |k, _| hash[k].freeze }
+        hash.freeze.each { |k, _| hash[k].freeze }
       end
 
       def initialize(num)
