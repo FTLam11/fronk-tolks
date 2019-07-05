@@ -1,10 +1,5 @@
 require 'spec_helper'
 
-# Input: day number
-# Loop through each day
-# Ouput: verse for the requested day number
-
-
 class XmasSongs
   def self.lyrics
     1.upto(12).map { |day_number| verse(day_number) }.join("\n")
