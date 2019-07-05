@@ -67,6 +67,12 @@ describe XmasSongs do
         expect(ordinal_number).to eq dictionary[number]
       end
     end
+
+    it 'returns nil for any number outside of 1-12' do
+      ordinal_number = XmasSongs.ordinal_form(0)
+
+      expect(ordinal_number).to eq nil
+    end
   end
 
   describe "verse" do
