@@ -26,7 +26,17 @@ class XmasSongs
   def self.ordinal_form(number)
     dictionary = {
       1 => 'first',
-      2 => 'second'
+      2 => 'second',
+      3 => 'third',
+      4 => 'fourth',
+      5 => 'fifth',
+      6 => 'sixth',
+      7 => 'seventh',
+      8 => 'eighth',
+      9 => 'ninth',
+      10 => 'tenth',
+      11 => 'eleventh',
+      12 => 'twelfth',
     }
 
     dictionary[number]
@@ -45,6 +55,29 @@ describe XmasSongs do
       ordinal_number = XmasSongs.ordinal_form(2)
 
       expect(ordinal_number).to eq 'second'
+    end
+
+    it 'gives the ordinal form for the numbers 3-12' do
+      dictionary = {
+        1 => 'first',
+        2 => 'second',
+        3 => 'third',
+        4 => 'fourth',
+        5 => 'fifth',
+        6 => 'sixth',
+        7 => 'seventh',
+        8 => 'eighth',
+        9 => 'ninth',
+        10 => 'tenth',
+        11 => 'eleventh',
+        12 => 'twelfth',
+      }
+
+      (3..12).each do |number|
+        ordinal_number = XmasSongs.ordinal_form(number)
+
+        expect(ordinal_number).to eq dictionary[number]
+      end
     end
   end
 
