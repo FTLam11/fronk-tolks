@@ -6,6 +6,10 @@ require 'spec_helper'
 
 
 class XmasSongs
+  def self.lyrics
+    1.upto(12).map { |day_number| verse(day_number) }.join("\n")
+  end
+
   def self.verse(day_number)
     <<~LYRICS
       On the #{ordinal_form(day_number)} day of Christmas
@@ -148,6 +152,131 @@ describe XmasSongs do
       LYRICS
 
       expect(verse_lyrics).to eq lyrics
+    end
+  end
+
+  describe 'lyrics' do
+    it 'gives the full lyrics for Twelve Days of Xmas' do
+
+      full_song = XmasSongs.lyrics
+
+      lyrics = <<~LYRICS
+        On the first day of Christmas
+        my true love sent to me:
+        A Partridge in a Pear Tree
+
+        On the second day of Christmas
+        my true love sent to me:
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the third day of Christmas
+        my true love sent to me:
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the fourth day of Christmas
+        my true love sent to me:
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the fifth day of Christmas
+        my true love sent to me:
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the sixth day of Christmas
+        my true love sent to me:
+        6 Geese a Laying
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the seventh day of Christmas
+        my true love sent to me:
+        7 Swans a Swimming
+        6 Geese a Laying
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the eighth day of Christmas
+        my true love sent to me:
+        8 Maids a Milking
+        7 Swans a Swimming
+        6 Geese a Laying
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the ninth day of Christmas
+        my true love sent to me:
+        9 Ladies Dancing
+        8 Maids a Milking
+        7 Swans a Swimming
+        6 Geese a Laying
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the tenth day of Christmas
+        my true love sent to me:
+        10 Lords a Leaping
+        9 Ladies Dancing
+        8 Maids a Milking
+        7 Swans a Swimming
+        6 Geese a Laying
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the eleventh day of Christmas
+        my true love sent to me:
+        11 Pipers Piping
+        10 Lords a Leaping
+        9 Ladies Dancing
+        8 Maids a Milking
+        7 Swans a Swimming
+        6 Geese a Laying
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+
+        On the twelfth day of Christmas
+        my true love sent to me:
+        12 Drummers Drumming
+        11 Pipers Piping
+        10 Lords a Leaping
+        9 Ladies Dancing
+        8 Maids a Milking
+        7 Swans a Swimming
+        6 Geese a Laying
+        5 Golden Rings
+        4 Calling Birds
+        3 French Hens
+        2 Turtle Doves
+        and a Partridge in a Pear Tree
+      LYRICS
+
+      expect(full_song).to eq lyrics
     end
   end
 end
