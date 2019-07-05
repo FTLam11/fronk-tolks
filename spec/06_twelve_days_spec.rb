@@ -10,8 +10,29 @@ class XmasSongs
     <<~LYRICS
       On the #{ordinal_form(day_number)} day of Christmas
       my true love sent to me:
-      A Partridge in a Pear Tree
+      #{gifts(day_number)}
     LYRICS
+  end
+
+  def self.gifts(day_number)
+    if day_number == 1
+      'A Partridge in a Pear Tree'
+    else
+      [
+        '12 Drummers Drumming',
+        '11 Pipers Piping',
+        '10 Lords a Leaping',
+        '9 Ladies Dancing',
+        '8 Maids a Milking',
+        '7 Swans a Swimming',
+        '6 Geese a Laying',
+        '5 Golden Rings',
+        '4 Calling Birds',
+        '3 French Hens',
+        '2 Turtle Doves',
+        'and a Partridge in a Pear Tree'
+      ][(12 - day_number)..-1].join("\n")
+    end
   end
 
   def self.ordinal_form(number)
@@ -79,7 +100,7 @@ describe XmasSongs do
       expect(verse_lyrics).to eq lyrics
     end
 
-    xit 'has lyrics for the second day' do
+    it 'has lyrics for the second day' do
       verse_lyrics = XmasSongs.verse(2)
 
       lyrics = <<~LYRICS
