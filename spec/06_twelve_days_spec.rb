@@ -24,7 +24,12 @@ class XmasSongs
   end
 
   def self.ordinal_form(number)
-    'first'
+    dictionary = {
+      1 => 'first',
+      2 => 'second'
+    }
+
+    dictionary[number]
   end
 end
 
@@ -34,6 +39,12 @@ describe XmasSongs do
       ordinal_number = XmasSongs.ordinal_form(1)
 
       expect(ordinal_number).to eq 'first'
+    end
+
+    it 'gives the ordinal form for 2' do
+      ordinal_number = XmasSongs.ordinal_form(2)
+
+      expect(ordinal_number).to eq 'second'
     end
   end
 
@@ -63,7 +74,7 @@ describe XmasSongs do
       expect(verse_lyrics).to eq lyrics
     end
 
-    it 'has lyrics for the third day' do
+    xit 'has lyrics for the third day' do
       verse_lyrics = XmasSongs.verse(3)
 
       lyrics = <<~LYRICS
