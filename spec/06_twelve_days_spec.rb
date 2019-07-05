@@ -45,19 +45,7 @@ end
 
 describe XmasSongs do
   describe 'ordinal_form' do
-    it 'gives the ordinal form for 1' do
-      ordinal_number = XmasSongs.ordinal_form(1)
-
-      expect(ordinal_number).to eq 'first'
-    end
-
-    it 'gives the ordinal form for 2' do
-      ordinal_number = XmasSongs.ordinal_form(2)
-
-      expect(ordinal_number).to eq 'second'
-    end
-
-    it 'gives the ordinal form for the numbers 3-12' do
+    it 'gives the ordinal form for the numbers 1-12' do
       dictionary = {
         1 => 'first',
         2 => 'second',
@@ -73,7 +61,7 @@ describe XmasSongs do
         12 => 'twelfth',
       }
 
-      (3..12).each do |number|
+      (1..12).each do |number|
         ordinal_number = XmasSongs.ordinal_form(number)
 
         expect(ordinal_number).to eq dictionary[number]
