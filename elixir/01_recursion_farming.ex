@@ -45,12 +45,13 @@ defmodule NonTailRecursion do
   end
 
   def positive([]), do: []
-  def positive(list) do
-    if hd(list) > 0 do
-      [hd(list)|positive(tl(list))]
-    else
-      positive(tl(list))
-    end
+
+  def positive([head | tail]) when head > 0 do
+    [head | positive(tail)]
+  end
+
+  def positive([_ | tail]) do
+    positive(tail)
   end
 end
 
