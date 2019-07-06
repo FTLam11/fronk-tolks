@@ -1,11 +1,12 @@
 defmodule TailRecursion do
   def list_len(list) do
-    list_size(0, list)
+    do_list_len(0, list)
   end
 
-  defp list_size(size, []), do: size
-  defp list_size(size, [_|tail]) do
-    list_size(size + 1, tail)
+  defp do_list_len(size, []), do: size
+
+  defp do_list_len(size, [_ | tail]) do
+    do_list_len(size + 1, tail)
   end
 
   def range(start, fin) do
@@ -13,8 +14,9 @@ defmodule TailRecursion do
   end
 
   defp do_range(list, start, fin) when fin < start, do: list
+
   defp do_range(list, start, fin) do
-    do_range([fin|list], start, fin - 1)
+    do_range([fin | list], start, fin - 1)
   end
 
   def positive(list) do
@@ -22,12 +24,13 @@ defmodule TailRecursion do
   end
 
   defp do_positive(acc, []), do: acc
-  defp do_positive(acc, list) do
-    if hd(list) > 0 do
-      do_positive([hd(list)|acc], tl(list))
-    else
-      do_positive(acc, tl(list))
-    end
+
+  defp do_positive(acc, [head | tail]) when head > 0 do
+    do_positive([head | acc], tail)
+  end
+
+  defp do_positive(acc, [_ | tail]) do
+    do_positive(acc, tail)
   end
 end
 
@@ -55,14 +58,14 @@ defmodule NonTailRecursion do
   end
 end
 
-IO.puts(TailRecursion.list_len([]))
-IO.puts(TailRecursion.list_len([1, 2, 3]))
+IO.inspect(TailRecursion.list_len([]))
+IO.inspect(TailRecursion.list_len([1, 2, 3]))
 
-IO.puts(NonTailRecursion.list_len([]))
-IO.puts(NonTailRecursion.list_len([1, 2, 3]))
+IO.inspect(NonTailRecursion.list_len([]))
+IO.inspect(NonTailRecursion.list_len([1, 2, 3]))
 
 IO.inspect(TailRecursion.range(1, 5))
 IO.inspect(NonTailRecursion.range(1, 5))
 
-IO.inspect(TailRecursion.positive([-1, 2, 3, -4, 1]))
-IO.inspect(NonTailRecursion.positive([-1, 2, 3, -4, 1]))
+IO.inspect(TailRecursion.positive([-1, 2, 3, -4, 1, 0]))
+IO.inspect(NonTailRecursion.positive([-1, 2, 3, -4, 1, 0]))
