@@ -8,13 +8,13 @@ defmodule TailRecursion do
     list_size(size + 1, tail)
   end
 
-  def range(start, finish) do
-    do_range([], start, finish)
+  def range(start, fin) do
+    do_range([], start, fin)
   end
 
-  defp do_range(list, start, finish) when finish < start, do: list
-  defp do_range(list, start, finish) do
-    do_range([finish|list], start, finish - 1)
+  defp do_range(list, start, fin) when fin < start, do: list
+  defp do_range(list, start, fin) do
+    do_range([fin|list], start, fin - 1)
   end
 
   def positive(list) do
@@ -33,13 +33,15 @@ end
 
 defmodule NonTailRecursion do
   def list_len([]), do: 0
-  def list_len([_|tail]) do
+
+  def list_len([_ | tail]) do
     1 + list_len(tail)
   end
 
-  def range(start, start), do: [start]
-  def range(start, finish) do
-    [start|range(start + 1, finish)]
+  def range(start, fin) when start > fin, do: []
+
+  def range(start, fin) do
+    [start | range(start + 1, fin)]
   end
 
   def positive([]), do: []
