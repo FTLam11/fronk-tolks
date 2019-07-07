@@ -23,7 +23,7 @@ defmodule TailRecursion do
     do_positive([], list)
   end
 
-  defp do_positive(acc, []), do: acc
+  defp do_positive(acc, []), do: Enum.reverse(acc)
 
   defp do_positive(acc, [head | tail]) when head > 0 do
     do_positive([head | acc], tail)
