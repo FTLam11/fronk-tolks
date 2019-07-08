@@ -49,3 +49,39 @@ defimpl Collectable, for: TodoList do
 
   defp into_callback(_, :halt), do: :ok
 end
+
+defimpl Enumerable, for: TodoList do
+  def count(%TodoList{auto_id: _, entries: entries}) do
+    {:ok, Enum.count(entries)}
+  end
+
+  def member?(%TodoList{auto_id: _, entries: entries}, entry) do
+    # FIXME
+    {:ok, Enum.member?(entries, entry)}
+  end
+
+  def slice(%TodoList{auto_id: _, entries: entries}) do
+    # FIXME
+    size = Enum.count(entries)
+
+    if size > 0 do
+      {:ok, size, slice(entries)}
+    else
+      {:error, __MODULE__}
+    end
+  end
+
+  def reduce(_, {:halt, acc}, _callback), do: {:halted, acc}
+
+  def reduce(%TodoList{auto_id: id, entries: entries}, {:suspend, acc}, callback) do
+    {:suspended, acc, &reduce(%TodoList{auto_id: id, entries: entries}, &1, callback)}
+  end
+
+  def reduce(%TodoList{auto_id: _, entries: %{}}, {:cont, acc}, _callback), do: {:done, acc}
+
+  def reduce(%TodoList{auto_id: id, entries: entries}, {:cont, acc}, callback) do
+    # FIXME
+    [head | tail] = Map.to_list(entries)
+    reduce(%TodoList{auto_id: id, entries: Map.new(tail)}, callback.(head, acc), callback)
+  end
+end
