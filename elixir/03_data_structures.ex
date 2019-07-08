@@ -56,8 +56,9 @@ defimpl Enumerable, for: TodoList do
   end
 
   def member?(%TodoList{auto_id: _, entries: entries}, entry) do
-    # FIXME
-    {:ok, Enum.member?(entries, entry)}
+    # OPTIMIZE
+    [entry_id | _] = Map.keys(entry)
+    {:ok, entries[entry_id] === entry[entry_id]}
   end
 
   def slice(%TodoList{auto_id: _, entries: entries}) do
