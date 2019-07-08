@@ -1,9 +1,10 @@
 defmodule TodoList do
+  @derive [Enumerable]
   defstruct auto_id: 1, entries: %{}
 
   def new(), do: %TodoList{}
 
-  def add_entry(list, entry) do
+  def add_entry(list, entry = %{date: _, title: _}) do
     entry = Map.put(entry, :id, list.auto_id)
     new_entries = Map.put(list, list.auto_id, entry)
 
@@ -13,7 +14,22 @@ defmodule TodoList do
   def entries(list, date) do
     list.entries
     |> Stream.filter(fn {_, entry} -> entry.date == date end)
-    |> Enum.map(fn {_, entry} -> entry end)
+    |> Enum.map(fn {_, title} -> title end)
+  end
+
+  def update_entry(list, %{date: _, title: _} = new_entry) do
+    update_entry(list, new_entry.id, fn _ -> new_entry end)
+  end
+
+  def update_entry(list, id, update_fn) do
+    case Map.fetch(list.entries, id) do
+      :error -> list
+
+      {:ok, old_entry} ->
+        new_entry = update_fn.(old_entry)
+        new_entries = Map.put(list, new_entry.id, new_entry)
+        %TodoList{list | entries: new_entries}
+    end
   end
 
   def delete_entry(list, id) do
