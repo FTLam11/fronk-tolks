@@ -1,12 +1,11 @@
 defmodule TodoList do
-  @derive [Enumerable]
   defstruct auto_id: 1, entries: %{}
 
   def new(), do: %TodoList{}
 
   def add_entry(list, entry = %{date: _, title: _}) do
     entry = Map.put(entry, :id, list.auto_id)
-    new_entries = Map.put(list, list.auto_id, entry)
+    new_entries = Map.put(list.entries, list.auto_id, entry)
 
     %TodoList{list | auto_id: list.auto_id + 1, entries: new_entries}
   end
@@ -27,7 +26,7 @@ defmodule TodoList do
 
       {:ok, old_entry} ->
         new_entry = update_fn.(old_entry)
-        new_entries = Map.put(list, new_entry.id, new_entry)
+        new_entries = Map.put(list.entries, new_entry.id, new_entry)
         %TodoList{list | entries: new_entries}
     end
   end
