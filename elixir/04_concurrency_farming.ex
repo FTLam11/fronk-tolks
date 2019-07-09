@@ -17,3 +17,18 @@ Enum.each(tasks, &FakeTaskRunner.run/1)
 
 # Leverage BEAM processes to concurrently run each task
 Enum.each(tasks, &FakeTaskRunner.run_concurrently/1)
+
+defmodule Secret do
+  def pass_it_on(message) do
+    caller = self()
+    spawn(fn ->
+      send(caller, {:ok, "Pst... #{message}, pass it on!"})
+    end)
+
+    receive do
+      {:ok, secret} -> IO.inspect(secret)
+    end
+  end
+end
+
+Secret.pass_it_on("I ate your slice of pizza")
