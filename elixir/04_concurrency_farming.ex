@@ -32,3 +32,42 @@ defmodule Secret do
 end
 
 Secret.pass_it_on("I ate your slice of pizza")
+
+defmodule MusicFile do
+  defmodule Server do
+    def start do
+      spawn(&loop/0)
+    end
+
+    defp loop do
+      receive do
+        {:download, caller, release} -> send(caller, prepare(release))
+      end
+
+      loop()
+    end
+
+    defp prepare(release) when release == nil, do: {:error, "#{release} not found."}
+
+    defp prepare(release) do
+      IO.puts "Encoding each track, compressing release, serving release..."
+      file_name = String.replace(release, ~r/\s/, "_")
+      {:ok, "https://burritofriedricepizzahotdawgs.yum.io/#{file_name}.zip"}
+    end
+  end
+
+  defmodule Client do
+    def download(server_pid, release) do
+      send(server_pid, {:download, self(), release})
+    end
+
+    def download_zip do
+      receive do
+        {:ok, file_url} -> file_url
+        {:error, err_message} -> err_message
+      after
+        30000 -> {:error, :timeout}
+      end
+    end
+  end
+end
