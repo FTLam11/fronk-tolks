@@ -78,7 +78,9 @@ defimpl Enumerable, for: TodoList do
     {:suspended, acc, &reduce(%TodoList{auto_id: id, entries: entries}, &1, callback)}
   end
 
-  def reduce(%TodoList{auto_id: _, entries: %{}}, {:cont, acc}, _callback), do: {:done, acc}
+  def reduce(%TodoList{auto_id: _, entries: entries}, {:cont, acc}, _callback) when entries == %{} do
+    {:done, acc}
+  end
 
   def reduce(%TodoList{auto_id: id, entries: entries}, {:cont, acc}, callback) do
     # FIXME
