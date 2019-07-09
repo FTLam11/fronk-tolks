@@ -56,20 +56,19 @@ defimpl Enumerable, for: TodoList do
   end
 
   def member?(%TodoList{auto_id: _, entries: entries}, entry) do
-    # OPTIMIZE
+    # REVIEW
     [entry_id | _] = Map.keys(entry)
     {:ok, entries[entry_id] === entry[entry_id]}
   end
 
-  def slice(%TodoList{auto_id: _, entries: entries}) do
-    # FIXME
-    size = Enum.count(entries)
+  def slice(%TodoList{auto_id: _, entries: entries}) when entries == %{}, do: {:error, __MODULE__}
 
-    if size > 0 do
-      {:ok, size, slice(entries)}
-    else
-      {:error, __MODULE__}
-    end
+  def slice(%TodoList{auto_id: _, entries: entries}) do
+    # REVIEW
+    size = Enum.count(entries)
+    slicing_fn = fn start, len -> Enum.slice(entries, start..start + len) end
+
+    {:ok, size, slicing_fn}
   end
 
   def reduce(_, {:halt, acc}, _callback), do: {:halted, acc}
@@ -83,7 +82,7 @@ defimpl Enumerable, for: TodoList do
   end
 
   def reduce(%TodoList{auto_id: id, entries: entries}, {:cont, acc}, callback) do
-    # OPTIMIZE
+    # REVIEW
     [head | _] = Map.values(entries)
     key = entries |> Enum.take(1) |> hd |> elem(0)
     new_entries = Map.delete(entries, key)
