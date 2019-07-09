@@ -83,8 +83,10 @@ defimpl Enumerable, for: TodoList do
   end
 
   def reduce(%TodoList{auto_id: id, entries: entries}, {:cont, acc}, callback) do
-    # FIXME
-    [head | tail] = Map.to_list(entries)
-    reduce(%TodoList{auto_id: id, entries: Map.new(tail)}, callback.(head, acc), callback)
+    # OPTIMIZE
+    [head | _] = Map.values(entries)
+    key = entries |> Enum.take(1) |> hd |> elem(0)
+    new_entries = Map.delete(entries, key)
+    reduce(%TodoList{auto_id: id, entries: new_entries}, callback.(head, acc), callback)
   end
 end
