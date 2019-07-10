@@ -83,7 +83,13 @@ defmodule Calculator do
       {:sub, number} -> value - number
       {:mul, number} -> value * number
       {:div, number} -> value / number
-      {:value, caller} -> send(caller, {:ok, value})
+      {:value, caller} ->
+        send(caller, {:ok, value})
+        value
+
+      invalid_value ->
+        IO.puts("Invalid input value #{inspect invalid_value}")
+        value
     end
 
     loop(new_value)
