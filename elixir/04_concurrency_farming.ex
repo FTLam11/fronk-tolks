@@ -119,3 +119,32 @@ defmodule Calculator do
     end
   end
 end
+
+defmodule Momo do
+  def start do
+    spawn(fn ->
+      Process.register(self(), :momo)
+      loop()
+    end)
+  end
+
+  def run(msg) do
+    send(:momo, {msg, self()})
+
+    receive do
+      {:ok, true} -> "HAS KNIFE TRUE! HAS KNIFE TRUE!"
+      {:error, msg} -> msg
+    after
+      3000 -> {:error, :timeout}
+    end
+  end
+
+  defp loop do
+    receive do
+      {:has_knife?, caller} -> send(caller, {:ok, true})
+      {_, caller} -> send(caller, {:error, "MOMO LIVES"})
+    end
+
+    loop()
+  end
+end
