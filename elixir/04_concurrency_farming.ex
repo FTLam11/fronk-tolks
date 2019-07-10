@@ -74,10 +74,10 @@ end
 
 defmodule Calculator do
   def start do
-    spawn(&loop/0)
+    spawn(fn -> loop(0) end)
   end
 
-  defp loop(value \\ 0) do
+  defp loop(value) do
     new_value = receive do
       {:add, number} -> value + number
       {:sub, number} -> value - number
