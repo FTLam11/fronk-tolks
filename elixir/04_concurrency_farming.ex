@@ -13,10 +13,10 @@ end
 tasks = ["Upload video", "Process payment", "Generate file archive", "Encode audio file"]
 
 # Serial execution, blocking
-Enum.each(tasks, &FakeTaskRunner.run/1)
+# Enum.each(tasks, &FakeTaskRunner.run/1)
 
 # Leverage BEAM processes to concurrently run each task
-Enum.each(tasks, &FakeTaskRunner.run_concurrently/1)
+# Enum.each(tasks, &FakeTaskRunner.run_concurrently/1)
 
 defmodule Secret do
   def pass_it_on(message) do
@@ -31,7 +31,7 @@ defmodule Secret do
   end
 end
 
-Secret.pass_it_on("I ate your slice of pizza")
+# Secret.pass_it_on("I ate your slice of pizza")
 
 defmodule MusicFile do
   defmodule Server do
@@ -68,6 +68,48 @@ defmodule MusicFile do
       after
         30000 -> {:error, :timeout}
       end
+    end
+  end
+end
+
+defmodule Calculator do
+  def start do
+    spawn(&loop/0)
+  end
+
+  defp loop(value \\ 0) do
+    new_value = receive do
+      {:add, number} -> value + number
+      {:sub, number} -> value - number
+      {:mul, number} -> value * number
+      {:div, number} -> value / number
+      {:value, caller} -> send(caller, {:ok, value})
+    end
+
+    loop(new_value)
+  end
+
+  def add(server_pid, number) do
+    send(server_pid, {:add, number})
+  end
+
+  def sub(server_pid, number) do
+    send(server_pid, {:sub, number})
+  end
+
+  def mul(server_pid, number) do
+    send(server_pid, {:mul, number})
+  end
+
+  def div(server_pid, number) do
+    send(server_pid, {:div, number})
+  end
+
+  def value(server_pid) do
+    send(server_pid, {:value, self()})
+
+    receive do
+      {:ok, value} -> IO.puts(value)
     end
   end
 end
