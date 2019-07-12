@@ -14,14 +14,14 @@ defmodule PokemonSSRoster do
   end
 
   def start do
-    GenServer.start(PokemonSSRoster, nil, name: PokemonSSRoster)
+    GenServer.start(__MODULE__, nil, name: __MODULE__)
   end
 
   def confirm(pokemon) do
-    GenServer.cast(PokemonSSRoster, {:confirm, pokemon})
+    GenServer.cast(__MODULE__, {:confirm, pokemon})
   end
 
   def list do
-    GenServer.call(PokemonSSRoster, :list)
+    GenServer.call(__MODULE__, :list)
   end
 end
