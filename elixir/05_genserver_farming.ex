@@ -14,14 +14,14 @@ defmodule PokemonSSRoster do
   end
 
   def start do
-    GenServer.start(PokemonSSRoster, nil, name: :pokemon_roster)
+    GenServer.start(PokemonSSRoster, nil, name: PokemonSSRoster)
   end
 
   def confirm(pokemon) do
-    GenServer.cast(:pokemon_roster, {:confirm, pokemon})
+    GenServer.cast(PokemonSSRoster, {:confirm, pokemon})
   end
 
   def list do
-    GenServer.call(:pokemon_roster, :list)
+    GenServer.call(PokemonSSRoster, :list)
   end
 end
