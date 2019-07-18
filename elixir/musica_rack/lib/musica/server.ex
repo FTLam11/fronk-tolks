@@ -15,7 +15,13 @@ defmodule Musica.Server do
 
   @impl GenServer
   def init(name) do
-    {:ok, {name, Musica.Database.read(name) || Musica.Rack.new}}
+    send(self(), {:init_rack, name})
+    {:ok, nil}
+  end
+
+  @impl GenServer
+  def handle_info({:init_rack, name}, _) do
+    {:noreply, {name, Musica.Database.read(name) || Musica.Rack.new}}
   end
 
   @impl GenServer
