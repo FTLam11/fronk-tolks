@@ -15,21 +15,22 @@ defmodule Musica.Server do
 
   @impl GenServer
   def init(name) do
-    {:ok, Musica.Rack.new(name)}
+    {:ok, {name, Musica.Database.read(name) || Musica.Rack.new}}
   end
 
   @impl GenServer
-  def handle_cast({:add_disc, disc}, musica_rack) do
+  def handle_cast({:add_disc, disc}, {name, musica_rack}) do
     new_state = Musica.Rack.add_disc(musica_rack, disc)
+    Musica.Database.write(name, new_state)
     {:noreply, new_state}
   end
 
   @impl GenServer
-  def handle_call(:collection, _, musica_rack) do
+  def handle_call(:collection, _, {name, musica_rack}) do
     {
       :reply,
       Musica.Rack.collection(musica_rack),
-      musica_rack
+      {name, musica_rack}
     }
   end
 end
