@@ -22,7 +22,7 @@ defmodule Musica.Server do
   def handle_cast({:add_disc, disc}, {name, musica_rack}) do
     new_state = Musica.Rack.add_disc(musica_rack, disc)
     Musica.Database.write(name, new_state)
-    {:noreply, new_state}
+    {:noreply, {name, new_state}}
   end
 
   @impl GenServer
