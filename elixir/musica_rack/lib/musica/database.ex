@@ -21,20 +21,26 @@ defmodule Musica.Database do
   end
 
   def handle_cast({:write, key, data}, state) do
-    key
-    |> file_name()
-    |> File.write!(:erlang.term_to_binary(data))
+    spawn(fn ->
+      key
+      |> file_name()
+      |> File.write!(:erlang.term_to_binary(data))
+    end)
 
     {:noreply, state}
   end
 
-  def handle_call({:read, key}, _, state) do
-    data = case File.read(file_name(key)) do
-      {:ok, contents} -> :erlang.binary_to_term(contents)
-      _ -> nil
-    end
+  def handle_call({:read, key}, caller, state) do
+    spawn(fn ->
+      data = case File.read(file_name(key)) do
+        {:ok, contents} -> :erlang.binary_to_term(contents)
+        _ -> nil
+      end
 
-    {:reply, data, state}
+      GenServer.reply(caller, data)
+    end)
+
+    {:noreply, state}
   end
 
   defp file_name(key) do
