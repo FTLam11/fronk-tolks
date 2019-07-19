@@ -7,43 +7,38 @@ defmodule Musica.Database do
     GenServer.start(__MODULE__, nil, name: __MODULE__)
   end
 
-  def write(key, data) do
-    GenServer.cast(__MODULE__, {:write, key, data})
-  end
-
   def read(key) do
-    GenServer.call(__MODULE__, {:read, key})
+    key
+    |> choose_worker()
+    |> Musica.DatabaseWorker.read(key)
   end
 
+  def write(key, data) do
+    key
+    |> choose_worker()
+    |> Musica.DatabaseWorker.write(key, data)
+  end
+
+  @impl GenServer
   def init(_) do
     File.mkdir_p!(@db_dir)
-    {:ok, nil}
+    {:ok, init_workers()}
   end
 
-  def handle_cast({:write, key, data}, state) do
-    spawn(fn ->
-      key
-      |> file_name()
-      |> File.write!(:erlang.term_to_binary(data))
-    end)
-
-    {:noreply, state}
+  @impl GenServer
+  def handle_call({:choose_worker, key}, _, workers) do
+    worker_key = :erlang.phash2(key, 3)
+    {:reply, Map.get(workers, worker_key), workers}
   end
 
-  def handle_call({:read, key}, caller, state) do
-    spawn(fn ->
-      data = case File.read(file_name(key)) do
-        {:ok, contents} -> :erlang.binary_to_term(contents)
-        _ -> nil
-      end
-
-      GenServer.reply(caller, data)
-    end)
-
-    {:noreply, state}
+  defp choose_worker(key) do
+    GenServer.call(__MODULE__, {:choose_worker, key})
   end
 
-  defp file_name(key) do
-    Path.join(@db_dir, to_string(key))
+  defp init_workers do
+    for idx <- (0..2), into: %{} do
+      {:ok, worker_pid} = Musica.DatabaseWorker.start(@db_dir)
+      {idx, worker_pid}
+    end
   end
 end
