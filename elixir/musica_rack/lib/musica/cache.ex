@@ -1,12 +1,13 @@
 defmodule Musica.Cache do
   use GenServer
 
-  def start do
-    GenServer.start(__MODULE__, nil)
+  def start_link(_) do
+    IO.puts("Starting Cache")
+    GenServer.start_link(__MODULE__, nil, name: __MODULE__)
   end
 
-  def server_process(cache_pid, rack_name) do
-    GenServer.call(cache_pid, {:server_process, rack_name})
+  def server_process(rack_name) do
+    GenServer.call(__MODULE__, {:server_process, rack_name})
   end
 
   @impl GenServer

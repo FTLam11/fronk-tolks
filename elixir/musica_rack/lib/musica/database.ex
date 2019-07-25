@@ -4,6 +4,7 @@ defmodule Musica.Database do
   @db_dir "./tmp"
 
   def start do
+    IO.puts("Starting Database")
     GenServer.start(__MODULE__, nil, name: __MODULE__)
   end
 
