@@ -1,17 +1,17 @@
 defmodule Musica.DatabaseWorker do
   use GenServer
 
-  def start_link(db_dir) do
-    IO.puts("Starting DatabaseWorker")
-    GenServer.start_link(__MODULE__, db_dir)
+  def start_link({db_dir, worker_id}) do
+    IO.puts("Starting #{worker_id} DatabaseWorker")
+    GenServer.start_link(__MODULE__, db_dir, name: via_tuple(worker_id))
   end
 
-  def read(worker_pid, key) do
-    GenServer.call(worker_pid, {:read, key})
+  def read(worker_id, key) do
+    GenServer.call(via_tuple(worker_id), {:read, key})
   end
 
-  def write(worker_pid, key, data) do
-    GenServer.cast(worker_pid, {:write, key, data})
+  def write(worker_id, key, data) do
+    GenServer.cast(via_tuple(worker_id), {:write, key, data})
   end
 
   @impl GenServer
@@ -40,5 +40,9 @@ defmodule Musica.DatabaseWorker do
 
   defp file_name(db_dir, key) do
     Path.join(db_dir, to_string(key))
+  end
+
+  defp via_tuple(worker_id) do
+    Musica.ProcessRegistry.via_tuple({__MODULE__, worker_id})
   end
 end

@@ -1,11 +1,26 @@
 defmodule Musica.Database do
-  use GenServer
-
+  @pool_size 3
   @db_dir "./tmp"
 
-  def start_link(_) do
+  def start_link do
     IO.puts("Starting Database")
-    GenServer.start_link(__MODULE__, nil, name: __MODULE__)
+    File.mkdir_p!(@db_dir)
+
+    children = Enum.map(1..@pool_size, &worker_spec/1)
+    Supervisor.start_link(children, strategy: :one_for_one)
+  end
+
+  def child_spec(_) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, []},
+      type: :supervisor
+    }
+  end
+
+  defp worker_spec(worker_id) do
+    worker_spec_template = {Musica.DatabaseWorker, {@db_dir, worker_id}}
+    Supervisor.child_spec(worker_spec_template, id: worker_id)
   end
 
   def read(key) do
@@ -20,26 +35,7 @@ defmodule Musica.Database do
     |> Musica.DatabaseWorker.write(key, data)
   end
 
-  @impl GenServer
-  def init(_) do
-    File.mkdir_p!(@db_dir)
-    {:ok, init_workers()}
-  end
-
-  @impl GenServer
-  def handle_call({:choose_worker, key}, _, workers) do
-    worker_key = :erlang.phash2(key, 3)
-    {:reply, Map.get(workers, worker_key), workers}
-  end
-
   defp choose_worker(key) do
-    GenServer.call(__MODULE__, {:choose_worker, key})
-  end
-
-  defp init_workers do
-    for idx <- (0..2), into: %{} do
-      {:ok, worker_pid} = Musica.DatabaseWorker.start_link(@db_dir)
-      {idx, worker_pid}
-    end
+    :erlang.phash2(key, @pool_size) + 1
   end
 end
