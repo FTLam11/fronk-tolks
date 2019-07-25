@@ -12,7 +12,7 @@ defmodule Musica.Cache do
 
   @impl GenServer
   def init(_) do
-    Musica.Database.start_link
+    Musica.Database.start_link(nil)
     {:ok, %{}}
   end
 

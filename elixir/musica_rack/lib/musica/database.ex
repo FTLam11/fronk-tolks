@@ -3,7 +3,7 @@ defmodule Musica.Database do
 
   @db_dir "./tmp"
 
-  def start_link do
+  def start_link(_) do
     IO.puts("Starting Database")
     GenServer.start_link(__MODULE__, nil, name: __MODULE__)
   end
