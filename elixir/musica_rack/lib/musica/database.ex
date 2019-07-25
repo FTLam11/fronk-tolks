@@ -3,9 +3,9 @@ defmodule Musica.Database do
 
   @db_dir "./tmp"
 
-  def start do
+  def start_link do
     IO.puts("Starting Database")
-    GenServer.start(__MODULE__, nil, name: __MODULE__)
+    GenServer.start_link(__MODULE__, nil, name: __MODULE__)
   end
 
   def read(key) do
@@ -38,7 +38,7 @@ defmodule Musica.Database do
 
   defp init_workers do
     for idx <- (0..2), into: %{} do
-      {:ok, worker_pid} = Musica.DatabaseWorker.start(@db_dir)
+      {:ok, worker_pid} = Musica.DatabaseWorker.start_link(@db_dir)
       {idx, worker_pid}
     end
   end

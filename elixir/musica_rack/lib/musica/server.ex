@@ -1,8 +1,9 @@
 defmodule Musica.Server do
   use GenServer
 
-  def start(name) do
-    GenServer.start(__MODULE__, name)
+  def start_link(name) do
+    IO.puts("Starting #{name} server")
+    GenServer.start_link(__MODULE__, name)
   end
 
   def add_disc(musica_server, disc) do

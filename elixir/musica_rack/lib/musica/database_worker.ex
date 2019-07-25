@@ -1,9 +1,9 @@
 defmodule Musica.DatabaseWorker do
   use GenServer
 
-  def start(db_dir) do
+  def start_link(db_dir) do
     IO.puts("Starting DatabaseWorker")
-    GenServer.start(__MODULE__, db_dir)
+    GenServer.start_link(__MODULE__, db_dir)
   end
 
   def read(worker_pid, key) do

@@ -12,7 +12,7 @@ defmodule Musica.Cache do
 
   @impl GenServer
   def init(_) do
-    Musica.Database.start
+    Musica.Database.start_link
     {:ok, %{}}
   end
 
@@ -21,7 +21,7 @@ defmodule Musica.Cache do
     case Map.fetch(rack_servers, rack_name) do
       {:ok, rack_server} -> {:reply, rack_server, rack_servers}
       :error ->
-        {:ok, new_server} = Musica.Server.start(rack_name)
+        {:ok, new_server} = Musica.Server.start_link(rack_name)
         {
           :reply,
           new_server,
