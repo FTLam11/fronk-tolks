@@ -3,7 +3,7 @@ defmodule Musica.Server do
 
   def start_link(name) do
     IO.puts("Starting #{name} server")
-    GenServer.start_link(__MODULE__, name)
+    GenServer.start_link(__MODULE__, name, name: via_tuple(name))
   end
 
   def add_disc(musica_server, disc) do
@@ -12,6 +12,10 @@ defmodule Musica.Server do
 
   def collection(musica_server) do
     GenServer.call(musica_server, :collection)
+  end
+
+  defp via_tuple(name) do
+    Musica.ProcessRegistry.via_tuple({__MODULE__, name})
   end
 
   @impl GenServer

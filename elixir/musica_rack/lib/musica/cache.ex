@@ -1,13 +1,28 @@
 defmodule Musica.Cache do
-  use GenServer
+  use GenServer, restart: :temporary
 
-  def start_link(_) do
+  def start_link do
     IO.puts("Starting Cache")
-    GenServer.start_link(__MODULE__, nil, name: __MODULE__)
+    DynamicSupervisor.start_link(name: __MODULE__, strategy: :one_for_one)
   end
 
   def server_process(rack_name) do
-    GenServer.call(__MODULE__, {:server_process, rack_name})
+    case start_child(rack_name) do
+      {:ok, pid} -> pid
+      {:error, {:already_started, pid}} -> pid
+    end
+  end
+
+  def child_spec(_arg) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, []},
+      type: :supervisor
+    }
+  end
+
+  defp start_child(rack_name) do
+    DynamicSupervisor.start_child(__MODULE__, {Musica.Server, rack_name})
   end
 
   @impl GenServer
