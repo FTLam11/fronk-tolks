@@ -23,7 +23,7 @@ defmodule Musica.DatabaseWorker do
   def handle_call({:read, key}, _, db_dir) do
     data = case File.read(file_name(db_dir, key)) do
       {:ok, contents} -> :erlang.binary_to_term(contents)
-      _ -> nil
+      {:error, :enoent} -> nil
     end
 
     {:reply, data, db_dir}
