@@ -62,3 +62,12 @@ link](https://github.com/FTLam11/fronk-tolks/blob/master/spec/05_xmas_spec.rb)
 3. Describe an ideal development workflow w/ testing
 4. Show examples of different test types
 5. Reimplement a class purely based on tests
+
+## Intro to Elixir Chapter Uno (in progress)
+
+* Short background of Erlang and Elixir
+* Give high-level comparison between functional/imperative programming
+  (OOP) [SPICY TOPIC]
+* Explain relationships between immutability, concurrency, and recursion
+* Comparison of concurrency primitives with other languages like Ruby,
+  JavaScript
