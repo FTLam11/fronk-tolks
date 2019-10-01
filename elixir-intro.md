@@ -35,7 +35,7 @@ Today I plan on covering:
 
 ![Personal RPG stats](https://raw.githubusercontent.com/FTLam11/fronk-talks/master/rpg_stats.jpg)
 
-* Grapefruit segmenter extraordinaire
+* **Grapefruit segmenter extraordinaire**
 
 ---
 
