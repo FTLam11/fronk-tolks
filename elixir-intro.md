@@ -294,16 +294,18 @@ issue with this approach is it will be very slow for larger Fibonacci
 numbers. For each call of `do_fib` there are *two* recursive calls!
 Let's count the number of function calls (shortened to f()):
 
-1: f(1) = 1, O(1)
-2: f(2) = 1, O(1)
-3: f(3) -> f(2), f(1) = 3, O(n)
-4: f(4) -> f(3), f(2) -> f(2), f(1) = 5, O(n)
-5: f(5) -> f(4), f(3) -> f(3), f(2), f(2), f(1) -> f(2), f(1) = 9, O(n)
-6: 15, O(n)
-7: 25, O(n)
-8: 41, O(n)
-9: 67, O(n)
-10: 109, O(n<sup>2</sup>) YIKES!
+| Function Calls                                           | Function Count | Big O                   |
+|----------------------------------------------------------|----------------|-------------------------|
+| f(1)                                                     | 1              | O(1)                    |
+| f(2)                                                     | 1              | O(1)                    |
+| f(3), f(2) + f(1)                                        | 3              | O(n)                    |
+| f(4), f(3) + f(2), f(2) + f(1)                           | 5              | O(n)                    |
+| f(5), f(4) + f(3), f(3) + f(2), f(2) + f(1), f(2) + f(1) | 9              | O(n)                    |
+| f(6) <omitted>                                           | 15             | O(n)                    |
+| f(7) <omitted>                                           | 25             | O(n)                    |
+| f(8) <omitted>                                           | 41             | O(n)                    |
+| f(9) <omitted>                                           | 67             | O(n)                    |
+| f(10) <omitted>                                          | 109            | O(n<sup>2</sup>) YIKES! |
 
 ```elixir
 defmodule FastFibonacci do
