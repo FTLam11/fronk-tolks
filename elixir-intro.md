@@ -165,14 +165,112 @@ and how to transform it. The workflow becomes something like:
 and outputs
 * When working with changing data, return new copies of it (data is
 **immutable**)
-* Replace long procedures into chains of function calls
+* Replace long procedures with chains of function calls
 
 In short, we emphasize the data. Because functions are written to be
 pure, in isolation, each function can arguably be more easily understood
 in the absence of side effects. What else does functional programming
 offer us?
 
-# 5. Fibonacci Demo
+---
+
+# 3. Immutability & Concurrency
+
+## Immutability
+
+The biggest "gotcha" in transitioning from OOP to functional programming
+is the concept of immutability. The following compares adding a task to
+a todo list in Ruby and Elixir.
+
+![replace me](link)
+
+---
+
+# 3. Immutability & Concurrency
+
+## Todo list in Ruby
+
+```ruby
+class TodoList
+  TodoItem = Struct.new(:date, :title)
+
+  attr_reader :entries
+
+  def initialize
+    @auto_id = 1
+    @entries = {}
+  end
+
+  def add_entry(date, title)
+    item = TodoItem.new(date, title)
+    entries[@auto_id] = item
+    @auto_id += 1
+    entries
+  end
+end
+
+list = TodoList.new
+list.entries # {}
+list.add_entry(Time.now, 'Walk dog')
+```
+
+---
+
+# 3. Immutability & Concurrency
+
+## Todo list in Elixir
+
+```elixir
+defmodule TodoList do
+  defstruct auto_id: 1, entries: %{}
+
+  def new(), do: %TodoList{}
+
+  def add_entry(list, entry = %{date: _, title: _}) do
+    entry = Map.put(entry, :id, list.auto_id)
+    new_entries = Map.put(list.entries, list.auto_id, entry)
+
+    %TodoList{list | auto_id: list.auto_id + 1, entries: new_entries}
+  end
+
+  def entries(list) do
+    list.entries
+  end
+end
+
+list = TodoList.new
+TodoList.entries(list) # %{}
+todo = %{date: ~D[2019-10-01], title: "Walk dog"}
+list = TodoList.add_entry(list, todo)
+TodoList.entries(list)
+```
+
+---
+
+# 3. Immutability & Concurrency
+
+## Thoughts on Todo list implementations
+
+You might have noticed that the Elixir version is quite verbose, both in
+its definition of the `TodoList` module, as well as its usage! The first
+thing to look at is `TodoList.add_entry/2`. Notice that this function
+takes `list` as an argument and that it returns a brand new `TodoList`.
+This means that the return value for `TodoList.add_entry/2` needs to be
+saved, in the example, `list` is reassigned. Since there is no mutating
+of data, each change we make typically is saved to a variable for
+further work down the line.
+
+---
+
+# 3. Immutability & Concurrency
+
+## So what benefits does immutability give us?
+
+* Promotes usage of pure functions - easy to use, simple to test
+* Prevents mutation of shared state - key point for **concurrency**
+
+---
+
 
 ```elixir
 defmodule SimpleFibonacci do
