@@ -37,3 +37,84 @@ Today I plan on covering:
 
 * Grapefruit segmenter extraordinaire
 
+---
+
+# 1. Erlang/Elixir
+
+## Hej Erlang!
+
+* Created by Ericsson, a Swedish telecom company
+* Designed with reliability, responsiveness, scalability, and
+  availability as main points of emphasis
+* Consists of the language, virtual machine, framework, and tools
+* Used by WhatsApp, Heroku, Chef, RabbitMQ, financial systems,
+  multiplayer games
+
+Example: Ericsson's communication system must support millions of
+users/phone calls. One dropped phone call or impacted area cannot
+bring the entire system down. Updating the system should not
+disconnect calls in progress.
+
+---
+
+# 1. Erlang/Elixir
+
+## Hello Elixir!
+
+* Open source project created by Jose Valim
+* Abstracts away Erlang boilerplate
+* Cleaner and more compact syntax than Erlang
+* Compiles to bytecode run on Erlang virtual machine
+
+---
+
+# 1. Erlang/Elixir
+
+## Example: Addition of two numbers in Erlang
+
+```erlang
+-module(sum_server).
+-behaviour(gen_server).
+
+-export([
+    start/0, sum/3,
+    init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2,
+    code_change/3
+])
+
+start() -> gen_server:start(?MODULE, [], []).
+sum(Server, A, B) -> gen_server:call(Server, {sum, A, B}).
+init(_) -> {ok, undefined}.
+handle_call({sum, A, B}, _From, State) -> {reply, A + B, State}.
+handle_cast(_Msg, State) -> {noreply, State}.
+handle_info(_Info, State) -> {noreply, State}.
+terminate(_Reason, _State) -> ok.
+code_change(_OldVsn, State, _Extra) -> {ok, State}.
+```
+
+---
+
+# 1. Erlang/Elixir
+
+## Example: Addition of two numbers in Elixir
+
+```elixir
+defmodule SumServer do
+  use GenServer
+
+  def start do
+    GenServer.start(__MODULE__, nil)
+  end
+
+  def sum(server, a, b) do
+    GenServer.call(server, {:sum, a, b})
+  end
+
+  def handle_call({:sum, a, b}, _from, state) do
+    {:reply, a + b, state}
+  end
+end
+
+server = SumServer.start
+SumServer.sum(server, 1, 1) # 2
+```
