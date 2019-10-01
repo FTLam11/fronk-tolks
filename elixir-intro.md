@@ -120,6 +120,58 @@ SumServer.sum(server, 1, 1) # 2
 ```
 ---
 
+# 2. Functional/Imperative Programming
+
+## 3..2..1..FIGHT!
+
+![Functional vs Imperative](img sauce)
+
+Fight!
+
+---
+
+# 2. Functional/Imperative Programming
+
+## Imperative Programming
+
+Most people learning new languages are likely used to the imperative way
+of programming. Starting from procedural code we often develop in this
+manner:
+
+* Brute force one giant function to accomplish some number of tasks
+* Analyze and extract classes
+* Specify what information each class contains
+* Add behavior to each class
+* Instantiate classes with some initial state
+* Call methods on the objects to get some return value and/or invoke
+side effects
+
+In short, we end up modeling the real world using classes, creating
+objects that hold state, and change the world by calling methods on each
+object.
+
+---
+
+# 2. Functional/Imperative Programming
+
+## Functional Programming
+
+An alternate approach is functional programming. Instead of modeling the
+world in terms of classes and objects, the main focus is on **data**,
+and how to transform it. The workflow becomes something like:
+
+* Brute force one giant function to accomplish some number of tasks
+* Analyze and extract **pure** functions that have well defined inputs
+and outputs
+* When working with changing data, return new copies of it (data is
+**immutable**)
+* Replace long procedures into chains of function calls
+
+In short, we emphasize the data. Because functions are written to be
+pure, in isolation, each function can arguably be more easily understood
+in the absence of side effects. What else does functional programming
+offer us?
+
 # 5. Fibonacci Demo
 
 ```elixir
