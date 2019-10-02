@@ -327,7 +327,7 @@ end
 ```
 
 `FastFibonacci` uses a tail call optimization resulting in a more
-performant solution. There is only *one* recursive call. In particular,
-`find` calls itself as the last operation, so Elixir does not push
-another stack frame (stack level too deep LOL), it instead performs a
-"jump statement".
+performant solution. There is only *one* recursive call per function
+call. In particular, `find` calls itself as the last operation, so Elixir
+does not push another stack frame (stack level too deep LOL), it instead
+performs a "jump statement".
