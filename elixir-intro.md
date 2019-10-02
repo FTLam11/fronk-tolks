@@ -124,7 +124,7 @@ SumServer.sum(server, 1, 1) # 2
 
 ## 3..2..1..FIGHT!
 
-![Functional vs Imperative](https://i.imgur.com/B1TMtDx.mp4)
+![Functional vs Imperative](https://66.media.tumblr.com/a72f06c21147341407ca86328a556b18/tumblr_n3iaze8w5G1s3my1ro3_400.gifv)
 
 Fight!
 
