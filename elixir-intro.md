@@ -267,6 +267,11 @@ further work down the line.
 ## So what benefits does immutability give us?
 
 * Promotes usage of pure functions - easy to use, simple to test
+* Minimizes the effects of invalid state - data that gets processes by
+multiple functions still exists in its original form (rollbacks for
+data!)
+* More efficient memory management - new copies of data reuse as much of
+the old data as possible, only making shallow copies when needed.
 * Prevents mutation of shared state - key point for **concurrency**
 
 ---
