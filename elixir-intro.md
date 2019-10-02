@@ -21,7 +21,7 @@ Today I plan on covering:
 2. Explain functional vs imperative programming
 3. What is the big deal about immutability and concurrency?
 4. How is recursion utilized in functional programming?
-5. Compare concurrency primitives of various languages
+5. Show concurrency in Elixir
 
 ---
 
@@ -276,10 +276,28 @@ the old data as possible, only making shallow copies when needed.
 
 ---
 
+# 3. Immutability & Concurrency
+
+## Concurrency
+
+[Concurrency](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)
+is multitasking. It is not the same as parallelism, which is doing multiple
+tasks at the same time. Concurrency simply means that different tasks
+can be executed, interrupted, and finish in overlapping time.
+
+Check the following links to learn more about how concurrency is
+implemented for different languages.
+
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+* [Ruby](https://engineering.universe.com/introduction-to-concurrency-models-with-ruby-part-i-550d0dbb970)
+* [PHP](https://amphp.org/)
+* [Python](https://realpython.com/python-concurrency/)
+
+---
 
 # 4. Recursion
 
-## The problem with using iterations
+## The problem with using iteration
 
 * When working with collections, we often use iteration to loop through
 each item and perform some work
@@ -364,3 +382,56 @@ performant solution. There is only *one* recursive call per function
 call. In particular, `find` calls itself as the last operation, so Elixir
 does not push another stack frame (stack level too deep LOL), it instead
 performs a "jump statement".
+
+---
+
+# 5. Concurrency in Elixir/Erlang
+
+The basic concurrency primitive is called an Erlang process. It is not
+related at all to CPU processes or threads. Erlang processes are super
+light-weight, typical Erlang systems often run thousands or millions of
+Erlang processes.
+
+In a typical scenario, the BEAM (the Erlang virtual machine) runs inside
+one OS process and has a number schedulers each running in a thread equal
+to the number of CPU cores. The schedulers efficiently manage running
+processes, allowing work to be done concurrently and in parallel.
+
+---
+
+# 5. Concurrency in Elixir/Erlang
+
+## Fibonacci List Demo
+
+```elixir
+defmodule Fibonacci do
+  def next_after(target) do
+    find_next(target, 1, 0, 1)
+  end
+
+  defp find_next(target, _term_count, _acc, next) when next > target do
+    next
+  end
+
+  defp find_next(target, term_count, acc, next) do
+    find_next(target, term_count + 1, next, next + acc)
+  end
+end
+
+defmodule NextFibonacci do
+  def run(list) do
+    Enum.map(list, fn(num) ->
+      run_concurrently(self(), num)
+      receive do
+        {:ok, next} -> next
+      end
+    end)
+  end
+
+  defp run_concurrently(caller, number) do
+    spawn(fn ->
+      send(caller, {:ok, Fibonacci.next_after(number)})
+    end)
+  end
+end
+```
