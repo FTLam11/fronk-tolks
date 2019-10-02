@@ -1,3 +1,20 @@
+defmodule Fun do
+  def no_fun(count) when count > 0 do
+    1..count |> Enum.map(fn(_) -> "NO FUN" end) |> Enum.join(" ")
+  end
+
+  def very_fun(count) when count > 0 do
+    do_fun(count, "")
+  end
+
+  defp do_fun(0, result), do: String.trim(result)
+
+  defp do_fun(count, result) do
+    more_fun = result <> "SO MUCH FUN "
+    do_fun(count - 1, more_fun)
+  end
+end
+
 defmodule SimpleFibonacci do
   def nth_term(n) when n > 0 do
     do_fib(n)

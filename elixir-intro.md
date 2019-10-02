@@ -277,6 +277,39 @@ the old data as possible, only making shallow copies when needed.
 ---
 
 
+# 4. Recursion
+
+## The problem with using iterations
+
+* When working with collections, we often use iteration to loop through
+each item and perform some work
+* But Elixir doesn't have loops... 😰, it has lots of fun though...
+
+```elixir
+defmodule Fun do
+  def no_fun(count) when count > 0 do
+    1..count |> Enum.map(fn(_) -> "NO FUN" end) |> Enum.join(" ")
+  end
+
+  def very_fun(count) when count > 0 do
+    do_fun(count, "")
+  end
+
+  defp do_fun(0, result), do: String.trim(result)
+
+  defp do_fun(count, result) do
+    more_fun = result <> "SO MUCH FUN "
+    do_fun(count - 1, more_fun)
+  end
+end
+```
+
+---
+
+# 4. Recursion
+
+## Fibonacci Demo
+
 ```elixir
 defmodule SimpleFibonacci do
   def nth_term(n) when n > 0 do
