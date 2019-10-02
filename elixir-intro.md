@@ -4,7 +4,7 @@
 
 ## Frank Lam
 
-![Pic](pic link)
+![Alchemy Elixir](https://media.giphy.com/media/uAHJry9uTRDtm/source.gif)
 
 Yo
 
@@ -124,7 +124,7 @@ SumServer.sum(server, 1, 1) # 2
 
 ## 3..2..1..FIGHT!
 
-![Functional vs Imperative](img sauce)
+![Functional vs Imperative](https://i.imgur.com/B1TMtDx.mp4)
 
 Fight!
 
