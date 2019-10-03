@@ -57,8 +57,6 @@ disconnect calls in progress.
 
 ---
 
-# 1. Erlang/Elixir
-
 ## Hello Elixir!
 
 * Open source project created by Jose Valim
@@ -67,8 +65,6 @@ disconnect calls in progress.
 * Compiles to bytecode run on Erlang virtual machine
 
 ---
-
-# 1. Erlang/Elixir
 
 ## Example: Addition of two numbers in Erlang
 
@@ -93,8 +89,6 @@ code_change(_OldVsn, State, _Extra) -> {ok, State}.
 ```
 
 ---
-
-# 1. Erlang/Elixir
 
 ## Example: Addition of two numbers in Elixir
 
@@ -130,8 +124,6 @@ Fight!
 
 ---
 
-# 2. Functional/Imperative Programming
-
 ## Imperative Programming
 
 Most people learning new languages are likely used to the imperative way
@@ -151,8 +143,6 @@ objects that hold state, and change the world by calling methods on each
 object.
 
 ---
-
-# 2. Functional/Imperative Programming
 
 ## Functional Programming
 
@@ -184,8 +174,6 @@ a todo list in Ruby and Elixir.
 
 ---
 
-# 3. Immutability & Concurrency
-
 ## Todo list in Ruby
 
 ```ruby
@@ -213,8 +201,6 @@ list.add_entry(Time.now, 'Walk dog')
 ```
 
 ---
-
-# 3. Immutability & Concurrency
 
 ## Todo list in Elixir
 
@@ -245,8 +231,6 @@ TodoList.entries(list)
 
 ---
 
-# 3. Immutability & Concurrency
-
 ## Thoughts on Todo list implementations
 
 You might have noticed that the Elixir version is quite verbose, both in
@@ -260,8 +244,6 @@ further work down the line.
 
 ---
 
-# 3. Immutability & Concurrency
-
 ## So what benefits does immutability give us?
 
 * Promotes usage of pure functions - easy to use, simple to test
@@ -273,8 +255,6 @@ the old data as possible, only making shallow copies when needed.
 * Prevents mutation of shared state - key point for **concurrency**
 
 ---
-
-# 3. Immutability & Concurrency
 
 ## Concurrency
 
@@ -290,6 +270,8 @@ implemented for different languages.
 * [Ruby](https://engineering.universe.com/introduction-to-concurrency-models-with-ruby-part-i-550d0dbb970)
 * [PHP](https://amphp.org/)
 * [Python](https://realpython.com/python-concurrency/)
+* [Go](https://tour.golang.org/concurrency/1)
+* [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/)
 
 ---
 
@@ -396,8 +378,6 @@ to the number of CPU cores. The schedulers efficiently manage running
 processes, allowing work to be done concurrently and in parallel.
 
 ---
-
-# 5. Concurrency in Elixir/Erlang
 
 ## Fibonacci List Demo
 
