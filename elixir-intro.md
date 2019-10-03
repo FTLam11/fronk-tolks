@@ -182,8 +182,6 @@ The biggest "gotcha" in transitioning from OOP to functional programming
 is the concept of immutability. The following compares adding a task to
 a todo list in Ruby and Elixir.
 
-![replace me](link)
-
 ---
 
 # 3. Immutability & Concurrency
@@ -357,11 +355,11 @@ Let's count the number of function calls (shortened to f()):
 | f(3), f(2) + f(1)                                        | 3              | O(n)                    |
 | f(4), f(3) + f(2), f(2) + f(1)                           | 5              | O(n)                    |
 | f(5), f(4) + f(3), f(3) + f(2), f(2) + f(1), f(2) + f(1) | 9              | O(n)                    |
-| f(6) <omitted>                                           | 15             | O(n)                    |
-| f(7) <omitted>                                           | 25             | O(n)                    |
-| f(8) <omitted>                                           | 41             | O(n)                    |
-| f(9) <omitted>                                           | 67             | O(n)                    |
-| f(10) <omitted>                                          | 109            | O(n<sup>2</sup>) YIKES! |
+| f(6) (omitted)                                           | 15             | O(n)                    |
+| f(7) (omitted)                                           | 25             | O(n)                    |
+| f(8) (omitted)                                           | 41             | O(n)                    |
+| f(9) (omitted)                                           | 67             | O(n)                    |
+| f(10) (omitted)                                          | 109            | O(n^2) YIKES! |
 
 ```elixir
 defmodule FastFibonacci do
@@ -435,3 +433,4 @@ defmodule NextFibonacci do
   end
 end
 ```
+___
