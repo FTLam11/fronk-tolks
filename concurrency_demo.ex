@@ -1,17 +1,16 @@
 defmodule Fun do
-  def no_fun(count) when count > 0 do
-    1..count |> Enum.map(fn(_) -> "NO FUN" end) |> Enum.join(" ")
+  def so_fun(count) when count > 0 do
+    1..count |> Enum.map(fn(_) -> "SO FUN" end) |> Enum.join(" ")
   end
 
   def very_fun(count) when count > 0 do
-    do_fun(count, "")
+    do_fun(count, [])
   end
 
-  defp do_fun(0, result), do: String.trim(result)
+  defp do_fun(0, result), do: Enum.join(result, " ")
 
   defp do_fun(count, result) do
-    more_fun = result <> "SO MUCH FUN "
-    do_fun(count - 1, more_fun)
+    do_fun(count - 1, ["WOW VERY FUN" | result])
   end
 end
 
@@ -103,9 +102,14 @@ defmodule NextFibonacci do
     end)
   end
 
+  def run_serial(list) do
+    Enum.map(list, &Fibonacci.next_after/1)
+  end
+
   defp run_concurrently(caller, number) do
     spawn(fn ->
       send(caller, {:ok, Fibonacci.next_after(number)})
+      IO.puts("Finished calc for next fib after #{number}")
     end)
   end
 end

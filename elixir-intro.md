@@ -282,29 +282,32 @@ implemented for different languages.
 * When working with collections, we often use iteration to loop through
 each item and perform some work
 * But Elixir doesn't have loops... 😰, it has lots of fun though...
+* Recursion is usually abstracted away into higher-order functions
 
 ```elixir
 defmodule Fun do
-  def no_fun(count) when count > 0 do
-    1..count |> Enum.map(fn(_) -> "NO FUN" end) |> Enum.join(" ")
+  def so_fun(count) when count > 0 do
+    1..count |> Enum.map(fn(_) -> "SO FUN" end) |> Enum.join(" ")
   end
 
   def very_fun(count) when count > 0 do
-    do_fun(count, "")
+    do_fun(count, [])
   end
 
-  defp do_fun(0, result), do: String.trim(result)
+  defp do_fun(0, result), do: Enum.join(result, " ")
 
   defp do_fun(count, result) do
-    more_fun = result <> "SO MUCH FUN "
-    do_fun(count - 1, more_fun)
+    do_fun(count - 1, ["WOW VERY FUN" | result])
   end
 end
 ```
 
----
+`Fun.less_fun/1` uses the pipe operator `|>` to transform data using
+chained function calls, it is similar to Unix piping `|`. This is an
+an example of **functional programming**. `Fun.very_fun` uses recursion
+to acheive the same result.
 
-# 4. Recursion
+---
 
 ## Fibonacci Demo
 
