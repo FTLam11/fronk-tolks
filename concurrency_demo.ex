@@ -42,12 +42,12 @@ defmodule FastFibonacci do
 end
 
 defmodule BenchMark do
-  def run(n) do
+  def time(input, {desc_a, desc_b}, {func_a, func_b}) do
     spawn(fn ->
-      IO.puts "Simple: #{time(&SimpleFibonacci.nth_term/1, n)}"
+      IO.puts "#{desc_a}: #{time(func_a, input)}"
     end)
     spawn(fn ->
-      IO.puts "Fast: #{time(&FastFibonacci.nth_term/1, n)}"
+      IO.puts "#{desc_b}: #{time(func_b, input)}"
     end)
   end
 
