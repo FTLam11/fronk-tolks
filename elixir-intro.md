@@ -294,6 +294,10 @@ defmodule Fun do
     do_fun(count, [])
   end
 
+  def super_fun(count) when count > 0 do
+    (for _ <- 1..count, into: [], do: "SUPER FUN") |> Enum.join(" ")
+  end
+
   defp do_fun(0, result), do: Enum.join(result, " ")
 
   defp do_fun(count, result) do
@@ -304,8 +308,10 @@ end
 
 `Fun.less_fun/1` uses the pipe operator `|>` to transform data using
 chained function calls, it is similar to Unix piping `|`. This is an
-an example of **functional programming**. `Fun.very_fun` uses recursion
-to acheive the same result.
+an example of **functional programming**. `Fun.very_fun/1` uses recursion
+to acheive the same result. Finally, `Fun.super_fun/1` uses a feature
+called **comprehensions** that uses syntactic sugar to give us an
+iteration-like mechanism.
 
 ---
 
