@@ -12,16 +12,15 @@ Yo
 
 # Scope
 
-Let's learn a bit about Elixir and why how it puts the *fun* in
-functional programming!
+Let's learn about Elixir and how it puts the *fun* in functional programming!
 
-Today I plan on covering:
+Today we will explore these topics:
 
 1. Background of Erlang and Elixir
-2. Explain functional vs imperative programming
-3. What is the big deal about immutability and concurrency?
-4. How is recursion utilized in functional programming?
-5. Show concurrency in Elixir
+2. Functional programming (FP) vs OOP
+3. Immutability and concurrency
+4. How recursion serves as the backbone of Elixir
+5. Preview Elixir concurrency
 
 ---
 
@@ -50,7 +49,7 @@ Today I plan on covering:
 * Used by WhatsApp, Heroku, Chef, RabbitMQ, financial systems,
   multiplayer games
 
-Example: Ericsson's communication system must support millions of
+Example: Ericsson's communication system supports millions of
 users/phone calls. One dropped phone call or impacted area cannot
 bring the entire system down. Updating the system should not
 disconnect calls in progress.
@@ -61,7 +60,7 @@ disconnect calls in progress.
 
 * Open source project created by Jose Valim
 * Abstracts away Erlang boilerplate
-* Cleaner and more compact syntax than Erlang
+* Has cleaner and more compact syntax than Erlang
 * Compiles to bytecode run on Erlang virtual machine
 
 ---
@@ -73,9 +72,9 @@ disconnect calls in progress.
 -behaviour(gen_server).
 
 -export([
-    start/0, sum/3,
-    init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2,
-    code_change/3
+  start/0, sum/3,
+  init/1, handle_call/3, handle_cast/2, handle_info/2, terminate/2,
+  code_change/3
 ])
 
 start() -> gen_server:start(?MODULE, [], []).
@@ -114,53 +113,53 @@ SumServer.sum(server, 1, 1) # 2
 ```
 ---
 
-# 2. Functional/Imperative Programming
+# 2. FP/OOP
 
 ## 3..2..1..FIGHT!
 
-![Functional vs Imperative](https://66.media.tumblr.com/a72f06c21147341407ca86328a556b18/tumblr_n3iaze8w5G1s3my1ro3_400.gifv)
+![Functional vs OOP](https://66.media.tumblr.com/a72f06c21147341407ca86328a556b18/tumblr_n3iaze8w5G1s3my1ro3_400.gifv)
 
 Fight!
 
 ---
 
-## Imperative Programming
+## OOP
 
-Most people learning new languages are likely used to the imperative way
-of programming. Starting from procedural code we often develop in this
-manner:
+Most people embarking on their programming journey are likely to start by
+learning OOP. *Survey audience first language*
 
-* Brute force one giant function to accomplish some number of tasks
+Starting from raw procedural code we often develop in this manner:
+
+* Brute force blobs of code to accomplish some tasks
 * Analyze and extract classes
-* Specify what information each class contains
-* Add behavior to each class
-* Instantiate classes with some initial state
-* Call methods on the objects to get some return value and/or invoke
-side effects
+* Specify data attributes
+* Define public methods to expose behavior
+* Replace code blobs by instantiating objects with initial state and
+then calling methods on the objects to get some return value and/or
+cause side effects
 
-In short, we end up modeling the real world using classes, creating
-objects that hold state, and change the world by calling methods on each
-object.
+In OOP, we model the real world using classes, creating objects that hold
+state, and change the world by calling methods on objects.
 
 ---
 
-## Functional Programming
+## FP
 
-An alternate approach is functional programming. Instead of modeling the
-world in terms of classes and objects, the main focus is on **data**,
-and how to transform it. The workflow becomes something like:
+An alternate approach is FP. Instead of emphasizing objects, the main focus
+is on **data** and how to transform it.
 
-* Brute force one giant function to accomplish some number of tasks
+The workflow becomes something like:
+
+* Brute force blobs of code to accomplish some tasks
 * Analyze and extract **pure** functions that have well defined inputs
 and outputs
-* When working with changing data, return new copies of it (data is
-**immutable**)
-* Replace long procedures with chains of function calls
+* Always return new copies of data when changing data (data is **immutable**)
+* Replace code blobs with function call chains
 
-In short, we emphasize the data. Because functions are written to be
-pure, in isolation, each function can arguably be more easily understood
-in the absence of side effects. What else does functional programming
-offer us?
+In FP, we emphasize the data. Because functions are written to be
+pure and isolated, each function can arguably be more easily understood
+in the absence of side effects. What else does FP offer us?
+
 
 ---
 
@@ -231,23 +230,22 @@ TodoList.entries(list)
 
 ---
 
-## Thoughts on Todo list implementations
+## Comparing Todo list implementations
 
-You might have noticed that the Elixir version is quite verbose, both in
-its definition of the `TodoList` module, as well as its usage! The first
-thing to look at is `TodoList.add_entry/2`. Notice that this function
-takes `list` as an argument and that it returns a brand new `TodoList`.
-This means that the return value for `TodoList.add_entry/2` needs to be
-saved, in the example, `list` is reassigned. Since there is no mutating
-of data, each change we make typically is saved to a variable for
-further work down the line.
+The Elixir version is more verbose, both in its definition of the `TodoList`
+module, as well as its usage! The first thing to look at is
+`TodoList.add_entry/2`. Notice that this function takes `list` as an argument
+and that it returns a brand new `TodoList`.  The return value for
+`TodoList.add_entry/2` is saved by reassigning `list`. Since there is no
+mutating of data, each change we make typically is saved to a variable
+if it needs to be used later.
 
 ---
 
 ## So what benefits does immutability give us?
 
-* Promotes usage of pure functions - easy to use, simple to test
-* Minimizes the effects of invalid state - data that gets processes by
+* Promotes pure functions - easy to use, simple to test
+* Minimizes the effects of invalid state - data that gets processed by
 multiple functions still exists in its original form (rollbacks for
 data!)
 * More efficient memory management - new copies of data reuse as much of

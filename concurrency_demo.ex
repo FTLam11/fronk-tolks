@@ -30,7 +30,7 @@ defmodule SimpleFibonacci do
   def concurrent_batch(list) do
     Enum.map(list, fn(num) ->
       Task.async(fn -> SimpleFibonacci.nth_term(num) end)
-    end) |> Enum.map(fn task -> Task.await(task, :infinity) end)
+    end) |> Enum.map(fn (task) -> Task.await(task, :infinity) end)
   end
 
   defp do_fib(1), do: 0
