@@ -315,6 +315,55 @@ iteration-like mechanism.
 
 ---
 
+## Higher-order functions in Elixir
+
+Elixir has an `Enumerable` module used to iterate through collections.
+The `Enumerable.map/2` function iterates through the collection and yields
+each member to the callback function. Here is the source code for `Enumerable.map/2`
+
+```elixir
+def map(enumerable, fun) do
+  reducer = fn x, acc -> {:cont, [fun.(x) | acc]} end
+  Enumerable.reduce(enumerable, {:cont, []}, reducer) |> elem(1) |> :lists.reverse()
+end
+```
+
+`reducer` returns a tuple containing two elements, an **atom** that tells
+Elixir to **continue** iterating through the collection,
+and a list that accumulates the result of the input function `fun` being
+called on the current member of the `enumerable`.
+
+The actual work is done by `Enumerable.reduce/3`, written as a
+**multi-clause function**, a common pattern in Elixir. **Pattern
+matching** is another often used tool in Elixir. Here, it matches against
+the input arguments to determine which function to call. The order in
+which the clauses are defined matters, Elixir matches from top to bottom.
+
+```elixir
+def reduce(_list, {:halt, acc}, _fun), do: {:halted, acc}
+def reduce(list, {:suspend, acc}, fun), do: {:suspended, acc, &reduce(list, &1, fun)}
+def reduce([], {:cont, acc}, _fun), do: {:done, acc}
+def reduce([head | tail], {:cont, acc}, fun), do: reduce(tail, fun.(head, acc), fun)
+```
+
+The first two clauses pattern match on the input tag `:halt, :suspend`
+and are used to stop/pause execution. In the last two clauses, you can
+see recursion being used. Let's walk through the recursion routine:
+
+1. Is the input collection empty (`[]`)? Return `{:done, acc}`, meaning
+that the execution is done, and the result is `acc`. Stop execution!
+2. The input collection is not empty. Use pattern matching and the cons
+`|` operator to save the first member to `head` and the rest to `tail`.
+The cons operator is like `unshift` in Ruby and JavaScript.
+3. Continue breaking the problem down by calling the same function with
+new arguments. Go back to step 1.
+
+Now you've seen how Elixir uses a combination of recursion, multi-clause
+functions, and pattern matching to circumvent immutability and the
+absence of iteration.
+
+---
+
 ## Fibonacci Demo
 
 ```elixir
