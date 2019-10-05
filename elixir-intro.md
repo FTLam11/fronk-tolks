@@ -65,7 +65,7 @@ disconnect calls in progress.
 
 ---
 
-## Example: Addition of two numbers in Erlang
+## Example: Adding two numbers in Erlang
 
 ```erlang
 -module(sum_server).
@@ -89,7 +89,7 @@ code_change(_OldVsn, State, _Extra) -> {ok, State}.
 
 ---
 
-## Example: Addition of two numbers in Elixir
+## Example: Adding two numbers in Elixir
 
 ```elixir
 defmodule SumServer do
@@ -126,19 +126,19 @@ Fight!
 ## OOP
 
 Most people embarking on their programming journey are likely to start by
-learning OOP. *Survey audience first language*
+learning OOP. **Activity:** *Survey audience first language*
 
 Starting from raw procedural code we often develop in this manner:
 
 * Brute force blobs of code to accomplish some tasks
 * Analyze and extract classes
 * Specify data attributes
-* Define public methods to expose behavior
+* Add behavior by exposing public methods
 * Replace code blobs by instantiating objects with initial state and
 then calling methods on the objects to get some return value and/or
 cause side effects
 
-In OOP, we model the real world using classes, creating objects that hold
+In OOP, we model the real world using classes, create objects that hold
 state, and change the world by calling methods on objects.
 
 ---
@@ -151,15 +151,21 @@ is on **data** and how to transform it.
 The workflow becomes something like:
 
 * Brute force blobs of code to accomplish some tasks
-* Analyze and extract **pure** functions that have well defined inputs
-and outputs
+* Analyze and extract **pure** functions
 * Always return new copies of data when changing data (data is **immutable**)
 * Replace code blobs with function call chains
 
-In FP, we emphasize the data. Because functions are written to be
-pure and isolated, each function can arguably be more easily understood
-in the absence of side effects. What else does FP offer us?
+Because functions are written to be pure and isolated, each function can
+arguably be more easily understood in the absence of side effects.
+What else does FP offer us?
 
+## Which one is better?
+
+* Functional programming's origins are theoretical math
+* Are we mathematicians or programmers?
+* In theory != in practice
+* Which is easier to read? How much time do we actually spend writing
+code vs reading it?
 
 ---
 
@@ -167,9 +173,9 @@ in the absence of side effects. What else does FP offer us?
 
 ## Immutability
 
-The biggest "gotcha" in transitioning from OOP to functional programming
-is the concept of immutability. The following compares adding a task to
-a todo list in Ruby and Elixir.
+The biggest "gotcha" in transitioning from OOP to FP is the concept of
+immutability and how it affects shared state. The following compares
+adding a task to a todo list in Ruby and Elixir.
 
 ---
 
@@ -289,27 +295,26 @@ defmodule Fun do
   end
 
   def very_fun(count) when count > 0 do
-    do_fun(count, [])
+    (for _ <- 1..count, into: [], do: "VERY FUN") |> Enum.join(" ")
   end
 
   def super_fun(count) when count > 0 do
-    (for _ <- 1..count, into: [], do: "SUPER FUN") |> Enum.join(" ")
+    do_fun(count, [])
   end
 
   defp do_fun(0, result), do: Enum.join(result, " ")
 
   defp do_fun(count, result) do
-    do_fun(count - 1, ["WOW VERY FUN" | result])
+    do_fun(count - 1, ["SUPER FUN" | result])
   end
 end
 ```
 
-`Fun.less_fun/1` uses the pipe operator `|>` to transform data using
-chained function calls, it is similar to Unix piping `|`. This is an
-an example of **functional programming**. `Fun.very_fun/1` uses recursion
-to acheive the same result. Finally, `Fun.super_fun/1` uses a feature
-called **comprehensions** that uses syntactic sugar to give us an
-iteration-like mechanism.
+`Fun.so_fun/1` uses the pipe operator `|>` to transform data using
+chained function calls, it is similar to Unix piping `|`.  `Fun.very_fun/1`
+uses recursion to acheive the same result. Finally, `Fun.super_fun/1`
+uses a feature called **comprehensions** that uses syntactic sugar to give
+us an iteration-like mechanism.
 
 ---
 

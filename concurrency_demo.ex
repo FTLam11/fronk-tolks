@@ -4,17 +4,17 @@ defmodule Fun do
   end
 
   def very_fun(count) when count > 0 do
-    do_fun(count, [])
+    (for _ <- 1..count, into: [], do: "VERY FUN") |> Enum.join(" ")
   end
 
   def super_fun(count) when count > 0 do
-    (for _ <- 1..count, into: [], do: "SUPER FUN") |> Enum.join(" ")
+    do_fun(count, [])
   end
 
   defp do_fun(0, result), do: Enum.join(result, " ")
 
   defp do_fun(count, result) do
-    do_fun(count - 1, ["WOW VERY FUN" | result])
+    do_fun(count - 1, ["SUPER FUN" | result])
   end
 end
 
@@ -33,7 +33,7 @@ defmodule SimpleFibonacci do
     end) |> Enum.map(fn (task) -> Task.await(task, :infinity) end)
   end
 
-  defp do_fib(1), do: 0
+  defp do_fib(1), do: 1
 
   defp do_fib(2), do: 1
 
@@ -113,7 +113,6 @@ defmodule NextFibonacci do
   defp run_concurrently(caller, number) do
     spawn(fn ->
       send(caller, {:ok, Fibonacci.next_after(number)})
-      IO.puts("Finished calc for next fib after #{number}")
     end)
   end
 end
