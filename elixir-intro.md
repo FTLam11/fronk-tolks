@@ -148,7 +148,7 @@ state, and change the world by calling methods on objects.
 An alternate approach is FP. Instead of emphasizing objects, the main focus
 is on **data** and how to transform it.
 
-The workflow becomes something like:
+A FP development workflow:
 
 * Brute force blobs of code to accomplish some tasks
 * Analyze and extract **pure** functions
@@ -161,11 +161,13 @@ What else does FP offer us?
 
 ## Which one is better?
 
-* Functional programming's origins are theoretical math
-* Are we mathematicians or programmers?
-* In theory != in practice
-* Which is easier to read? How much time do we actually spend writing
-code vs reading it?
+* This is a trap question and out of scope for this talk. There is way too
+much information to even attempt analyzing. From what I've read, it seems
+to be a pretty controversial topic, full of spicy drama. Below are
+some links to FP discussions:
+
+* [The main benefits of FP](https://www.quora.com/What-is-so-great-about-functional-programming-What-are-the-main-points-of-it-and-why-are-they-useful)
+* [Why isn't FP more popular?](https://www.quora.com/Why-isnt-functional-programming-that-popular-even-though-its-so-beneficial)
 
 ---
 
@@ -193,8 +195,7 @@ class TodoList
   end
 
   def add_entry(date, title)
-    item = TodoItem.new(date, title)
-    entries[@auto_id] = item
+    entries[@auto_id] = TodoItem.new(date, title)
     @auto_id += 1
     entries
   end
@@ -224,6 +225,9 @@ defmodule TodoList do
 
   def entries(list) do
     list.entries
+    |> Enum.map(fn({_, entry}) ->
+      %{date: entry.date, title: entry.title}
+    end)
   end
 end
 
@@ -239,23 +243,21 @@ TodoList.entries(list)
 ## Comparing Todo list implementations
 
 The Elixir version is more verbose, both in its definition of the `TodoList`
-module, as well as its usage! The first thing to look at is
-`TodoList.add_entry/2`. Notice that this function takes `list` as an argument
-and that it returns a brand new `TodoList`.  The return value for
-`TodoList.add_entry/2` is saved by reassigning `list`. Since there is no
-mutating of data, each change we make typically is saved to a variable
-if it needs to be used later.
+module, as well as its usage! `TodoList.add_entry/2` takes `list` and
+`entry` arguments and returns a **brand new** `TodoList`.  The return value for
+`TodoList.add_entry/2` is saved by reassigning `list`. Since data is
+immutable, each new state is saved to a variable if it needs to be used later.
 
 ---
 
 ## So what benefits does immutability give us?
 
-* Promotes pure functions - easy to use, simple to test
-* Minimizes the effects of invalid state - data that gets processed by
+* Promotes pure functions - easy to reason about, simple to test
+* Minimizes the effects of invalid state - data transformed by
 multiple functions still exists in its original form (rollbacks for
 data!)
-* More efficient memory management - new copies of data reuse as much of
-the old data as possible, only making shallow copies when needed.
+* Efficient memory management - new copies of data reuse as much of
+the old data as possible, only making shallow copies when needed
 * Prevents mutation of shared state - key point for **concurrency**
 
 ---
@@ -264,11 +266,11 @@ the old data as possible, only making shallow copies when needed.
 
 [Concurrency](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)
 is multitasking. It is not the same as parallelism, which is doing multiple
-tasks at the same time. Concurrency simply means that different tasks
-can be executed, interrupted, and finish in overlapping time.
+tasks at the same time. Concurrent tasks can be executed, interrupted, and
+finished in overlapping time.
 
 Check the following links to learn more about how concurrency is
-implemented for different languages.
+implemented.
 
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
 * [Ruby](https://engineering.universe.com/introduction-to-concurrency-models-with-ruby-part-i-550d0dbb970)
@@ -281,12 +283,11 @@ implemented for different languages.
 
 # 4. Recursion
 
-## The problem with using iteration
+## What happened to iteration?
 
-* When working with collections, we often use iteration to loop through
-each item and perform some work
-* But Elixir doesn't have loops... 😰, it has lots of fun though...
-* Recursion is usually abstracted away into higher-order functions
+* We often use iteration to loop through collections and perform work
+* Though Elixir doesn't have loops... 😰, it has lots of fun though...
+* We can use higher-order functions to abstract away recursive functions
 
 ```elixir
 defmodule Fun do
@@ -310,19 +311,19 @@ defmodule Fun do
 end
 ```
 
-`Fun.so_fun/1` uses the pipe operator `|>` to transform data using
-chained function calls, it is similar to Unix piping `|`.  `Fun.very_fun/1`
-uses recursion to acheive the same result. Finally, `Fun.super_fun/1`
+`Fun.so_fun/1` uses the pipe operator `|>` to transform data via
+chained function calls, it is similar to Unix piping `|`. `Fun.super_fun/1`
 uses a feature called **comprehensions** that uses syntactic sugar to give
-us an iteration-like mechanism.
+us an iteration-like mechanism.`Fun.very_fun/1` uses recursion,
+multi-clause functions, and pattern matching.
 
 ---
 
 ## Higher-order functions in Elixir
 
 Elixir has an `Enumerable` module used to iterate through collections.
-The `Enumerable.map/2` function iterates through the collection and yields
-each member to the callback function. Here is the source code for `Enumerable.map/2`
+`Enumerable.map/2` iterates through the collection and yields each member
+to the callback function. The source code is below:
 
 ```elixir
 def map(enumerable, fun) do
@@ -334,13 +335,13 @@ end
 `reducer` returns a tuple containing two elements, an **atom** that tells
 Elixir to **continue** iterating through the collection,
 and a list that accumulates the result of the input function `fun` being
-called on the current member of the `enumerable`.
+called on the current input `x`.
 
 The actual work is done by `Enumerable.reduce/3`, written as a
 **multi-clause function**, a common pattern in Elixir. **Pattern
 matching** is another often used tool in Elixir. Here, it matches against
 the input arguments to determine which function to call. The order in
-which the clauses are defined matters, Elixir matches from top to bottom.
+which the clauses are defined matters, Elixir matches clauses from top to bottom.
 
 ```elixir
 def reduce(_list, {:halt, acc}, _fun), do: {:halted, acc}
@@ -349,9 +350,7 @@ def reduce([], {:cont, acc}, _fun), do: {:done, acc}
 def reduce([head | tail], {:cont, acc}, fun), do: reduce(tail, fun.(head, acc), fun)
 ```
 
-The first two clauses pattern match on the input tag `:halt, :suspend`
-and are used to stop/pause execution. In the last two clauses, you can
-see recursion being used. Let's walk through the recursion routine:
+Let's walk through the last two clauses:
 
 1. Is the input collection empty (`[]`)? Return `{:done, acc}`, meaning
 that the execution is done, and the result is `acc`. Stop execution!
@@ -363,7 +362,9 @@ new arguments. Go back to step 1.
 
 Now you've seen how Elixir uses a combination of recursion, multi-clause
 functions, and pattern matching to circumvent immutability and the
-absence of iteration.
+absence of iteration. Recursive thinking can be considered another big
+adjustment coming from OOP to FP, for more information and practice,
+check out [The Little Schemer](http://www.ccs.neu.edu/home/matthias/BTLS/).
 
 ---
 
@@ -386,9 +387,9 @@ end
 ```
 
 `SimpleFibonacci` is a reasonable first attempt at deriving the nth
-Fibonacci number. It reads exactly like the mathematical equation. The
+Fibonacci number. It reads exactly like the mathematical definition. The
 issue with this approach is it will be very slow for larger Fibonacci
-numbers. For each call of `do_fib` there are *two* recursive calls!
+numbers. For each call of `do_fib(n)` there are *two* recursive calls!
 Let's count the number of function calls (shortened to f()):
 
 | Function Calls                                           | Function Count | Big O                   |
@@ -402,7 +403,7 @@ Let's count the number of function calls (shortened to f()):
 | f(7) (omitted)                                           | 25             | O(n)                    |
 | f(8) (omitted)                                           | 41             | O(n)                    |
 | f(9) (omitted)                                           | 67             | O(n)                    |
-| f(10) (omitted)                                          | 109            | O(n^2) YIKES! |
+| f(10) (omitted)                                          | 109            | O(<sup>2</sup>) YIKES! |
 
 ```elixir
 defmodule FastFibonacci do
@@ -418,11 +419,12 @@ defmodule FastFibonacci do
 end
 ```
 
-`FastFibonacci` uses a tail call optimization resulting in a more
-performant solution. There is only *one* recursive call per function
-call. In particular, `find` calls itself as the last operation, so Elixir
-does not push another stack frame (stack level too deep LOL), it instead
-performs a "jump statement".
+`FastFibonacci` uses [tail call
+optimization](https://en.wikipedia.org/wiki/Tail_call) resulting in a more
+performant solution. Worst case time complexity is O(n). One interesting
+thing that Elixir does for tail calls is it does not push another stack
+frame (stack level too deep LOL) for tail calls. It instead performs a
+"jump statement", so there is no additional memory penalty incurred.
 
 ---
 
