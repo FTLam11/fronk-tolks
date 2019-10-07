@@ -63,7 +63,7 @@ link](https://github.com/FTLam11/fronk-tolks/blob/master/spec/05_xmas_spec.rb)
 4. Show examples of different test types
 5. Reimplement a class purely based on tests
 
-## Intro to Elixir Chapter Uno (in progress)
+## Intro to Elixir Chapter Uno
 [README link](https://github.com/FTLam11/fronk-tolks/blob/master/elixir-intro.md)
 
 * Short background of Erlang and Elixir
