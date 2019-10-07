@@ -64,10 +64,10 @@ link](https://github.com/FTLam11/fronk-tolks/blob/master/spec/05_xmas_spec.rb)
 5. Reimplement a class purely based on tests
 
 ## Intro to Elixir Chapter Uno (in progress)
+[README link](https://github.com/FTLam11/fronk-tolks/blob/master/elixir-intro.md)
 
 * Short background of Erlang and Elixir
 * Give high-level comparison between functional/imperative programming
   (OOP) [SPICY TOPIC]
 * Explain relationships between immutability, concurrency, and recursion
-* Comparison of concurrency primitives with other languages like Ruby,
-  JavaScript
+* Preview of Elixir concurrency
