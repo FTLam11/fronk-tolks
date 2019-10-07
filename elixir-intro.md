@@ -531,3 +531,11 @@ This shows concurrency is not always the solution for writing
 performant code. The usual boring answer applies here: it depends!
 
 ___
+
+# Thank you!
+
+Hopefully this sparks some interest in Elixir and FP. At the very least,
+it can be another valuable part of your programming toolbox. There are
+many new ideas and patterns to learn: concurrency, immutability, pattern
+matching, etc... See how your language goes about implementing these.
+Finally, go check out Elixir and other FP languages, you might really like them!
