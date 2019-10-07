@@ -75,8 +75,7 @@ end
 
 defmodule Rng do
   def list(length) when length > 0 do
-    range = 1..length
-    Enum.map(range, &rand/1)
+    Enum.map(1..length, &rand/1)
   end
 
   def rand(_) do
@@ -86,15 +85,15 @@ end
 
 defmodule Fibonacci do
   def next_after(target) do
-    find_next(target, 1, 0, 1)
+    find_next(target, 0, 1)
   end
 
-  defp find_next(target, _term_count, _acc, next) when next > target do
+  defp find_next(target, _acc, next) when next > target do
     next
   end
 
-  defp find_next(target, term_count, acc, next) do
-    find_next(target, term_count + 1, next, next + acc)
+  defp find_next(target, acc, next) do
+    find_next(target, next, next + acc)
   end
 end
 
