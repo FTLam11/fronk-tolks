@@ -48,8 +48,8 @@ Today we will explore these topics:
 * Consists of the language, virtual machine, framework, and tools
 * Primary use case was to solve telecom problems, but usage has expanded
 into more general software domains
-* Used by WhatsApp, Heroku, Chef, RabbitMQ, financial systems,
-  multiplayer games
+* Used by WhatsApp, Heroku, Chef, RabbitMQ, Discord, Bleacher Report,
+Pinterest, financial systems, multiplayer games
 
 ---
 
@@ -59,7 +59,8 @@ into more general software domains
 * Abstracts away Erlang boilerplate
 * Has cleaner and more compact syntax than Erlang
 * Compiles to bytecode run on Erlang virtual machine
-* Has a web framework Pheonix similar to Rails for Ruby
+* Has a web framework [Pheonix](https://phoenixframework.org/) similar
+to [Rails](https://rubyonrails.org/) for Ruby
 
 ---
 
@@ -123,6 +124,8 @@ Fight!
 
 ## OOP
 
+![OOP](https://www.mememaker.net/api/bucket?path=static/img/memes/full/2019/Jun/16/10/oop-6481.png)
+
 Most people embarking on their programming journey are likely to start by
 learning OOP. **Activity:** *Survey audience first language*
 
@@ -142,6 +145,8 @@ call methods to change state.
 
 ## FP
 
+![FP](https://miro.medium.com/max/800/1*8WJq7MMSJ26UgAuMWXTbYQ.png)
+
 Instead of emphasizing objects, the main focus is on **data** and how to
 transform it.
 
@@ -157,6 +162,8 @@ arguably be more easily understood in the absence of side effects.
 What else does FP offer us?
 
 ## Which one is better?
+
+![Programming humor](https://i.imgur.com/H4uaq47.jpg)
 
 This is a trap question and out of scope for this talk. There is too
 much information to analyze. From what I've read, it seems to be a pretty
@@ -313,15 +320,16 @@ end
 
 * `Fun.so_fun/1` uses the pipe operator `|>` to transform data via
 chained function calls, it is similar to Unix piping `|`.
-* `Fun.super_fun/1` uses a feature called **comprehensions** that uses
-syntactic sugar to give us an iteration-like mechanism.
+* `Fun.super_fun/1` uses a feature called
+[comprehensions](https://elixir-lang.org/getting-started/comprehensions.html)
+that uses syntactic sugar to give us an iteration-like mechanism.
 * `Fun.very_fun/1` uses recursion, multi-clause functions, and pattern matching.
 
 ---
 
 ## Higher-order functions in Elixir
 
-Elixir has an `Enumerable` module used to iterate through collections.
+Elixir has an `Enumerable` module used to work with collections.
 `Enumerable.map/2` iterates through the collection and yields each member
 to the callback function. The source code is below:
 
@@ -360,7 +368,7 @@ The cons operator is like `unshift` in Ruby and JavaScript.
 3. Continue breaking the problem down by calling the same function with
 new arguments. Go back to step 1.
 
-Now you've seen how Elixir uses a combination of recursion, multi-clause
+Now we've seen how Elixir uses a combination of recursion, multi-clause
 functions, and pattern matching to circumvent immutability and the
 absence of iteration. Recursive thinking can be considered another big
 adjustment coming from OOP to FP. For more information and practice,
@@ -494,7 +502,8 @@ end
 
 Time for some benchmark tests! Let's create a list of `1_000_000`
 random large positive integers. We will benchmark `NextFibonacci.run/1`
-and `NextFibonacci.run_serial/1`.
+and `NextFibonacci.run_serial/1`. **Activity** *Vote for faster
+function*
 
 # SPOILERS BELOW
 # SPOILERS BELOW
