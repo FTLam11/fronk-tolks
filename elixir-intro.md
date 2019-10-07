@@ -17,9 +17,9 @@ Let's learn about Elixir and how it puts the *fun* in functional programming!
 Today we will explore these topics:
 
 1. Background of Erlang and Elixir
-2. Functional programming (FP) vs OOP
+2. Functional programming (FP) and OOP
 3. Immutability and concurrency
-4. How recursion serves as the backbone of Elixir
+4. How Elixir uses recursion
 5. Preview Elixir concurrency
 
 ---
@@ -43,16 +43,13 @@ Today we will explore these topics:
 ## Hej Erlang!
 
 * Created by Ericsson, a Swedish telecom company
-* Designed with reliability, responsiveness, scalability, and
-  availability as main points of emphasis
+* Designed with emphasis on reliability, responsiveness, scalability, and
+  availability
 * Consists of the language, virtual machine, framework, and tools
+* Primary use case was to solve telecom problems, but usage has expanded
+into more general software domains
 * Used by WhatsApp, Heroku, Chef, RabbitMQ, financial systems,
   multiplayer games
-
-Example: Ericsson's communication system supports millions of
-users/phone calls. One dropped phone call or impacted area cannot
-bring the entire system down. Updating the system should not
-disconnect calls in progress.
 
 ---
 
@@ -62,6 +59,7 @@ disconnect calls in progress.
 * Abstracts away Erlang boilerplate
 * Has cleaner and more compact syntax than Erlang
 * Compiles to bytecode run on Erlang virtual machine
+* Has a web framework Pheonix similar to Rails for Ruby
 
 ---
 
@@ -128,31 +126,30 @@ Fight!
 Most people embarking on their programming journey are likely to start by
 learning OOP. **Activity:** *Survey audience first language*
 
-Starting from raw procedural code we often develop in this manner:
+An OOP development workflow:
 
 * Brute force blobs of code to accomplish some tasks
 * Analyze and extract classes
-* Specify data attributes
-* Add behavior by exposing public methods
+* Specify data/behavior by defining attributes and exposing public methods
 * Replace code blobs by instantiating objects with initial state and
 then calling methods on the objects to get some return value and/or
 cause side effects
 
-In OOP, we model the real world using classes, create objects that hold
-state, and change the world by calling methods on objects.
+In OOP, we model the real world by creating objects that hold state, and
+call methods to change state.
 
 ---
 
 ## FP
 
-An alternate approach is FP. Instead of emphasizing objects, the main focus
-is on **data** and how to transform it.
+Instead of emphasizing objects, the main focus is on **data** and how to
+transform it.
 
 A FP development workflow:
 
 * Brute force blobs of code to accomplish some tasks
-* Analyze and extract **pure** functions
-* Always return new copies of data when changing data (data is **immutable**)
+* Analyze and extract functions
+* Always return new copies of data when mutating data (data is **immutable**)
 * Replace code blobs with function call chains
 
 Because functions are written to be pure and isolated, each function can
@@ -161,10 +158,9 @@ What else does FP offer us?
 
 ## Which one is better?
 
-* This is a trap question and out of scope for this talk. There is way too
-much information to even attempt analyzing. From what I've read, it seems
-to be a pretty controversial topic, full of spicy drama. Below are
-some links to FP discussions:
+This is a trap question and out of scope for this talk. There is too
+much information to analyze. From what I've read, it seems to be a pretty
+controversial topic, full of spicy drama. Below are some links to FP discussions:
 
 * [The main benefits of FP](https://www.quora.com/What-is-so-great-about-functional-programming-What-are-the-main-points-of-it-and-why-are-they-useful)
 * [Why isn't FP more popular?](https://www.quora.com/Why-isnt-functional-programming-that-popular-even-though-its-so-beneficial)
@@ -175,9 +171,9 @@ some links to FP discussions:
 
 ## Immutability
 
-The biggest "gotcha" in transitioning from OOP to FP is the concept of
+One of the challenges in transitioning from OOP to FP is the concept of
 immutability and how it affects shared state. The following compares
-adding a task to a todo list in Ruby and Elixir.
+OOP/FP approaches for adding a task to a todo list.
 
 ---
 
@@ -242,6 +238,10 @@ TodoList.entries(list)
 
 ## Comparing Todo list implementations
 
+The Ruby version is a familiar approach. A `list` object is instantiated
+and methods are directly called on it. `TodoList#add_entry` mutates the `list`
+object. Nothing surprising to see here.
+
 The Elixir version is more verbose, both in its definition of the `TodoList`
 module, as well as its usage! `TodoList.add_entry/2` takes `list` and
 `entry` arguments and returns a **brand new** `TodoList`.  The return value for
@@ -287,7 +287,7 @@ implemented.
 
 * We often use iteration to loop through collections and perform work
 * Though Elixir doesn't have loops... 😰, it has lots of fun though...
-* We can use higher-order functions to abstract away recursive functions
+* We can use higher-order functions which abstract away recursive functions
 
 ```elixir
 defmodule Fun do
@@ -311,11 +311,11 @@ defmodule Fun do
 end
 ```
 
-`Fun.so_fun/1` uses the pipe operator `|>` to transform data via
-chained function calls, it is similar to Unix piping `|`. `Fun.super_fun/1`
-uses a feature called **comprehensions** that uses syntactic sugar to give
-us an iteration-like mechanism.`Fun.very_fun/1` uses recursion,
-multi-clause functions, and pattern matching.
+* `Fun.so_fun/1` uses the pipe operator `|>` to transform data via
+chained function calls, it is similar to Unix piping `|`.
+* `Fun.super_fun/1` uses a feature called **comprehensions** that uses
+syntactic sugar to give us an iteration-like mechanism.
+* `Fun.very_fun/1` uses recursion, multi-clause functions, and pattern matching.
 
 ---
 
@@ -339,8 +339,8 @@ called on the current input `x`.
 
 The actual work is done by `Enumerable.reduce/3`, written as a
 **multi-clause function**, a common pattern in Elixir. **Pattern
-matching** is another often used tool in Elixir. Here, it matches against
-the input arguments to determine which function to call. The order in
+matching** is another often used tool in Elixir. The input arguments are
+matched against to determine which function to call. The order in
 which the clauses are defined matters, Elixir matches clauses from top to bottom.
 
 ```elixir
@@ -363,12 +363,19 @@ new arguments. Go back to step 1.
 Now you've seen how Elixir uses a combination of recursion, multi-clause
 functions, and pattern matching to circumvent immutability and the
 absence of iteration. Recursive thinking can be considered another big
-adjustment coming from OOP to FP, for more information and practice,
+adjustment coming from OOP to FP. For more information and practice,
 check out [The Little Schemer](http://www.ccs.neu.edu/home/matthias/BTLS/).
 
 ---
 
-## Fibonacci Demo
+## Fibonacci Recursion Demo
+
+The definition for the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number) is:
+
+Given F<sub>0</sub> = 0, F<sub>1</sub> = 1, when *n* > 1, then:
+F<sub>n</sub> = F<sub>n - 1</sub> + F<sub>n - 2</sub>. Here is a first
+attempt using Elixir:
+
 
 ```elixir
 defmodule SimpleFibonacci do
@@ -386,7 +393,7 @@ defmodule SimpleFibonacci do
 end
 ```
 
-`SimpleFibonacci` is a reasonable first attempt at deriving the nth
+`SimpleFibonacci` is a reasonable first attempt at deriving the n<sup>th</sup>
 Fibonacci number. It reads exactly like the mathematical definition. The
 issue with this approach is it will be very slow for larger Fibonacci
 numbers. For each call of `do_fib(n)` there are *two* recursive calls!
@@ -403,13 +410,15 @@ Let's count the number of function calls (shortened to f()):
 | f(7) (omitted)                                           | 25             | O(n)                    |
 | f(8) (omitted)                                           | 41             | O(n)                    |
 | f(9) (omitted)                                           | 67             | O(n)                    |
-| f(10) (omitted)                                          | 109            | O(<sup>2</sup>) YIKES! |
+| f(10) (omitted)                                          | 109            | O(n<sup>2</sup>) YIKES! |
 
 ```elixir
 defmodule FastFibonacci do
   def nth_term(n) when n > 0 do
     find(n, 0, 1)
   end
+
+  defp find(1, 0, _), do: 1
 
   defp find(1, _, result), do: result
 
@@ -421,7 +430,7 @@ end
 
 `FastFibonacci` uses [tail call
 optimization](https://en.wikipedia.org/wiki/Tail_call) resulting in a more
-performant solution. Worst case time complexity is O(n). One interesting
+performant solution. The worst case time complexity is O(n). One interesting
 thing that Elixir does for tail calls is it does not push another stack
 frame (stack level too deep LOL) for tail calls. It instead performs a
 "jump statement", so there is no additional memory penalty incurred.
@@ -430,12 +439,14 @@ frame (stack level too deep LOL) for tail calls. It instead performs a
 
 # 5. Concurrency in Elixir/Erlang
 
-The basic concurrency primitive is called an Erlang process. It is not
+![BEAM](https://raw.githubusercontent.com/FTLam11/fronk-tolks/feat/ftl-intro-elixir-talk/erlang_concurrency_diagram.png)
+
+The basic concurrency primitive is called an **Erlang process**. It is not
 related at all to CPU processes or threads. Erlang processes are super
-light-weight, typical Erlang systems often run thousands or millions of
+light-weight; typical Erlang systems often run thousands or millions of
 Erlang processes.
 
-In a typical scenario, the BEAM (the Erlang virtual machine) runs inside
+In a typical scenario, the BEAM (Erlang virtual machine) runs inside
 one OS process and has a number schedulers each running in a thread equal
 to the number of CPU cores. The schedulers efficiently manage running
 processes, allowing work to be done concurrently and in parallel.
@@ -469,6 +480,10 @@ defmodule NextFibonacci do
     end)
   end
 
+  def run_serial(list) do
+    Enum.map(list, &Fibonacci.next_after/1)
+  end
+
   defp run_concurrently(caller, number) do
     spawn(fn ->
       send(caller, {:ok, Fibonacci.next_after(number)})
@@ -476,4 +491,34 @@ defmodule NextFibonacci do
   end
 end
 ```
+
+Time for some benchmark tests! Let's create a list of `1_000_000`
+random large positive integers. We will benchmark `NextFibonacci.run/1`
+and `NextFibonacci.run_serial/1`.
+
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+# SPOILERS BELOW
+
+___
+
+Wait, the concurrent version is *slower* than the serial one? What gives
+dawg, this is a scam and I demand a refund! Here are some reasons why
+the serial version is performing faster than the concurrent version:
+
+* `Fibonacci.next_after/1` is really fast, if the callback function was
+slower we would likely see the concurrent function performing better
+* There is some overhead with spawning processes and processing messages
+for the concurrent version.
+
+This shows concurrency is not always the solution for writing
+performant code. The usual boring answer applies here: it depends!
+
 ___

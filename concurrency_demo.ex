@@ -47,6 +47,8 @@ defmodule FastFibonacci do
     find(n, 0, 1)
   end
 
+  defp find(1, 0, _), do: 1
+
   defp find(1, _, result), do: result
 
   defp find(n, acc, result) do
