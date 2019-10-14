@@ -319,11 +319,11 @@ end
 ```
 
 * `Fun.so_fun/1` uses the pipe operator `|>` to transform data via
-chained function calls, it is similar to Unix piping `|`.
+chained function calls, it is similar to Unix piping `|`
 * `Fun.super_fun/1` uses a feature called
 [comprehensions](https://elixir-lang.org/getting-started/comprehensions.html)
-that uses syntactic sugar to give us an iteration-like mechanism.
-* `Fun.very_fun/1` uses recursion, multi-clause functions, and pattern matching.
+that uses syntactic sugar to give us an iteration-like mechanism
+* `Fun.very_fun/1` uses recursion, multi-clause functions, and pattern matching  **Activity** Demo pattern matching
 
 ---
 
@@ -525,7 +525,7 @@ the serial version is performing faster than the concurrent version:
 * `Fibonacci.next_after/1` is really fast, if the callback function was
 slower we would likely see the concurrent function performing better
 * There is some overhead with spawning processes and processing messages
-for the concurrent version.
+for the concurrent version
 
 This shows concurrency is not always the solution for writing
 performant code. The usual boring answer applies here: it depends!
