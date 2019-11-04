@@ -447,7 +447,7 @@ frame (stack level too deep LOL) for tail calls. It instead performs a
 
 # 5. Concurrency in Elixir/Erlang
 
-![BEAM](https://raw.githubusercontent.com/FTLam11/fronk-tolks/feat/ftl-intro-elixir-talk/erlang_concurrency_diagram.png)
+![BEAM](https://raw.githubusercontent.com/FTLam11/fronk-tolks/master/erlang_concurrency_diagram.png)
 
 The basic concurrency primitive is called an **Erlang process**. It is not
 related at all to CPU processes or threads. Erlang processes are super
