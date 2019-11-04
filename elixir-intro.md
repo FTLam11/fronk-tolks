@@ -127,7 +127,9 @@ Fight!
 ![OOP](https://www.mememaker.net/api/bucket?path=static/img/memes/full/2019/Jun/16/10/oop-6481.png)
 
 Most people embarking on their programming journey are likely to start by
-learning OOP. **Activity:** *Survey audience first language*
+learning OOP.
+
+**Activity:** *Survey audience first language*
 
 An OOP development workflow:
 
@@ -323,7 +325,9 @@ chained function calls, it is similar to Unix piping `|`
 * `Fun.super_fun/1` uses a feature called
 [comprehensions](https://elixir-lang.org/getting-started/comprehensions.html)
 that uses syntactic sugar to give us an iteration-like mechanism
-* `Fun.very_fun/1` uses recursion, multi-clause functions, and pattern matching  **Activity** Demo pattern matching
+* `Fun.very_fun/1` uses recursion, multi-clause functions, and pattern matching
+
+**Activity** Demo pattern matching
 
 ---
 
@@ -502,8 +506,9 @@ end
 
 Time for some benchmark tests! Let's create a list of `1_000_000`
 random large positive integers. We will benchmark `NextFibonacci.run/1`
-and `NextFibonacci.run_serial/1`. **Activity** *Vote for faster
-function*
+and `NextFibonacci.run_serial/1`.
+
+**Activity** *Vote for faster function*
 
 # SPOILERS BELOW
 # SPOILERS BELOW
