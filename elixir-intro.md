@@ -18,7 +18,7 @@ Today we will explore these topics:
 
 1. Background of Erlang and Elixir
 2. Functional programming (FP) and OOP
-3. Immutability and concurrency
+3. Immutability
 4. How Elixir uses recursion
 5. Preview Elixir concurrency
 
@@ -137,10 +137,10 @@ Fight!
 
 ![OOP](https://www.mememaker.net/api/bucket?path=static/img/memes/full/2019/Jun/16/10/oop-6481.png)
 
+**Activity:** *Survey audience first language*
+
 Most people embarking on their programming journey are likely to start by
 learning OOP.
-
-**Activity:** *Survey audience first language*
 
 An OOP development workflow:
 
@@ -172,7 +172,6 @@ A FP development workflow:
 
 Because functions are written to be pure and isolated, each function can
 arguably be more easily understood in the absence of side effects.
-What else does FP offer us?
 
 ## Which one is better?
 
@@ -187,7 +186,7 @@ controversial topic, full of spicy drama. Below are some links to FP discussions
 
 ---
 
-# 3. Immutability & Concurrency
+# 3. Immutability
 
 ## Immutability
 
@@ -279,25 +278,6 @@ data!)
 * Efficient memory management - new copies of data reuse as much of
 the old data as possible, only making shallow copies when needed
 * Prevents mutation of shared state - key point for **concurrency**
-
----
-
-## Concurrency
-
-[Concurrency](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)
-is multitasking. It is not the same as parallelism, which is doing multiple
-tasks at the same time. Concurrent tasks can be executed, interrupted, and
-finished in overlapping time.
-
-Check the following links to learn more about how concurrency is
-implemented.
-
-* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
-* [Ruby](https://engineering.universe.com/introduction-to-concurrency-models-with-ruby-part-i-550d0dbb970)
-* [PHP](https://amphp.org/)
-* [Python](https://realpython.com/python-concurrency/)
-* [Go](https://tour.golang.org/concurrency/1)
-* [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/)
 
 ---
 
@@ -457,6 +437,25 @@ performant solution. The worst case time complexity is O(n). One interesting
 thing that Elixir does for tail calls is it does not push another stack
 frame (stack level too deep LOL) for tail calls. It instead performs a
 "jump statement", so there is no additional memory penalty incurred.
+
+---
+
+## Concurrency
+
+[Concurrency](https://stackoverflow.com/questions/1050222/what-is-the-difference-between-concurrency-and-parallelism)
+is multitasking. It is not the same as parallelism, which is doing multiple
+tasks at the same time. Concurrent tasks can be executed, interrupted, and
+finished in overlapping time.
+
+Check the following links to learn more about how concurrency is
+implemented.
+
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+* [Ruby](https://engineering.universe.com/introduction-to-concurrency-models-with-ruby-part-i-550d0dbb970)
+* [PHP](https://amphp.org/)
+* [Python](https://realpython.com/python-concurrency/)
+* [Go](https://tour.golang.org/concurrency/1)
+* [Java](https://docs.oracle.com/javase/tutorial/essential/concurrency/)
 
 ---
 
