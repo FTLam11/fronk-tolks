@@ -30,6 +30,7 @@ Let's learn about Elixir and how it puts the *fun* in functional programming!
 
 Today we will explore these topics:
 
+0. History Lesson
 1. Background of Erlang and Elixir
 2. Functional programming (FP) and OOP
 3. Immutability
@@ -42,6 +43,22 @@ Today we will explore these topics:
 
 **Activity:** *Discuss how programming has changed from its earliest
 days until now*
+
+<details>
+  <summary>What kind of problems does programming solve?</summary>
+
+  * Math
+  * Science
+  * Engineering
+</details>
+
+<details>
+  <summary>Which key inventions changed how programming was used?</summary>
+
+  * Computer
+  * Internet
+  * Cell Phone
+</details>
 
 [Historical chart of programming languages](http://blog.daveastels.com.s3-website-us-west-2.amazonaws.com/images/languages/programminghistory.jpg)
 
