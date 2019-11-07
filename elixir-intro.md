@@ -38,6 +38,14 @@ Today we will explore these topics:
 
 ---
 
+# 0. History Lesson
+
+**Activity:** *Discuss how web development has changed from the 90s to now*
+
+**Activity:** *What characteristics does a high performance system have?*
+
+---
+
 # 1. Erlang/Elixir
 
 ## Hej Erlang!
