@@ -42,6 +42,8 @@ Today we will explore these topics:
 
 **Activity:** *Discuss how web development has changed from the 90s to now*
 
+[Historical chart of programming languages](http://blog.daveastels.com.s3-website-us-west-2.amazonaws.com/images/languages/programminghistory.jpg)
+
 **Activity:** *What characteristics does a high performance system have?*
 
 ---
