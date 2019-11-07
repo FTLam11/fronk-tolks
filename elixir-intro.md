@@ -10,20 +10,6 @@ Yo
 
 ---
 
-# Scope
-
-Let's learn about Elixir and how it puts the *fun* in functional programming!
-
-Today we will explore these topics:
-
-1. Background of Erlang and Elixir
-2. Functional programming (FP) and OOP
-3. Immutability
-4. How Elixir uses recursion
-5. Preview Elixir concurrency
-
----
-
 # About me
 
 * B.S General Engineering 2010 U of I
@@ -35,6 +21,20 @@ Today we will explore these topics:
 ![Personal RPG stats](https://raw.githubusercontent.com/FTLam11/fronk-talks/master/rpg_stats.jpg)
 
 * **Grapefruit segmenter extraordinaire**
+
+---
+
+# Scope
+
+Let's learn about Elixir and how it puts the *fun* in functional programming!
+
+Today we will explore these topics:
+
+1. Background of Erlang and Elixir
+2. Functional programming (FP) and OOP
+3. Immutability
+4. How Elixir uses recursion
+5. Preview Elixir concurrency
 
 ---
 
