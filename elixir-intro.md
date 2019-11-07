@@ -40,7 +40,8 @@ Today we will explore these topics:
 
 # 0. History Lesson
 
-**Activity:** *Discuss how web development has changed from the 90s to now*
+**Activity:** *Discuss how programming has changed from its earliest
+days until now*
 
 [Historical chart of programming languages](http://blog.daveastels.com.s3-website-us-west-2.amazonaws.com/images/languages/programminghistory.jpg)
 
