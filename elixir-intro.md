@@ -477,6 +477,14 @@ processes, allowing work to be done concurrently and in parallel.
 
 ## Fibonacci List Demo
 
+Given a list of numbers, transform each element into the next largest
+Fibonacci number. For example:
+
+```elixir
+input = [3, 10, 19, 33]
+Fibonacci.transform_list(input) # [5, 13, 21, 34]
+```
+
 ```elixir
 defmodule Fibonacci do
   def next_after(target) do
