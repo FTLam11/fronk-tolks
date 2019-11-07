@@ -89,7 +89,7 @@ Pinterest, financial systems, multiplayer games
 * Abstracts away Erlang boilerplate
 * Has cleaner and more compact syntax than Erlang
 * Compiles to bytecode run on Erlang virtual machine
-* Has a web framework [Pheonix](https://phoenixframework.org/) similar
+* Has a web framework [Phoenix](https://phoenixframework.org/) similar
 to [Rails](https://rubyonrails.org/) for Ruby
 
 ---
