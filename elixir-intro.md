@@ -62,6 +62,8 @@ days until now*
 
 [Historical chart of programming languages](http://blog.daveastels.com.s3-website-us-west-2.amazonaws.com/images/languages/programminghistory.jpg)
 
+**Activity:** *What main problems does your favorite language solve?*
+
 **Activity:** *What characteristics does a high performance system have?*
 
 ---
