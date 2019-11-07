@@ -163,12 +163,11 @@ learning OOP.
 
 An OOP development workflow:
 
-* Brute force blobs of code to accomplish some tasks
-* Analyze and extract classes
+* Write code to accomplish some tasks
+* Analyze and extract classes based on different objects
 * Specify data/behavior by defining attributes and exposing public methods
-* Replace code blobs by instantiating objects with initial state and
-then calling methods on the objects to get some return value and/or
-cause side effects
+* Instantiating objects with initial state and call methods on the objects
+to get some return value and/or cause side effects
 
 In OOP, we model the real world by creating objects that hold state, and
 call methods to change state.
@@ -184,10 +183,11 @@ transform it.
 
 A FP development workflow:
 
-* Brute force blobs of code to accomplish some tasks
-* Analyze and extract functions
+* Write code to accomplish some tasks
+* Analyze and extract functions based on pure data
 * Always return new copies of data when mutating data (data is **immutable**)
-* Replace code blobs with function call chains
+* Chain function calls together to transform some input data into output
+data
 
 Because functions are written to be pure and isolated, each function can
 arguably be more easily understood in the absence of side effects.
