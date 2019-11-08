@@ -107,7 +107,7 @@ to [Rails](https://rubyonrails.org/) for Ruby
 
 ---
 
-## Example: Adding two numbers in Erlang
+## Example: Adding two numbers in Erlang (using OTP)
 
 ```erlang
 -module(sum_server).
@@ -131,7 +131,7 @@ code_change(_OldVsn, State, _Extra) -> {ok, State}.
 
 ---
 
-## Example: Adding two numbers in Elixir
+## Example: Adding two numbers in Elixir (using OTP)
 
 ```elixir
 defmodule SumServer do
