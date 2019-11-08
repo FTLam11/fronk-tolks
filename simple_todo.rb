@@ -1,17 +1,17 @@
 class TodoList
-  TodoItem = Struct.new(:id, :date, :title)
-
-  attr_reader :entries
-
   def initialize
     @auto_id = 1
     @entries = {}
   end
 
   def add_entry(date, title)
-    entries[@auto_id] = TodoItem.new(@auto_id, date, title)
+    @entries[@auto_id] = { id: @auto_id, date: date, title: title }
     @auto_id += 1
-    entries
+    @entries
+  end
+
+  def entries
+    @entries.map { |_id, entry| entry.reject { |k, _v| k == :id } }
   end
 end
 

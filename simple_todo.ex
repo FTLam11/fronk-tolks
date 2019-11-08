@@ -12,6 +12,9 @@ defmodule TodoList do
 
   def entries(list) do
     list.entries
+    |> Enum.map(fn({_, entry}) ->
+      %{date: entry.date, title: entry.title}
+    end)
   end
 end
 
