@@ -70,7 +70,10 @@ days until now*
 </details>
 
 [Historical chart of programming languages](http://blog.daveastels.com.s3-website-us-west-2.amazonaws.com/images/languages/programminghistory.jpg)
+
 [History of Programming Languages Wiki](https://en.wikipedia.org/wiki/History_of_programming_languages)
+
+[Timeline of Programming Languages](https://en.wikipedia.org/wiki/Timeline_of_programming_languages)
 
 **Activity:** *What was your favorite language designed to do?*
 
