@@ -47,22 +47,32 @@ days until now*
 <details>
   <summary>What kind of problems does programming solve?</summary>
 
+  ### Back in the old days
+
   * Math
   * Science
   * Engineering
+
+  ### Nowadays
+
+  * Anything lol
+  * Finance
+  * Ecommerce
+  * Real-time applications - streaming, chat, gaming
 </details>
 
 <details>
   <summary>Which key inventions changed how programming was used?</summary>
 
   * Computer
-  * Internet
+  * INTERNET
   * Cell Phone
 </details>
 
 [Historical chart of programming languages](http://blog.daveastels.com.s3-website-us-west-2.amazonaws.com/images/languages/programminghistory.jpg)
+[History of Programming Languages Wiki](https://en.wikipedia.org/wiki/History_of_programming_languages)
 
-**Activity:** *What main problems does your favorite language solve?*
+**Activity:** *What was your favorite language designed to do?*
 
 **Activity:** *What characteristics does a high performance system have?*
 
@@ -72,7 +82,7 @@ days until now*
 
 ## Hej Erlang!
 
-* Created by Ericsson, a Swedish telecom company
+* Created in 1986 by Ericsson, a Swedish telecom company
 * Designed with emphasis on reliability, responsiveness, scalability, and
   availability
 * Consists of the language, virtual machine, framework, and tools
@@ -85,7 +95,7 @@ Pinterest, financial systems, multiplayer games
 
 ## Hello Elixir!
 
-* Open source project created by Jose Valim
+* Open source project created by Jose Valim in 2011
 * Abstracts away Erlang boilerplate
 * Has cleaner and more compact syntax than Erlang
 * Compiles to bytecode run on Erlang virtual machine
