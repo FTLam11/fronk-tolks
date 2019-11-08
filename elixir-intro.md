@@ -205,17 +205,6 @@ data
 Because functions are written to be pure and isolated, each function can
 arguably be more easily understood in the absence of side effects.
 
-## Which one is better?
-
-![Programming humor](https://i.imgur.com/H4uaq47.jpg)
-
-This is a trap question and out of scope for this talk. There is too
-much information to analyze. From what I've read, it seems to be a pretty
-controversial topic, full of spicy drama. Below are some links to FP discussions:
-
-* [The main benefits of FP](https://www.quora.com/What-is-so-great-about-functional-programming-What-are-the-main-points-of-it-and-why-are-they-useful)
-* [Why isn't FP more popular?](https://www.quora.com/Why-isnt-functional-programming-that-popular-even-though-its-so-beneficial)
-
 ---
 
 # 3. Immutability
@@ -311,6 +300,17 @@ data!)
 the old data as possible, only making shallow copies when needed
 * Prevents mutation of shared state - key point for **concurrency**
 
+## Which is better, OOP or FP?
+
+![Programming humor](https://i.imgur.com/H4uaq47.jpg)
+
+This is a trap question and out of scope for this talk. There is too
+much information to analyze. From what I've read, it seems to be a pretty
+controversial topic, full of spicy drama. Below are some links to FP discussions:
+
+* [The main benefits of FP](https://www.quora.com/What-is-so-great-about-functional-programming-What-are-the-main-points-of-it-and-why-are-they-useful)
+* [Why isn't FP more popular?](https://www.quora.com/Why-isnt-functional-programming-that-popular-even-though-its-so-beneficial)
+
 ---
 
 # 4. Recursion
@@ -318,7 +318,8 @@ the old data as possible, only making shallow copies when needed
 ## What happened to iteration?
 
 * We often use iteration to loop through collections and perform work
-* Though Elixir doesn't have loops... 😰, it has lots of fun though...
+* Elixir cant use iteration... 😰, it must rely on recursion to loop
+through collections
 * We can use higher-order functions which abstract away recursive functions
 
 ```elixir
