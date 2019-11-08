@@ -153,6 +153,9 @@ end
 server = SumServer.start
 SumServer.sum(server, 1, 1) # 2
 ```
+
+**Demo cool Elixir features**
+
 ---
 
 # 2. FP/OOP
