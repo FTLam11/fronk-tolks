@@ -1,5 +1,5 @@
 class TodoList
-  TodoItem = Struct.new(:date, :title)
+  TodoItem = Struct.new(:id, :date, :title)
 
   attr_reader :entries
 
@@ -9,8 +9,7 @@ class TodoList
   end
 
   def add_entry(date, title)
-    item = TodoItem.new(date, title)
-    entries[@auto_id] = item
+    entries[@auto_id] = TodoItem.new(@auto_id, date, title)
     @auto_id += 1
     entries
   end
